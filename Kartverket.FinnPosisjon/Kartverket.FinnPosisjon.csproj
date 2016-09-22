@@ -127,6 +127,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\main.css" />
+    <Content Include="Content\assets\css\main.min.css" />
+    <Content Include="Content\assets\js\main.js" />
+    <Content Include="Content\assets\js\main.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />

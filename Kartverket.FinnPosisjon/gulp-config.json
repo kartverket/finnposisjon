@@ -6,7 +6,8 @@
       "node_modules/openlayers/dist/ol.js"
     ],
     "css": [
-      "node_modules/openlayers/dist/ol.css"
+      "node_modules/openlayers/dist/ol.css",
+      "node_modules/font-awesome/css/font-awesome.css"
     ],
     "fonts": [
       "node_modules/font-awesome/fonts/*.{otf,eot,svg,ttf,woff,woff2}"

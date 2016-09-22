@@ -187,6 +187,7 @@
     <Content Include="Content\assets\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\assets\fonts\FontAwesome.otf" />
+    <Content Include="Content\src\sass\vendor\_font-awesome.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

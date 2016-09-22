@@ -223,6 +223,23 @@
 .ol-overviewmap-box {
   border: 2px dotted rgba(0, 60, 136, 0.7); }
 
+* {
+  box-sizing: border-box; }
+
+html {
+  margin: 0;
+  padding: 0; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  color: #333333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 .row {
   margin-left: -15px;
   margin-right: -15px; }

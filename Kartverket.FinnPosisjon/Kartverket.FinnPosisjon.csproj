@@ -167,6 +167,11 @@
     <Content Include="Content\src\sass\mixins\_all.scss" />
     <Content Include="Content\src\sass\modules\_all.scss" />
     <Content Include="Content\src\sass\partials\_all.scss" />
+    <Content Include="Content\src\sass\mixins\_grid.scss" />
+    <Content Include="Content\src\sass\modules\_variables.scss" />
+    <Content Include="Content\src\sass\partials\_grid.scss" />
+    <Content Include="Content\src\sass\mixins\_colors.scss" />
+    <Content Include="Content\src\sass\modules\_colors.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

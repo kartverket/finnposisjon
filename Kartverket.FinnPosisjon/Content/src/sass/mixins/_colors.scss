@@ -1,0 +1,6 @@
+﻿@mixin active-color($color) {
+  background-color: lighten($color, 8);
+}
+@mixin hover-color($color) {
+  background-color: lighten($color, 4);
+}

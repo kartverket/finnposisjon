@@ -67,5 +67,5 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
-    gulp.start('vendor-scripts', 'vendor-styles', 'vendor-fonts', 'styles', 'scripts', 'fonts', 'images');
+    gulp.start('styles', 'scripts', 'fonts', 'images');
 });

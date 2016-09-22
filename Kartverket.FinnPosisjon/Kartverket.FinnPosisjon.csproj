@@ -129,8 +129,13 @@
   <ItemGroup>
     <Content Include="Content\assets\css\main.css" />
     <Content Include="Content\assets\css\main.min.css" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
+    <Content Include="Content\src\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\src\js\ol.js" />
+    <Content Include="Content\src\js\vue-resource.min.js" />
+    <Content Include="Content\src\js\vue.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />
@@ -152,11 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\assets\fonts\" />
     <Folder Include="Content\assets\images\" />
-    <Folder Include="Content\src\fonts\" />
     <Folder Include="Content\src\images\" />
-    <Folder Include="Content\src\js\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +175,18 @@
     <Content Include="Content\src\sass\mixins\_colors.scss" />
     <Content Include="Content\src\sass\modules\_colors.scss" />
     <Content Include="Content\src\sass\partials\_reset.scss" />
+    <Content Include="Content\src\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\src\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\src\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\src\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\src\fonts\FontAwesome.otf" />
+    <Content Include="Content\src\sass\vendor\_ol.scss" />
+    <Content Include="Content\src\sass\vendor\_all.scss" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\assets\fonts\FontAwesome.otf" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

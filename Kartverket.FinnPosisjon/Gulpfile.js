@@ -12,6 +12,24 @@ var assets = config.paths.assets;
 var source = config.paths.source;
 
 
+gulp.task('vendor-scripts', function () {
+    return gulp.src(config.vendorPaths.js)
+        .pipe(gulp.dest(source + '/js/'));
+});
+
+gulp.task('vendor-styles', function () {
+    return gulp.src(config.vendorPaths.css)
+        .pipe(rename({ prefix: '_' }))
+        .pipe(rename({ extname: '.scss' }))
+        .pipe(gulp.dest(source + '/sass/vendor/'));
+});
+
+gulp.task('vendor-fonts', function () {
+    return gulp.src(config.vendorPaths.fonts)
+        .pipe(gulp.dest(source + '/fonts/'));
+});
+
+
 gulp.task('scripts', function () {
     return gulp.src(config.paths.js)
         .pipe(concat('main.js'))
@@ -49,5 +67,5 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
-    gulp.start('styles', 'scripts', 'fonts', 'images');
+    gulp.start('vendor-scripts', 'vendor-styles', 'vendor-fonts', 'styles', 'scripts', 'fonts', 'images');
 });

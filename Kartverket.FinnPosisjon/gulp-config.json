@@ -1,0 +1,21 @@
+﻿{
+  "paths": {
+    "js": [
+      "node_modules/vue/dist/vue.min.js",
+      "node_modules/vue-resource/dist/vue-resource.min.js",
+      "node_modules/openlayers/dist/ol.js"
+    ],
+    "css": [
+      "node_modules/openlayers/dist/ol.css",
+      "Content/src/sass/**/*.scss"
+    ],
+    "fonts": [
+      "src/fonts/*.{otf,eot,svg,ttf,woff,woff2}"
+    ],
+    "images": [
+      "src/images/**/*.{png,jpg,jpeg,svg,gif}"
+    ],
+    "assets": "./Content/assets",
+    "source": "./Content/src"
+  }
+}

@@ -148,12 +148,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
+    <Folder Include="Content\assets\fonts\" />
+    <Folder Include="Content\assets\images\" />
+    <Folder Include="Content\src\fonts\" />
+    <Folder Include="Content\src\images\" />
+    <Folder Include="Content\src\js\" />
+    <Folder Include="Content\src\sass\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="package.json" />
+    <Content Include="gulp-config.json" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

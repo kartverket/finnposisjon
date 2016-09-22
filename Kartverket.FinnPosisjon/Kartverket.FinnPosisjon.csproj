@@ -133,9 +133,11 @@
     <Content Include="Content\assets\css\main.css" />
     <Content Include="Content\assets\css\main.min.css" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\images\kartverket-logo.png" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
     <Content Include="Content\src\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\src\images\kartverket-logo.png" />
     <Content Include="Content\src\js\ol.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />
     <Content Include="Content\src\js\vue.min.js" />
@@ -160,8 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\assets\images\" />
-    <Folder Include="Content\src\images\" />
     <Folder Include="Models\" />
     <Folder Include="Content\src\js\" />
   </ItemGroup>
@@ -192,6 +192,8 @@
     <Content Include="Content\assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\assets\fonts\FontAwesome.otf" />
     <Content Include="Content\src\sass\vendor\_font-awesome.scss" />
+    <Content Include="Content\src\sass\partials\_navbar.scss" />
+    <Content Include="Content\src\sass\partials\_misc.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

@@ -124,7 +124,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BoundaryBox.cs" />
     <Compile Include="Models\Coordinates.cs" />
+    <Compile Include="Models\CoordinateSystem.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PositionFinder.cs" />

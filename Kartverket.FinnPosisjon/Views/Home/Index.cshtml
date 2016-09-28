@@ -9,14 +9,42 @@
 <div class="row">
     <div class="input-container">
         <div class="col-md-3 inline-block">
-            <input type="text" />
+            <input v-model="firstInputValue" />
         </div>
         <div class="col-md-3 inline-block">
-            <input type="text" />
+            <input v-model="secondInputValue" />
         </div>
         <div class="col-md-3 inline-block">
-            <button>Finn posisjon</button>
+            <button v-on:click="findPositions">Finn posisjon</button>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
+
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            firstInputValue: '',
+            secondInputValue: '',
+            thirdInputValue: ''
+        },
+        methods: {
+            findPositions: function() {
+                this.$http.get('/api/positions' +
+                        '?firstinputvalue=' +
+                        this.firstInputValue +
+                        '&secondInputValue=' +
+                        this.secondInputValue +
+                        '&thirdInputValue=' +
+                        this.thirdInputValue
+                    )
+                    .then(function(positionsResult) {
+                        console.log('PositionsResult: \n\n' + positionsResult.body);
+                        }
+                    )
+                    .bind(this);
+            }
+        }
+    });
+</script>

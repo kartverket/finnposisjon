@@ -53,8 +53,8 @@
     </div>
     <div class="row">
         <div class="col-md-9">
-            <a href="#">Sjekk nøyaktighet for punktene <span class="fa fa-chevron-down"></span></a>
-            <div class="list precision-list">
+            <a href="#" v-on:click="showPrecisionOptions = !showPrecisionOptions">Sjekk nøyaktighet for punktene <span class="fa fa-chevron-down"></span></a>
+            <div v-show="showPrecisionOptions" class="list precision-list">
                 <div class="list-item row">
                     <div class="list-item-text col-md-9">
                         <p class="list-item-title">Mobil/GPS</p>
@@ -92,7 +92,8 @@
             firstInputValue: '',
             secondInputValue: '',
             thirdInputValue: '',
-            positionsResult: ''
+            positionsResult: '',
+            showPrecisionOptions: false
         },
         methods: {
             findPositions: function() {

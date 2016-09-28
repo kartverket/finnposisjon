@@ -11,17 +11,18 @@ namespace Kartverket.FinnPosisjon.Services
         public List<Position> Find(string[] coordinateSet)
         {
             var possibleCoordinates = GetPossibleCoordinates(coordinateSet);
+            var candidateCoordinates = new List<Coordinates>();
 
-            // Remove any coordinates out of bounds:
+            // Keep coordinates within bounds only:
             foreach (var coordinates in possibleCoordinates)
-                if (IsOutOfBounds(coordinates))
-                    possibleCoordinates.Remove(coordinates);
+                if (!IsOutOfBounds(coordinates))
+                    candidateCoordinates.Add(coordinates);
 
             var positions = new List<Position>();
 
             // Return the empty list of positions if no coordinates could be made from the user input
             // or if no coordinates were within the bounds for any of the coordinate systems. Sad situation ...
-            if (possibleCoordinates.Count == 0)
+            if (candidateCoordinates.Count == 0)
                 return positions;
 
             // TODO: Try create positions from the remaining possible coordinates ...
@@ -72,6 +73,18 @@ namespace Kartverket.FinnPosisjon.Services
                     // Swapped order, negative east
                     East = 1 - secondNumber,
                     North = firstNumber
+                },
+                new Coordinates
+                {
+                    // Normal order, negative north
+                    East = firstNumber,
+                    North = 1 - secondNumber
+                },
+                new Coordinates
+                {
+                    // Swapped order, negative north
+                    East = secondNumber,
+                    North = 1 - firstNumber
                 }
             });
         }

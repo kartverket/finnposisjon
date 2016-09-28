@@ -34,8 +34,31 @@ img {
     padding-top: 48px;
 }
 
-.container{
+.container {
     padding: 0 25px;
+}
+
+input,
+input:hover,
+input:active,
+input:focus {
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background: none;
+    border-radius: 0;
+    margin: 0;
+    outline: none;
+}
+
+button,
+button:hover,
+button:active,
+button:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: none;
 }
 
 @media only screen and (min-width: 750px) {

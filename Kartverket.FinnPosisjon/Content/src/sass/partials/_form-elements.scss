@@ -1,0 +1,45 @@
+﻿input,
+input:hover,
+input:active,
+input:focus {
+    font-size: 20px;
+    width: 100%;
+    border: solid 1px #1A589F;
+    padding: 10px;
+    height: 2em;
+    line-height: normal;
+}
+
+button,
+.button,
+input[type="button"],
+input[type="submit"] {
+    border: solid 5px #EDEDED;
+    background-color: #EDEDED;
+    color: #1E1E1C;
+    font-size: 12pt;
+    text-align: center;
+    padding: 6px 12px;
+
+    &:hover, &:focus {
+        border: solid 5px #7DA1C4;
+        background-color: #CBD5DE;
+        cursor: pointer;
+    }
+}
+
+.input-container {
+    width: auto;
+    margin: auto;
+    text-align: left;
+
+    > div {
+        text-align: left;
+    }
+}
+
+@media (min-width: 766px) {
+    .input-container {
+        text-align: center;
+    }
+}

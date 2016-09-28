@@ -194,6 +194,7 @@
     <Content Include="Content\src\sass\vendor\_font-awesome.scss" />
     <Content Include="Content\src\sass\partials\_navbar.scss" />
     <Content Include="Content\src\sass\partials\_misc.scss" />
+    <Content Include="Content\src\sass\partials\_form-elements.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,28 @@
+﻿.list {
+    .list-item {
+        padding: 12px 0;
+        display: block;
+
+        &:not(:first-child) {
+            border-top: 1px solid #ededed;
+        }
+
+        .list-item-title {
+            font-size: 18pt;
+        }
+
+        .list-item-description {
+            font-size: 12pt;
+        }
+    }
+
+    &.precision-list {
+        .list-item {
+            .list-item-image {
+                img {
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

@@ -21,6 +21,68 @@
     </div>
 </div>
 
+<div class="result-container">
+    <div class="row">
+        <div class="col-md-9">
+            <div id="map" class="map-container" style="background-color: #ededed; height: 600px;">
+            </div>
+        </div>
+        <div class="list coordinate-list col-md-3">
+            <div class="list-item">
+                <div class="list-item-text">
+                    <p class="list-item-title">
+                        <span class="list-item-number">A</span>
+                        <span class="list-item-place">Kartverksveien 21, 3511 Hønefoss</span>
+                    </p>
+                </div>
+                <button>Velg punkt A</button>
+            </div>
+            <div class="list-item">
+                <div class="list-item-text">
+                    <p class="list-item-title">
+                        <span class="list-item-number">B</span>
+                        <span class="list-item-place">Nordsjøen</span>
+                    </p>
+                </div>
+                <button>Velg punkt B</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <a href="#">Sjekk nøyaktighet for punktene <span class="fa fa-chevron-down"></span></a>
+            <div class="list precision-list">
+                <div class="list-item row">
+                    <div class="list-item-text col-md-9">
+                        <p class="list-item-title">Mobil/GPS</p>
+                        <p class="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at placerat leo.</p>
+                    </div>
+                    <div class="list-item-image col-md-2">
+                        <img src="~/Content/assets/images/dummy-image-precision-mobile.png" />
+                    </div>
+                    <div class="list-item-checkbox col-md-1">
+                        <input type="radio" name="precision" value="mobile" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="list-item row">
+                    <div class="list-item-text col-md-9">
+                        <p class="list-item-title">Målebrev</p>
+                        <p class="list-item-description">Morbi egestas dignissim justo a rutrum. Nulla efficitur a est eget blandit. Vivamus enim nibh, imperdiet in leo ac, tincidunt mollis ex.</p>
+                    </div>
+                    <div class="list-item-image col-md-2">
+                        <img src="~/Content/assets/images/dummy-image-precision-maalebrev.png" />
+                    </div>
+                    <div class="list-item-checkbox col-md-1">
+                        <input type="radio" name="precision" value="maalebrev" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     new Vue({
         el: 'body',

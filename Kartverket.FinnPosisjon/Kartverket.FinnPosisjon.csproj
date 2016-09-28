@@ -150,10 +150,14 @@
     <Content Include="Content\assets\css\main.css" />
     <Content Include="Content\assets\css\main.min.css" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\images\dummy-image-precision-maalebrev.png" />
+    <Content Include="Content\assets\images\dummy-image-precision-mobile.png" />
     <Content Include="Content\assets\images\kartverket-logo.png" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
     <Content Include="Content\src\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\src\images\dummy-image-precision-maalebrev.png" />
+    <Content Include="Content\src\images\dummy-image-precision-mobile.png" />
     <Content Include="Content\src\images\kartverket-logo.png" />
     <Content Include="Content\src\js\ol.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />

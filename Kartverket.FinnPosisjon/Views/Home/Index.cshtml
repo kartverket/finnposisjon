@@ -21,6 +21,8 @@
     </div>
 </div>
 
+<pre v-if="positionsResult">Antall posisjoner funnet: {{ positionsResult.Positions.length }}</pre>
+
 <div class="result-container">
     <div class="row">
         <div class="col-md-9">
@@ -89,7 +91,8 @@
         data: {
             firstInputValue: '',
             secondInputValue: '',
-            thirdInputValue: ''
+            thirdInputValue: '',
+            positionsResult: ''
         },
         methods: {
             findPositions: function() {
@@ -101,8 +104,8 @@
                         '&thirdInputValue=' +
                         this.thirdInputValue
                     )
-                    .then(function(positionsResult) {
-                        console.log('PositionsResult: \n\n' + positionsResult.body);
+                    .then(function(result) {
+                            this.positionsResult = result.body;
                         }
                     )
                     .bind(this);

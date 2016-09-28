@@ -8,9 +8,9 @@ namespace Kartverket.FinnPosisjon.Services
     {
         public List<CoordinateSystem> SupportedCoordinateSystems { get; set; }
 
-        public List<Position> Find(string[] coordinateSet)
+        public PositionsResult Find(string firstInputValue, string secondInputValue, string thirdInputValue)
         {
-            var possibleCoordinates = GetPossibleCoordinates(coordinateSet);
+            var possibleCoordinates = GetPossibleCoordinates(firstInputValue, secondInputValue, thirdInputValue);
             var candidateCoordinates = new List<Coordinates>();
 
             // Keep coordinates within bounds only:
@@ -18,17 +18,17 @@ namespace Kartverket.FinnPosisjon.Services
                 if (!IsOutOfBounds(coordinates))
                     candidateCoordinates.Add(coordinates);
 
-            var positions = new List<Position>();
+            var positionsResult = new PositionsResult { Positions = new List<Position>() };
 
             // Return the empty list of positions if no coordinates could be made from the user input
             // or if no coordinates were within the bounds for any of the coordinate systems. Sad situation ...
             if (candidateCoordinates.Count == 0)
-                return positions;
+                return positionsResult;
 
             // TODO: Try create positions from the remaining possible coordinates ...
-
-            return positions;
-        }
+            
+            return positionsResult;
+    }
 
         /**
          * Returns true if the coordinates is out of boundary for
@@ -41,10 +41,10 @@ namespace Kartverket.FinnPosisjon.Services
                 coordinateSystem => coordinateSystem.IsOutOfBounds(coordinates));
         }
 
-        private static List<Coordinates> GetPossibleCoordinates(IReadOnlyList<string> coordinateSet)
+        private static List<Coordinates> GetPossibleCoordinates(string firstInputValue, string secondInputValue, string thirdInputValue)
         {
-            var firstNumber = Convert.ToSingle(coordinateSet[0]);
-            var secondNumber = Convert.ToSingle(coordinateSet[1]);
+            var firstNumber = Convert.ToSingle(firstInputValue);
+            var secondNumber = Convert.ToSingle(secondInputValue);
 
             // TODO: Handle possible Z-value
 

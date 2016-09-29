@@ -27,6 +27,21 @@ namespace Kartverket.FinnPosisjon.Services
 
             // TODO: Try create positions from the remaining possible coordinates ...
             
+            // TESTING:
+
+            foreach (var candidateCoordinate in candidateCoordinates)
+            {
+                positionsResult.Positions.Add(new Position()
+                {
+                    CoordinateSystem = new CoordinateSystem() { Name = "Noko" },
+                    Coordinates = new Coordinates()
+                    {
+                        East = candidateCoordinate.East,
+                        North = candidateCoordinate.North
+                    }
+                });
+            }
+            
             return positionsResult;
     }
 

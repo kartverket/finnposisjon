@@ -2,9 +2,9 @@
 {
     public class BoundaryBox
     {
-        public float MinEast { get; set; }
-        public float MaxEast { get; set; }
-        public float MinNorth { get; set; }
-        public float MaxNorth { get; set; }
+        public double MinEast { get; set; }
+        public double MaxEast { get; set; }
+        public double MinNorth { get; set; }
+        public double MaxNorth { get; set; }
     }
 }

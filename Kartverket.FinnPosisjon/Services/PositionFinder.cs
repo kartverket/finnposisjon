@@ -43,8 +43,8 @@ namespace Kartverket.FinnPosisjon.Services
 
         private static List<Coordinates> GetPossibleCoordinates(string firstInputValue, string secondInputValue, string thirdInputValue)
         {
-            var firstNumber = Convert.ToSingle(firstInputValue);
-            var secondNumber = Convert.ToSingle(secondInputValue);
+            var firstNumber = Convert.ToDouble(firstInputValue);
+            var secondNumber = Convert.ToDouble(secondInputValue);
 
             // TODO: Handle possible Z-value
 

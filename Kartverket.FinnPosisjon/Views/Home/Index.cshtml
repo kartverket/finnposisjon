@@ -94,10 +94,36 @@
             secondInputValue: '',
             thirdInputValue: '',
             positionsResult: '',
-            showPrecisionOptions: false
+            showPrecisionOptions: false,
+            testpositions: ''
+        },
+        created: function () {
+
+            this.testpositions = [
+                {
+                    CoordinateSystem: {
+                        Name: 'EUREF89',
+
+                    },
+                    Coordinates: {
+                        East: 10,
+                        North: 65
+                    }
+                },
+                {
+                    CoordinateSystem: {
+                        Name: 'NGO48',
+
+                    },
+                    Coordinates: {
+                        East: 12,
+                        North: 60
+                    }
+                }
+            ];
         },
         methods: {
-            findPositions: function() {
+            findPositions: function () {
                 this.$http.get('/api/positions' +
                         '?firstinputvalue=' +
                         this.firstInputValue +
@@ -106,9 +132,10 @@
                         '&thirdInputValue=' +
                         this.thirdInputValue
                     )
-                    .then(function(result) {
-                            this.positionsResult = result.body;
-                        }
+                    .then(function (result) {
+                        this.positionsResult = result.body;
+                        addMapMarkers(this.testpositions);
+                    }
                     )
                     .bind(this);
             }

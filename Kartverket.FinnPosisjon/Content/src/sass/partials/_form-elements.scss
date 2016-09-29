@@ -4,7 +4,7 @@ input:active,
 input:focus {
     font-size: 20px;
     width: 100%;
-    border: solid 1px #1A589F;
+    border: solid 1px $primary-color;
     padding: 10px;
     height: 2em;
     line-height: normal;
@@ -14,15 +14,15 @@ button,
 .button,
 input[type="button"],
 input[type="submit"] {
-    border: solid 5px #EDEDED;
-    background-color: #EDEDED;
+    border: solid 5px $gray-light;
+    background-color: $gray-light;
     color: #1E1E1C;
     font-size: 12pt;
     text-align: center;
     padding: 6px 12px;
 
     &:hover, &:focus {
-        border: solid 5px #7DA1C4;
+        border: solid 5px $blue-bright;
         background-color: #CBD5DE;
         cursor: pointer;
     }

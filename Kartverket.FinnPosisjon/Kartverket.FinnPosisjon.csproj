@@ -216,6 +216,7 @@
     <Content Include="Content\src\sass\partials\_navbar.scss" />
     <Content Include="Content\src\sass\partials\_misc.scss" />
     <Content Include="Content\src\sass\partials\_form-elements.scss" />
+    <Content Include="Content\src\sass\partials\_lists.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

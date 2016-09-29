@@ -161,6 +161,7 @@
     <Content Include="Content\src\images\dummy-image-precision-mobile.png" />
     <Content Include="Content\src\images\kartverket-logo.png" />
     <Content Include="Content\src\js\jquery.min.js" />
+    <Content Include="Content\src\js\map-init.js" />
     <Content Include="Content\src\js\ol.js" />
     <Content Include="Content\src\js\tooltip-popover.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />

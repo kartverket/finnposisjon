@@ -20,7 +20,8 @@
       "Content/src/js/vue.min.js",
       "Content/src/js/vue-resource.min.js",
       "Content/src/js/ol.js",
-      "Content/src/js/tooltip-popover.js"
+      "Content/src/js/tooltip-popover.js",
+      "Content/src/js/map-init.js"
     ],
     "css": [
       "Content/src/sass/**/*.scss"

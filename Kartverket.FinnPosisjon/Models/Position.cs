@@ -3,6 +3,6 @@
     public class Position
     {
         public Coordinates Coordinates { get; set; }
-        public string CoordinateSystem { get; set; }
+        public CoordinateSystem CoordinateSystem { get; set; }
     }
 }

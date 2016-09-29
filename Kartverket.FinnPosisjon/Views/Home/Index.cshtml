@@ -26,7 +26,7 @@
 <div class="result-container">
     <div class="row">
         <div class="col-md-9">
-            <div id="map" class="map-container" style="background-color: #ededed; height: 600px;">
+            <div id="map" class="map" style="background-color: #ededed; height: 600px;">
             </div>
         </div>
         <div class="list coordinate-list col-md-3">
@@ -112,5 +112,20 @@
                     .bind(this);
             }
         }
+    });
+</script>
+
+<script type="text/javascript">
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+              source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([10.00, 65.00]),
+            zoom: 5
+        })
     });
 </script>

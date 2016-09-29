@@ -160,7 +160,9 @@
     <Content Include="Content\src\images\dummy-image-precision-maalebrev.png" />
     <Content Include="Content\src\images\dummy-image-precision-mobile.png" />
     <Content Include="Content\src\images\kartverket-logo.png" />
+    <Content Include="Content\src\js\jquery.min.js" />
     <Content Include="Content\src\js\ol.js" />
+    <Content Include="Content\src\js\tooltip-popover.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />
     <Content Include="Content\src\js\vue.min.js" />
     <Content Include="favicon.ico" />
@@ -218,6 +220,7 @@
     <Content Include="Content\src\sass\partials\_misc.scss" />
     <Content Include="Content\src\sass\partials\_form-elements.scss" />
     <Content Include="Content\src\sass\partials\_lists.scss" />
+    <Content Include="Content\src\sass\partials\_popover.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

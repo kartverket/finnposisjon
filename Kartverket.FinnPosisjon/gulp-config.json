@@ -1,6 +1,7 @@
 ﻿{
   "vendorPaths": {
     "js": [
+      "node_modules/jquery/dist/jquery.min.js",
       "node_modules/vue/dist/vue.min.js",
       "node_modules/vue-resource/dist/vue-resource.min.js",
       "node_modules/openlayers/dist/ol.js"
@@ -15,9 +16,11 @@
   },
   "paths": {
     "js": [
+      "Content/src/js/jquery.min.js",
       "Content/src/js/vue.min.js",
       "Content/src/js/vue-resource.min.js",
-      "Content/src/js/ol.js"
+      "Content/src/js/ol.js",
+      "Content/src/js/tooltip-popover.js"
     ],
     "css": [
       "Content/src/sass/**/*.scss"

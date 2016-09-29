@@ -43,50 +43,56 @@ namespace Kartverket.FinnPosisjon.Services
 
         private static List<Coordinates> GetPossibleCoordinates(string firstInputValue, string secondInputValue, string thirdInputValue)
         {
-            var firstNumber = Convert.ToDouble(firstInputValue);
-            var secondNumber = Convert.ToDouble(secondInputValue);
+            var possibleCoordinates = new List<Coordinates>();
 
-            // TODO: Handle possible Z-value
+            double parsedFirstNumber;
+            double parsedSecondNumber;
 
-            return new List<Coordinates>(new[]
-            {
-                new Coordinates
+            var firstValueWasParsed = double.TryParse(firstInputValue, out parsedFirstNumber);
+            var secondValueWasParsed = double.TryParse(secondInputValue, out parsedSecondNumber);
+
+            if (firstValueWasParsed && secondValueWasParsed)
+                possibleCoordinates.AddRange(new[]
                 {
-                    // Normal order
-                    East = firstNumber,
-                    North = secondNumber
-                },
-                new Coordinates
-                {
-                    // Swapped order
-                    East = secondNumber,
-                    North = firstNumber
-                },
-                new Coordinates
-                {
-                    // Normal order, negative east
-                    East = 1 - firstNumber,
-                    North = secondNumber
-                },
-                new Coordinates
-                {
-                    // Swapped order, negative east
-                    East = 1 - secondNumber,
-                    North = firstNumber
-                },
-                new Coordinates
-                {
-                    // Normal order, negative north
-                    East = firstNumber,
-                    North = 1 - secondNumber
-                },
-                new Coordinates
-                {
-                    // Swapped order, negative north
-                    East = secondNumber,
-                    North = 1 - firstNumber
-                }
-            });
+                    new Coordinates
+                    {
+                        // Normal order
+                        East = parsedFirstNumber,
+                        North = parsedSecondNumber
+                    },
+                    new Coordinates
+                    {
+                        // Swapped order
+                        East = parsedSecondNumber,
+                        North = parsedFirstNumber
+                    },
+                    new Coordinates
+                    {
+                        // Normal order, negative east
+                        East = 1 - parsedFirstNumber,
+                        North = parsedSecondNumber
+                    },
+                    new Coordinates
+                    {
+                        // Swapped order, negative east
+                        East = 1 - parsedSecondNumber,
+                        North = parsedFirstNumber
+                    },
+                    new Coordinates
+                    {
+                        // Normal order, negative north
+                        East = parsedFirstNumber,
+                        North = 1 - parsedSecondNumber
+                    },
+                    new Coordinates
+                    {
+                        // Swapped order, negative north
+                        East = parsedSecondNumber,
+                        North = 1 - parsedFirstNumber
+                    }
+                });
+
+            return possibleCoordinates;
         }
     }
 }

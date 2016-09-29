@@ -15,11 +15,13 @@ namespace Kartverket.FinnPosisjon.Tests
         [Fact(Skip = "PositionFinder.Find not yet implemented")]
         public void ShouldFindPositionWithCoordSysEu89UtmZone33()
         {
-            var positionsResult = PositionFinder.Find("163067.449", "6601114.654", null);
+            var positionsResult = PositionFinder.Find("163067,449", "6601114,654", null);
 
-            var position = positionsResult.Positions.First();
+            var position = positionsResult.Positions.FirstOrDefault();
 
-            position.CoordinateSystem.Name.Should().Be("EU89, UTM-sone 33");
+            position.Should().NotBeNull();
+
+            position?.CoordinateSystem.Name.Should().Be("EUREF89");
         }
 
         [Fact(Skip = "Test is unfinished")]

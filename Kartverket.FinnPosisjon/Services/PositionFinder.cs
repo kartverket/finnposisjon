@@ -60,11 +60,14 @@ namespace Kartverket.FinnPosisjon.Services
         {
             var possibleCoordinates = new List<Coordinates>();
 
+            firstInputValue = firstInputValue.Replace(".", ","); // TODO: Use numberstyles in parse method
+            secondInputValue = secondInputValue.Replace(".", ","); // TODO: Use numberstyles in parse method
+
             double parsedFirstNumber;
             double parsedSecondNumber;
 
-            var firstValueWasParsed = double.TryParse(firstInputValue, out parsedFirstNumber);
-            var secondValueWasParsed = double.TryParse(secondInputValue, out parsedSecondNumber);
+            var firstValueWasParsed = double.TryParse(firstInputValue, out parsedFirstNumber); // TODO: Use numberstyles
+            var secondValueWasParsed = double.TryParse(secondInputValue, out parsedSecondNumber); // TODO: Use numberstyles
 
             if (firstValueWasParsed && secondValueWasParsed)
                 possibleCoordinates.AddRange(new[]

@@ -320,6 +320,7 @@
     <Content Include="Content\assets\fonts\MetaWeb-Normal.woff" />
     <Content Include="Content\assets\fonts\MetaWeb-NormalIta.eot" />
     <Content Include="Content\assets\fonts\MetaWeb-NormalIta.woff" />
+    <Content Include="Content\src\sass\partials\_buttons.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

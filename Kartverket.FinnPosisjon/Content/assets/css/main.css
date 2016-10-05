@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2418,6 +2419,11 @@
 .ol-overviewmap-box {
   border: 2px dotted rgba(0, 60, 136, 0.7); }
 
+@font-face {
+  font-family: 'Meta Book';
+  src: url("../fonts/MetaWeb-Book.eot");
+  src: local("☺"), url("../fonts/MetaWeb-Book.woff") format("woff"), url("../fonts/MetaComp-Book.ttf") format("truetype"); }
+
 * {
   box-sizing: border-box; }
 
@@ -2430,7 +2436,6 @@ body {
   padding: 0;
   background-color: #FFFFFF;
   color: #171815;
-  font-family: Verdana, Arial, sans-serif;
   font-size: 12pt;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -2478,17 +2483,6 @@ button:focus {
   .main-content {
     padding-top: 64px; } }
 
-input,
-input:hover,
-input:active,
-input:focus {
-  font-size: 20px;
-  width: 100%;
-  border: solid 1px #0058a3;
-  padding: 10px;
-  height: 2em;
-  line-height: normal; }
-
 button,
 .button,
 input[type="button"],
@@ -2497,6 +2491,7 @@ input[type="submit"] {
   background-color: #e3e3e3;
   color: #1E1E1C;
   font-size: 12pt;
+  text-transform: uppercase;
   text-align: center;
   padding: 6px 12px; }
   button:hover, button:focus,
@@ -2509,6 +2504,17 @@ input[type="submit"] {
     border: solid 5px #7ea0c4;
     background-color: #CBD5DE;
     cursor: pointer; }
+
+input,
+input:hover,
+input:active,
+input:focus {
+  font-size: 20px;
+  width: 100%;
+  border: solid 1px #0058a3;
+  padding: 10px;
+  height: 2em;
+  line-height: normal; }
 
 .input-container {
   width: auto;
@@ -3273,3 +3279,12 @@ body.sidebar-active .left-menu {
     margin-left: -11px;
     border-top-color: #FFF;
     border-bottom-width: 0; }
+
+body {
+  font-family: "Meta Book", Verdana, Arial, sans-serif; }
+
+button,
+.button,
+input[type="button"],
+input[type="submit"] {
+  font-family: "Meta Book", Verdana, Arial, sans-serif; }

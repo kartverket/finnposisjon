@@ -10,24 +10,6 @@ input:focus {
     line-height: normal;
 }
 
-button,
-.button,
-input[type="button"],
-input[type="submit"] {
-    border: solid 5px $gray-light;
-    background-color: $gray-light;
-    color: #1E1E1C;
-    font-size: 12pt;
-    text-align: center;
-    padding: 6px 12px;
-
-    &:hover, &:focus {
-        border: solid 5px $blue-bright;
-        background-color: #CBD5DE;
-        cursor: pointer;
-    }
-}
-
 .input-container {
     width: auto;
     margin: auto;

@@ -1,0 +1,7 @@
+﻿@font-face {
+  font-family: 'Meta Book';
+  src: url("../fonts/MetaWeb-Book.eot");
+  src: local("☺"), url("../fonts/MetaWeb-Book.woff") format("woff"), url("../fonts/MetaComp-Book.ttf") format("truetype");
+}
+
+$primary-font: 'Meta Book', Verdana, Arial, sans-serif;

@@ -58,55 +58,67 @@ namespace Kartverket.FinnPosisjon.Services
 
         private static List<Coordinates> GetPossibleCoordinates(string firstInputValue, string secondInputValue, string thirdInputValue)
         {
+            double firstCoordinate = 0;
+            double secondCoordinate = 0;
+            double thirdCoordinate = 0;
+
+            var firstCoordinateOk = !string.IsNullOrWhiteSpace(firstInputValue) && double.TryParse(firstInputValue.Replace(".", ","), out firstCoordinate);
+            var secondCoordinateOk = !string.IsNullOrWhiteSpace(secondInputValue) && double.TryParse(secondInputValue.Replace(".", ","), out secondCoordinate);
+            var thirdCoordinateOk = !string.IsNullOrWhiteSpace(thirdInputValue) && double.TryParse(thirdInputValue.Replace(".", ","), out thirdCoordinate);
+
             var possibleCoordinates = new List<Coordinates>();
-
-            firstInputValue = firstInputValue.Replace(".", ","); // TODO: Use numberstyles in parse method
-            secondInputValue = secondInputValue.Replace(".", ","); // TODO: Use numberstyles in parse method
-
-            double parsedFirstNumber;
-            double parsedSecondNumber;
-
-            var firstValueWasParsed = double.TryParse(firstInputValue, out parsedFirstNumber); // TODO: Use numberstyles
-            var secondValueWasParsed = double.TryParse(secondInputValue, out parsedSecondNumber); // TODO: Use numberstyles
-
-            if (firstValueWasParsed && secondValueWasParsed)
+            
+            if (firstCoordinateOk && secondCoordinateOk && thirdCoordinateOk)
+            {   
                 possibleCoordinates.AddRange(new[]
                 {
                     new Coordinates
                     {
                         // Normal order
-                        X = parsedFirstNumber,
-                        Y = parsedSecondNumber
+                        X = firstCoordinate,
+                        Y = secondCoordinate,
+                        Z = thirdCoordinate
+                    }
+                });
+            }
+            else if (firstCoordinateOk && secondCoordinateOk)
+                possibleCoordinates.AddRange(new[]
+                {
+                    new Coordinates
+                    {
+                        // Normal order
+                        X = firstCoordinate,
+                        Y = secondCoordinate
                     },
                     new Coordinates
                     {
                         // Swapped order
-                        X = parsedSecondNumber,
-                        Y = parsedFirstNumber
+                        X = secondCoordinate,
+                        Y = firstCoordinate
                     },
                     new Coordinates
                     {
                         // Normal order, negative X
-                        X = 1 - parsedFirstNumber,
-                        Y = parsedSecondNumber
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order, negative X
-                        X = 1 - parsedSecondNumber,
-                        Y = parsedFirstNumber
+                        X = 0 - firstCoordinate,
+                        Y = secondCoordinate
                     },
                     new Coordinates
                     {
                         // Normal order, negative Y
-                        X = parsedFirstNumber,
-                        Y = 1 - parsedSecondNumber
+                        X = firstCoordinate,
+                        Y = 0 - secondCoordinate
+                    },
+                    new Coordinates
+                    {
+                        // Swapped order, negative X
+                        X = 0 - secondCoordinate,
+                        Y = firstCoordinate
                     },
                     new Coordinates
                     {
                         // Swapped order, negative Y
-                        X = parsedSecondNumber,
-                        Y = 1 - parsedFirstNumber
+                        X = secondCoordinate,
+                        Y = 0 - firstCoordinate
                     }
                 });
 

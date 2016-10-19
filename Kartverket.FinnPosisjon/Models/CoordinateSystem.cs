@@ -11,8 +11,8 @@ namespace Kartverket.FinnPosisjon.Models
         public bool IsOutOfBounds(Coordinates coordinates)
         {
             return BoundaryBoxes.TrueForAll(boundaryBox =>
-                (coordinates.East < boundaryBox.MinEast) || (coordinates.East > boundaryBox.MaxEast) ||
-                (coordinates.North < boundaryBox.MinNorth) || (coordinates.North > boundaryBox.MaxNorth));
+                (coordinates.X < boundaryBox.MinX) || (coordinates.X > boundaryBox.MaxX) ||
+                (coordinates.Y < boundaryBox.MinY) || (coordinates.Y > boundaryBox.MaxY));
         }
     }
 }

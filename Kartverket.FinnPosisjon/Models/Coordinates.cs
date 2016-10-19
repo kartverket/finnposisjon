@@ -2,8 +2,8 @@
 {
     public class Coordinates
     {
-        public double East { get; set; }
-        public double North { get; set; }
-        public double Elevation { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
     }
 }

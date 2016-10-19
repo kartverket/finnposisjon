@@ -36,8 +36,8 @@ namespace Kartverket.FinnPosisjon.Services
                     CoordinateSystem = new CoordinateSystem() { Name = "Noko" },
                     Coordinates = new Coordinates()
                     {
-                        East = candidateCoordinate.East,
-                        North = candidateCoordinate.North
+                        X = candidateCoordinate.X,
+                        Y = candidateCoordinate.Y
                     }
                 });
             }
@@ -75,38 +75,38 @@ namespace Kartverket.FinnPosisjon.Services
                     new Coordinates
                     {
                         // Normal order
-                        East = parsedFirstNumber,
-                        North = parsedSecondNumber
+                        X = parsedFirstNumber,
+                        Y = parsedSecondNumber
                     },
                     new Coordinates
                     {
                         // Swapped order
-                        East = parsedSecondNumber,
-                        North = parsedFirstNumber
+                        X = parsedSecondNumber,
+                        Y = parsedFirstNumber
                     },
                     new Coordinates
                     {
-                        // Normal order, negative east
-                        East = 1 - parsedFirstNumber,
-                        North = parsedSecondNumber
+                        // Normal order, negative X
+                        X = 1 - parsedFirstNumber,
+                        Y = parsedSecondNumber
                     },
                     new Coordinates
                     {
-                        // Swapped order, negative east
-                        East = 1 - parsedSecondNumber,
-                        North = parsedFirstNumber
+                        // Swapped order, negative X
+                        X = 1 - parsedSecondNumber,
+                        Y = parsedFirstNumber
                     },
                     new Coordinates
                     {
-                        // Normal order, negative north
-                        East = parsedFirstNumber,
-                        North = 1 - parsedSecondNumber
+                        // Normal order, negative Y
+                        X = parsedFirstNumber,
+                        Y = 1 - parsedSecondNumber
                     },
                     new Coordinates
                     {
-                        // Swapped order, negative north
-                        East = parsedSecondNumber,
-                        North = 1 - parsedFirstNumber
+                        // Swapped order, negative Y
+                        X = parsedSecondNumber,
+                        Y = 1 - parsedFirstNumber
                     }
                 });
 

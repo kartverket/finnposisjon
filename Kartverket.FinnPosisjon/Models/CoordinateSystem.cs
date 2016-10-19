@@ -5,14 +5,14 @@ namespace Kartverket.FinnPosisjon.Models
     public class CoordinateSystem
     {
         public string Name { get; set; }
+        public int SosiCode { get; set; }
 
-        public List<BoundaryBox> BoundaryBoxes { get; set; }
+        public BoundaryBox BoundaryBox { get; set; }
 
         public bool IsOutOfBounds(Coordinates coordinates)
         {
-            return BoundaryBoxes.TrueForAll(boundaryBox =>
-                (coordinates.X < boundaryBox.MinX) || (coordinates.X > boundaryBox.MaxX) ||
-                (coordinates.Y < boundaryBox.MinY) || (coordinates.Y > boundaryBox.MaxY));
+            return coordinates.X < BoundaryBox.MinX || coordinates.X > BoundaryBox.MaxX
+                || coordinates.Y < BoundaryBox.MinY || coordinates.Y > BoundaryBox.MaxY;
         }
     }
 }

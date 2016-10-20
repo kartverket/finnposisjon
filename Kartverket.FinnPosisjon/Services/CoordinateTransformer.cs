@@ -19,6 +19,8 @@ namespace Kartverket.FinnPosisjon.Services
 
             var json = GetJsonWebServiceResponse(callReadyUrl);
 
+            if (string.IsNullOrEmpty(json)) return null;
+
             var transformationResponse = Json.Decode<TransformationResponse>(json);
 
             return transformationResponse.ErrKode == 0

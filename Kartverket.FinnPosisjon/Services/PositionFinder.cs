@@ -10,7 +10,7 @@ namespace Kartverket.FinnPosisjon.Services
 
         public PositionsResult Find(string firstInputValue, string secondInputValue, string thirdInputValue)
         {
-            var possibleCoordinates = GetPossibleCoordinates(firstInputValue, secondInputValue, thirdInputValue);
+            var possibleCoordinates = CoordinateInputParser.GetCoordinates(firstInputValue, secondInputValue, thirdInputValue);
             var candidateCoordinates = new List<Coordinates>();
 
             // Keep coordinates within bounds only:
@@ -54,75 +54,6 @@ namespace Kartverket.FinnPosisjon.Services
         {
             return SupportedCoordinateSystems.TrueForAll(
                 coordinateSystem => coordinateSystem.IsOutOfBounds(coordinates));
-        }
-
-        private static List<Coordinates> GetPossibleCoordinates(string firstInputValue, string secondInputValue, string thirdInputValue)
-        {
-            double firstCoordinate = 0;
-            double secondCoordinate = 0;
-            double thirdCoordinate = 0;
-
-            var firstCoordinateOk = !string.IsNullOrWhiteSpace(firstInputValue) && double.TryParse(firstInputValue.Replace(".", ","), out firstCoordinate);
-            var secondCoordinateOk = !string.IsNullOrWhiteSpace(secondInputValue) && double.TryParse(secondInputValue.Replace(".", ","), out secondCoordinate);
-            var thirdCoordinateOk = !string.IsNullOrWhiteSpace(thirdInputValue) && double.TryParse(thirdInputValue.Replace(".", ","), out thirdCoordinate);
-
-            var possibleCoordinates = new List<Coordinates>();
-            
-            if (firstCoordinateOk && secondCoordinateOk && thirdCoordinateOk)
-            {   
-                possibleCoordinates.AddRange(new[]
-                {
-                    new Coordinates
-                    {
-                        // Normal order
-                        X = firstCoordinate,
-                        Y = secondCoordinate,
-                        Z = thirdCoordinate
-                    }
-                });
-            }
-            else if (firstCoordinateOk && secondCoordinateOk)
-                possibleCoordinates.AddRange(new[]
-                {
-                    new Coordinates
-                    {
-                        // Normal order
-                        X = firstCoordinate,
-                        Y = secondCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order
-                        X = secondCoordinate,
-                        Y = firstCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Normal order, negative X
-                        X = 0 - firstCoordinate,
-                        Y = secondCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Normal order, negative Y
-                        X = firstCoordinate,
-                        Y = 0 - secondCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order, negative X
-                        X = 0 - secondCoordinate,
-                        Y = firstCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order, negative Y
-                        X = secondCoordinate,
-                        Y = 0 - firstCoordinate
-                    }
-                });
-
-            return possibleCoordinates;
         }
     }
 }

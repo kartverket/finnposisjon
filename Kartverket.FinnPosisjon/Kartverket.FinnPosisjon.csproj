@@ -145,6 +145,7 @@
     <Compile Include="Models\PositionsResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CoodinateSystemsSetup.cs" />
+    <Compile Include="Services\CoordinateInputParser.cs" />
     <Compile Include="Services\PositionFinder.cs" />
   </ItemGroup>
   <ItemGroup>

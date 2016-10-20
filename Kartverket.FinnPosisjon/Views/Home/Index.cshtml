@@ -8,19 +8,13 @@
 
 <div class="row">
     <div class="input-container">
-        <div style="display: none;">
+        <div>
             <div class="col-md-3 inline-block">
                 <input v-model="firstInput" />
             </div>
             <div class="col-md-3 inline-block">
                 <input v-model="secondInput" />
             </div>
-        </div>
-        <div class="col-md-3 inline-block">
-            <input type="number" v-model="testposition[0].Coordinates.East" />
-        </div>
-        <div class="col-md-3 inline-block">
-            <input type="number" v-model="testposition[0].Coordinates.North" />
         </div>
         <div class="col-md-3 inline-block">
             <button v-on:click="findPositions">Finn posisjon</button>

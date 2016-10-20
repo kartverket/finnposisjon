@@ -29,6 +29,10 @@ gulp.task('vendor-fonts', function () {
         .pipe(gulp.dest(source + '/fonts/'));
 });
 
+gulp.task('vendor-images', function () {
+    return gulp.src(config.vendorPaths.images)
+        .pipe(gulp.dest(source + '/images/'));
+});
 
 gulp.task('scripts', function () {
     return gulp.src(config.paths.js)

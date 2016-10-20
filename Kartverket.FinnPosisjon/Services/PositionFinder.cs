@@ -19,9 +19,13 @@ namespace Kartverket.FinnPosisjon.Services
             // Return an empty result if no coordinates were within the bounds for any of the coordinate systems.
             if (positions.Count == 0) return positions;
 
-            // TODO: Transform candidate position coordinates to WGS84
+            foreach (var position in positions)
+                position.Coordinates = CoordinateTransformer.Transform(position.Coordinates,
+                    position.CoordinateSystem.SosiCode, 84);
 
-            // TODO: Look up adresses for positions
+            positions.RemoveAll(p => p.Coordinates == null);
+            
+            // TODO: Look up adresses for positions.
 
             return positions;
         }

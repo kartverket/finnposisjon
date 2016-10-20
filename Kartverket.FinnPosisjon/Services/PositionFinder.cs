@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Kartverket.FinnPosisjon.Models;
 
 namespace Kartverket.FinnPosisjon.Services
@@ -8,52 +8,22 @@ namespace Kartverket.FinnPosisjon.Services
     {
         public List<CoordinateSystem> SupportedCoordinateSystems { get; set; }
 
-        public PositionsResult Find(string firstInputValue, string secondInputValue, string thirdInputValue)
+        public List<Position> Find(List<Coordinates> coordinatesCollection)
         {
-            var possibleCoordinates = CoordinateInputParser.GetCoordinates(firstInputValue, secondInputValue, thirdInputValue);
-            var candidateCoordinates = new List<Coordinates>();
+            var positions = (from coordinates in coordinatesCollection
+                                      from supportedCoordinateSystem in SupportedCoordinateSystems
+                where !supportedCoordinateSystem.IsOutOfBounds(coordinates)
+                select new Position
+                    {Coordinates = coordinates, CoordinateSystem = supportedCoordinateSystem}).ToList();
 
-            // Keep coordinates within bounds only:
-            foreach (var coordinates in possibleCoordinates)
-                if (!IsOutOfBounds(coordinates))
-                    candidateCoordinates.Add(coordinates);
+            // Return an empty result if no coordinates were within the bounds for any of the coordinate systems.
+            if (positions.Count == 0) return positions;
 
-            var positionsResult = new PositionsResult { Positions = new List<Position>() };
+            // TODO: Transform candidate position coordinates to WGS84
 
-            // Return the empty list of positions if no coordinates could be made from the user input
-            // or if no coordinates were within the bounds for any of the coordinate systems. Sad situation ...
-            if (candidateCoordinates.Count == 0)
-                return positionsResult;
+            // TODO: Look up adresses for positions
 
-            // TODO: Try create positions from the remaining possible coordinates ...
-            
-            // TESTING:
-
-            foreach (var candidateCoordinate in candidateCoordinates)
-            {
-                positionsResult.Positions.Add(new Position()
-                {
-                    CoordinateSystem = new CoordinateSystem() { Name = "Noko" },
-                    Coordinates = new Coordinates()
-                    {
-                        X = candidateCoordinate.X,
-                        Y = candidateCoordinate.Y
-                    }
-                });
-            }
-            
-            return positionsResult;
-    }
-
-        /**
-         * Returns true if the coordinates is out of boundary for
-         * every one of the supported coordinatesystems.
-         */
-
-        private bool IsOutOfBounds(Coordinates coordinates)
-        {
-            return SupportedCoordinateSystems.TrueForAll(
-                coordinateSystem => coordinateSystem.IsOutOfBounds(coordinates));
+            return positions;
         }
     }
 }

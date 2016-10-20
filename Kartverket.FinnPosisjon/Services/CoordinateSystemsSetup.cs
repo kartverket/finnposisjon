@@ -3,7 +3,7 @@ using Kartverket.FinnPosisjon.Models;
 
 namespace Kartverket.FinnPosisjon.Services
 {
-    public static class CoodinateSystemsSetup
+    public static class CoordinateSystemsSetup
     {
         public static List<CoordinateSystem> Get()
         {

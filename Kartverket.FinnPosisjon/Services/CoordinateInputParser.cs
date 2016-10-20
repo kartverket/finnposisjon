@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Kartverket.FinnPosisjon.Models;
 
 namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateInputParser
     {
-        public static List<Coordinates> GetCoordinates(string firstInputValue, string secondInputValue)
+        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput)
         {
-            double firstCoordinate = 0;
-            double secondCoordinate = 0;
+            double firstCoordinate;
+            double secondCoordinate;
 
             var coordinates = new List<Coordinates>();
-            
-            if (CoordinateOk(firstInputValue, ref firstCoordinate)
-                && CoordinateOk(secondInputValue, ref secondCoordinate))
+
+            if (double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) &&
+                double.TryParse(secondInput.Replace(".", ","), out secondCoordinate))
                 coordinates.AddRange(new[]
                 {
                     new Coordinates
@@ -57,17 +58,17 @@ namespace Kartverket.FinnPosisjon.Services
             return coordinates;
         }
 
-        public static List<Coordinates> GetCoordinates(string firstInputValue, string secondInputValue, string thirdInputValue)
+        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput, string thirdInputValue)
         {
-            double firstCoordinate = 0;
-            double secondCoordinate = 0;
-            double thirdCoordinate = 0;
+            double firstCoordinate;
+            double secondCoordinate;
+            double thirdCoordinate;
 
             var coordinates = new List<Coordinates>();
 
-            if (CoordinateOk(firstInputValue, ref firstCoordinate)
-                && CoordinateOk(secondInputValue, ref secondCoordinate)
-                && CoordinateOk(thirdInputValue, ref thirdCoordinate))
+            if (double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) &&
+                double.TryParse(secondInput.Replace(".", ","), out secondCoordinate) &&
+                double.TryParse(thirdInputValue.Replace(".", ","), out thirdCoordinate))
             {
                 coordinates.AddRange(new[]
                 {
@@ -80,12 +81,8 @@ namespace Kartverket.FinnPosisjon.Services
                     }
                 });
             }
-            return coordinates;
-        }
 
-        private static bool CoordinateOk(string inputValue, ref double coordinate)
-        {
-            return !string.IsNullOrWhiteSpace(inputValue) && double.TryParse(inputValue.Replace(".", ","), out coordinate);
+            return coordinates;
         }
     }
 }

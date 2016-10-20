@@ -9,10 +9,10 @@
 <div class="row">
     <div class="input-container">
         <div class="col-md-3 inline-block">
-            <input v-model="firstInputValue" />
+            <input v-model="firstInput" />
         </div>
         <div class="col-md-3 inline-block">
-            <input v-model="secondInputValue" />
+            <input v-model="secondInput" />
         </div>
         <div class="col-md-3 inline-block">
             <button v-on:click="findPositions">Finn posisjon</button>
@@ -90,9 +90,9 @@
     new Vue({
         el: 'body',
         data: {
-            firstInputValue: '',
-            secondInputValue: '',
-            thirdInputValue: '',
+            firstInput: '',
+            secondInput: '',
+            thirdInput: '',
             positionsResult: '',
             showPrecisionOptions: false,
             testpositions: ''
@@ -125,12 +125,12 @@
         methods: {
             findPositions: function () {
                 this.$http.get('/api/positions' +
-                        '?firstinputvalue=' +
-                        this.firstInputValue +
-                        '&secondInputValue=' +
-                        this.secondInputValue +
-                        '&thirdInputValue=' +
-                        this.thirdInputValue
+                        '?firstInput=' +
+                        this.firstInput +
+                        '&secondInput=' +
+                        this.secondInput +
+                        '&thirdInput=' +
+                        this.thirdInput
                     )
                     .then(function (result) {
                         this.positionsResult = result.body;

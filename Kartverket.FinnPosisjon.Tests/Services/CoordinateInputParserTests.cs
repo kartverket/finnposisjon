@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using FluentAssertions;
-using Kartverket.FinnPosisjon.Models;
+﻿using FluentAssertions;
 using Kartverket.FinnPosisjon.Services;
 using Xunit;
 

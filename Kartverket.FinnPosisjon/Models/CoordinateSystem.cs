@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Kartverket.FinnPosisjon.Models
+﻿namespace Kartverket.FinnPosisjon.Models
 {
     public class CoordinateSystem
     {
@@ -11,8 +9,8 @@ namespace Kartverket.FinnPosisjon.Models
 
         public bool IsOutOfBounds(Coordinates coordinates)
         {
-            return coordinates.X < BoundaryBox.MinX || coordinates.X > BoundaryBox.MaxX
-                || coordinates.Y < BoundaryBox.MinY || coordinates.Y > BoundaryBox.MaxY;
+            return (coordinates.X < BoundaryBox.MinX) || (coordinates.X > BoundaryBox.MaxX)
+                   || (coordinates.Y < BoundaryBox.MinY) || (coordinates.Y > BoundaryBox.MaxY);
         }
     }
 }

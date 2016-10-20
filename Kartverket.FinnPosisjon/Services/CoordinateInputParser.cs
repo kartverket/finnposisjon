@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Kartverket.FinnPosisjon.Models;
 
 namespace Kartverket.FinnPosisjon.Services
@@ -58,7 +57,7 @@ namespace Kartverket.FinnPosisjon.Services
             return coordinates;
         }
 
-        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput, string thirdInputValue)
+        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput, string thirdInput)
         {
             double firstCoordinate;
             double secondCoordinate;
@@ -68,8 +67,7 @@ namespace Kartverket.FinnPosisjon.Services
 
             if (double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) &&
                 double.TryParse(secondInput.Replace(".", ","), out secondCoordinate) &&
-                double.TryParse(thirdInputValue.Replace(".", ","), out thirdCoordinate))
-            {
+                double.TryParse(thirdInput.Replace(".", ","), out thirdCoordinate))
                 coordinates.AddRange(new[]
                 {
                     new Coordinates
@@ -80,7 +78,6 @@ namespace Kartverket.FinnPosisjon.Services
                         Z = thirdCoordinate
                     }
                 });
-            }
 
             return coordinates;
         }

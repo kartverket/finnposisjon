@@ -11,7 +11,7 @@ namespace Kartverket.FinnPosisjon.Services
         public List<Position> Find(List<Coordinates> coordinatesCollection)
         {
             var positions = (from coordinates in coordinatesCollection
-                                      from supportedCoordinateSystem in SupportedCoordinateSystems
+                from supportedCoordinateSystem in SupportedCoordinateSystems
                 where !supportedCoordinateSystem.IsOutOfBounds(coordinates)
                 select new Position
                     {Coordinates = coordinates, CoordinateSystem = supportedCoordinateSystem}).ToList();
@@ -24,7 +24,7 @@ namespace Kartverket.FinnPosisjon.Services
                     position.CoordinateSystem.SosiCode, 84);
 
             positions.RemoveAll(p => p.Coordinates == null);
-            
+
             // TODO: Look up adresses for positions.
 
             return positions;

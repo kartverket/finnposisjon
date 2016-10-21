@@ -6,11 +6,11 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
-.clearfix{
+.clearfix {
     clear: both;
 }
 
-.inline-block{
+.inline-block {
     display: inline-block;
     float: none;
 }
@@ -26,6 +26,23 @@
     background-repeat: no-repeat;
     background-position: center;
     display: none;
+    opacity: 0;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+
+.loading-animation.active {
+    display: table;
+    opacity: 1;
+     transition: opacity .5s;
+    -webkit-transition: opacity .5s;
+}
+
+.loading-animation span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 36px;
 }
 
 @media (max-width: 549px) {

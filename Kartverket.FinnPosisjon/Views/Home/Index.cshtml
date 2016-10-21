@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="loading-animation" id="loading-animation">
-
+                <span>Finner posisjoner</span>
             </div>
             <div id="map" class="map" style="height: 600px;">
 
@@ -39,7 +39,7 @@
                     <p class="list-item-title">
                         <span class="list-item-number"></span>
                         <span class="list-item-place">{{ position.CoordinateSystem.Name }}</span><br />
-                        <small>X: = {{position.Coordinates.X}} <br /> Y: {{position.Coordinates.Y}}</small>
+                        <small>X: {{position.ReferenceCoordinates.X}} <br/> Y: {{position.ReferenceCoordinates.Y}}</small>
                     </p>
                 </div>
                 <!-- <button>Velg punkt</button>-->
@@ -148,7 +148,7 @@
                         this.thirdInput
                     )
                     .then(function (result) {
-                        $("#loading-animation").fadeOut("slow");
+                        $("#loading-animation").removeClass("active");
                         this.positionsResult = result.body;
                         $(this.positionsResult.Positions).each(function () {
                             L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])

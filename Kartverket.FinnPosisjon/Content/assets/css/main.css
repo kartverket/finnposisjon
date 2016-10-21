@@ -3423,7 +3423,22 @@ input:focus {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  display: none; }
+  display: none;
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s; }
+
+.loading-animation.active {
+  display: table;
+  opacity: 1;
+  transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.loading-animation span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 36px; }
 
 @media (max-width: 549px) {
   .hide-xsmall {

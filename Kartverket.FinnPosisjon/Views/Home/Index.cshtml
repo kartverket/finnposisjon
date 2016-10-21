@@ -8,13 +8,13 @@
 
 <div class="row">
     <div class="input-container">
-        <div class="col-md-3 inline-block">
+        <div class="col-sm-4 col-lg-2 col-lg-offset-3">
             <input v-model="firstInput" />
         </div>
-        <div class="col-md-3 inline-block">
+        <div class="col-sm-4 col-lg-2">
             <input v-model="secondInput" />
         </div>
-        <div class="col-md-3 inline-block">
+        <div class="col-sm-4 col-lg-2">
             <button id="find-position" v-on:click="findPositions">Finn posisjon</button>
         </div>
         <div class="clearfix"></div>
@@ -23,33 +23,37 @@
 
 <pre v-if="positionsResult">Antall posisjoner funnet: {{ positionsResult.Positions.length }}</pre>
 
-<div class="result-container">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="loading-animation" id="loading-animation">
-                <span>Finner posisjoner</span>
-            </div>
-            <div id="map" class="map" style="height: 600px;">
-
-            </div>
-        </div>
-        <div class="list coordinate-list col-md-3" id="position-list">
-            <div class="list-item" v-for="position in positionsResult.Positions">
-                <div class="list-item-text">
-                    <p class="list-item-title">
-                        <span class="list-item-number"></span>
-                        <span class="list-item-place">{{ position.CoordinateSystem.Name }}</span><br />
-                        <small>X: {{position.ReferenceCoordinates.X}} <br/> Y: {{position.ReferenceCoordinates.Y}}</small>
-                    </p>
+<div class="result-container" id="results">
+    <div class="map-container">
+        <div class="row">
+            <div class="col-md-9 no-margin-bottom">
+                <div class="loading-animation" id="loading-animation">
+                    <span>Finner posisjoner</span>
                 </div>
-                <!-- <button>Velg punkt</button>-->
+                <div id="map" class="map">
+
+                </div>
             </div>
+            <div class="col-md-3 no-margin-bottom">
+                <div id="position-list" class="list coordinate-list">
+                    <div class="list-item" v-for="position in positionsResult.Positions">
+                        <div class="list-item-text">
+                            <p class="list-item-title">
+                                <span class="list-item-number"></span>
+                                <span class="list-item-place">{{ position.CoordinateSystem.Name }}</span><br />
+                                <small>X: {{position.ReferenceCoordinates.X}} <br /> Y: {{position.ReferenceCoordinates.Y}}</small>
+                            </p>
+                        </div>
+                        <!-- <button>Velg punkt</button>-->
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
     </div>
     <div class="row">
         <div class="col-md-9">
-            <a href="#" v-on:click="showPrecisionOptions = !showPrecisionOptions">Sjekk nøyaktighet for punktene <span class="fa fa-chevron-down"></span></a>
+            <p><a href="#" v-on:click="showPrecisionOptions = !showPrecisionOptions">Sjekk nøyaktighet for punktene <span class="fa fa-chevron-down"></span></a></p>
             <div v-show="showPrecisionOptions" class="list precision-list">
                 <div class="list-item row">
                     <div class="list-item-text col-md-9">
@@ -79,6 +83,7 @@
                 </div>
             </div>
         </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 <script>

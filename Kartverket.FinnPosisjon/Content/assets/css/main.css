@@ -2841,6 +2841,18 @@ button:focus {
   border: none;
   background: none; }
 
+::-webkit-scrollbar {
+  width: 14px; }
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+  border-radius: 0; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #e3e3e3;
+  border-radius: 0;
+  -webkit-box-shadow: none; }
+
 @media only screen and (min-width: 750px) {
   body.sidebar-active .main-content {
     margin-left: 245px; }
@@ -3380,6 +3392,18 @@ input:focus {
   margin: 0;
   min-height: 0; }
 
+.no-margin-top {
+  margin-top: 0 !important; }
+
+.no-margin-bottom {
+  margin-bottom: 0 !important; }
+
+.no-margin-left {
+  margin-left: 0 !important; }
+
+.no-margin-right {
+  margin-right: 0 !important; }
+
 .list .list-item {
   padding: 12px 0;
   display: block; }
@@ -3390,6 +3414,11 @@ input:focus {
   .list .list-item .list-item-description {
     font-size: 12pt; }
 
+@media (min-width: 992px) {
+  .list.coordinate-list {
+    overflow: auto;
+    height: 600px; } }
+
 .list.precision-list .list-item .list-item-image img {
   width: 65px;
   height: 65px;
@@ -3398,7 +3427,15 @@ input:focus {
 .map,
 .leaflet-container {
   background-color: #FAFAFA;
-  border: 1px solid #e3e3e3; }
+  height: 400px; }
+  @media (min-width: 750px) {
+    .map,
+    .leaflet-container {
+      height: 500px; } }
+  @media (min-width: 992px) {
+    .map,
+    .leaflet-container {
+      height: 600px; } }
 
 .z-1 {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37); }
@@ -3415,7 +3452,7 @@ input:focus {
 
 .loading-animation {
   background-image: url(/Content/Assets/images/ripple.svg);
-  height: 600px;
+  height: 400px;
   width: 100%;
   position: absolute;
   left: 0;
@@ -3427,18 +3464,37 @@ input:focus {
   opacity: 0;
   transition: opacity 1s;
   -webkit-transition: opacity 1s; }
+  @media (min-width: 750px) {
+    .loading-animation {
+      height: 500px; } }
+  @media (min-width: 992px) {
+    .loading-animation {
+      height: 600px; } }
 
 .loading-animation.active {
   display: table;
   opacity: 1;
-  transition: opacity .5s;
-  -webkit-transition: opacity .5s; }
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s; }
 
 .loading-animation span {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   font-size: 36px; }
+
+#results {
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s; }
+
+#results.active {
+  opacity: 1;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s; }
+
+.map-container {
+  border: 1px solid #e3e3e3; }
 
 @media (max-width: 549px) {
   .hide-xsmall {

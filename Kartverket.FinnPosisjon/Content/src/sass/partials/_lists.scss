@@ -16,6 +16,13 @@
         }
     }
 
+    &.coordinate-list {
+        @media (min-width: 992px) {
+            overflow: auto;
+            height: 600px;
+        }
+    }
+
     &.precision-list {
         .list-item {
             .list-item-image {

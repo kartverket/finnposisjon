@@ -1,5 +1,13 @@
 ﻿.map,
 .leaflet-container {
     background-color: #FAFAFA;
-    border: 1px solid #e3e3e3;
+    height: 400px;
+
+    @media (min-width: 750px) {
+        height: 500px;
+    }
+
+    @media (min-width: 992px) {
+        height: 600px;
+    }
 }

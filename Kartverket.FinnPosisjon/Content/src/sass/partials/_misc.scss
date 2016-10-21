@@ -17,7 +17,7 @@
 
 .loading-animation {
     background-image: url(/Content/Assets/images/ripple.svg);
-    height: 600px;
+    height: 400px;
     width: 100%;
     position: absolute;
     left: 0;
@@ -29,13 +29,21 @@
     opacity: 0;
     transition: opacity 1s;
     -webkit-transition: opacity 1s;
+
+    @media (min-width: 750px) {
+        height: 500px;
+    }
+
+    @media (min-width: 992px) {
+        height: 600px;
+    }
 }
 
 .loading-animation.active {
     display: table;
     opacity: 1;
-     transition: opacity .5s;
-    -webkit-transition: opacity .5s;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
 }
 
 .loading-animation span {
@@ -43,6 +51,22 @@
     text-align: center;
     vertical-align: middle;
     font-size: 36px;
+}
+
+#results {
+    opacity: 0;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+
+#results.active {
+    opacity: 1;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+
+.map-container{
+     border: 1px solid #e3e3e3;
 }
 
 @media (max-width: 549px) {

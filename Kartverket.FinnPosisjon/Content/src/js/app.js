@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
     $("#find-position").click(function () {
-        $("#loading-animation").addClass("active");
+        $("#loading-animation, #results").addClass("active");
     });
 });

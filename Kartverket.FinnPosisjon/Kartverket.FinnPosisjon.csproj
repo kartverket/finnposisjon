@@ -337,6 +337,7 @@
     <Content Include="Content\src\sass\partials\_buttons.scss" />
     <Content Include="Content\src\sass\vendor\_leaflet.scss" />
     <Content Include="Content\src\sass\partials\_map.scss" />
+    <Content Include="Content\src\sass\partials\_helpers.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

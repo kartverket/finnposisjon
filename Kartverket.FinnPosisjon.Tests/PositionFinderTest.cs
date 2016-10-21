@@ -14,14 +14,14 @@ namespace Kartverket.FinnPosisjon.Tests
             SupportedCoordinateSystems = CoordinateSystemsSetup.Get()
         };
 
-        [Fact(Skip = "Test is unfinished")]
+        [Fact]
         public void ShouldFindPositionWithCoordSysEu89UtmZone33()
         {
-            var coordinates = new Coordinates {X = 163067.449, Y = 6601114.654};
+            var coordinates = new Coordinates {X = 288889.7639, Y = 7231445.376};
 
             var positions = PositionFinder.Find(new List<Coordinates> {coordinates});
 
-            positions.First().CoordinateSystem.Name.Should().Be("EUREF89, sone 33");
+            positions.Any(p => p.CoordinateSystem.Name == "EUREF89, UTM-sone 33").Should().BeTrue();
         }
     }
 }

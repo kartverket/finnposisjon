@@ -4,5 +4,6 @@
     {
         public Coordinates Coordinates { get; set; }
         public CoordinateSystem CoordinateSystem { get; set; }
+        public Coordinates ReferenceCoordinates { get; set; }
     }
 }

@@ -20,10 +20,10 @@ namespace Kartverket.FinnPosisjon.Services
             if (positions.Count == 0) return positions;
 
             foreach (var position in positions)
-                position.Coordinates = CoordinateTransformer.Transform(position.Coordinates,
+                position.ReferenceCoordinates = CoordinateTransformer.Transform(position.Coordinates,
                     position.CoordinateSystem.SosiCode, 84);
 
-            positions.RemoveAll(p => p.Coordinates == null);
+            positions.RemoveAll(p => p.ReferenceCoordinates == null);
 
             // TODO: Look up adresses for positions.
 

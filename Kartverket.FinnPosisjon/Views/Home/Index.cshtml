@@ -158,7 +158,7 @@
                         this.positionsResult = result.body;
                         //addMapMarkers(this.testpositions);
                         $(this.positionsResult.Positions).each(function () {
-                            L.marker([this.Coordinates.Y, this.Coordinates.X]).addTo(map);
+                            L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X]).addTo(map);
                         }).bind(this);
                         L.marker([this.testposition[0].Coordinates.North, this.testposition[0].Coordinates.East]).addTo(map);
                         //addMapMarkers(this.testposition)

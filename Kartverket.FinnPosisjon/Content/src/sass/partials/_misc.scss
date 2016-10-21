@@ -15,6 +15,19 @@
     float: none;
 }
 
+.loading-animation {
+    background-image: url(/Content/Assets/images/ripple.svg);
+    height: 600px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+
 @media (max-width: 549px) {
     .hide-xsmall {
         display: none !important;

@@ -3395,6 +3395,11 @@ input:focus {
   height: 65px;
   margin-top: 55px; }
 
+.map,
+.leaflet-container {
+  background-color: #FAFAFA;
+  border: 1px solid #e3e3e3; }
+
 .z-1 {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37); }
 
@@ -3407,6 +3412,18 @@ input:focus {
 .inline-block {
   display: inline-block;
   float: none; }
+
+.loading-animation {
+  background-image: url(/Content/Assets/images/ripple.svg);
+  height: 600px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none; }
 
 @media (max-width: 549px) {
   .hide-xsmall {

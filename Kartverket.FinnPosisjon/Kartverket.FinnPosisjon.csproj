@@ -161,6 +161,7 @@
     <Content Include="Content\assets\images\marker-icon-2x.png" />
     <Content Include="Content\assets\images\marker-icon.png" />
     <Content Include="Content\assets\images\marker-shadow.png" />
+    <Content Include="Content\assets\images\ripple.svg" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
     <Content Include="Content\src\fonts\fontawesome-webfont.svg" />
@@ -172,6 +173,7 @@
     <Content Include="Content\src\images\marker-icon-2x.png" />
     <Content Include="Content\src\images\marker-icon.png" />
     <Content Include="Content\src\images\marker-shadow.png" />
+    <Content Include="Content\src\images\ripple.svg" />
     <Content Include="Content\src\js\jquery.min.js" />
     <Content Include="Content\src\js\leaflet.js" />
     <Content Include="Content\src\js\map-init.js" />

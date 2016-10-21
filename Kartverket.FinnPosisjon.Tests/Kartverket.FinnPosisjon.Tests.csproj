@@ -115,6 +115,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Services\CoordinateInputParserTests.cs" />
+    <Compile Include="Services\CoordinateTransformerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

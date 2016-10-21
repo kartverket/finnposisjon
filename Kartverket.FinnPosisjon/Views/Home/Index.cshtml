@@ -34,23 +34,15 @@
             </div>
         </div>
         <div class="list coordinate-list col-md-3" id="position-list">
-            <div class="list-item">
+            <div class="list-item" v-for="position in positionsResult.Positions">
                 <div class="list-item-text">
                     <p class="list-item-title">
-                        <span class="list-item-number">A</span>
-                        <span class="list-item-place">Kartverksveien 21, 3511 Hønefoss</span>
+                        <span class="list-item-number"></span>
+                        <span class="list-item-place">{{ position.CoordinateSystem.Name }}</span><br />
+                        <small>X: = {{position.Coordinates.X}} <br /> Y: {{position.Coordinates.Y}}</small>
                     </p>
                 </div>
-                <button>Velg punkt A</button>
-            </div>
-            <div class="list-item">
-                <div class="list-item-text">
-                    <p class="list-item-title">
-                        <span class="list-item-number">B</span>
-                        <span class="list-item-place">Nordsjøen</span>
-                    </p>
-                </div>
-                <button>Velg punkt B</button>
+                <!-- <button>Velg punkt</button>-->
             </div>
         </div>
         <div class="clearfix"></div>

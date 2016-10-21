@@ -22,7 +22,8 @@
       "Content/src/js/jquery.min.js",
       "Content/src/js/vue.min.js",
       "Content/src/js/vue-resource.min.js",
-      "Content/src/js/leaflet.js"
+      "Content/src/js/leaflet.js",
+      "Content/src/js/app.js"
     ],
     "css": [
       "Content/src/sass/**/*.scss"

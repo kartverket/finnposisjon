@@ -84,6 +84,7 @@
 <script>
     L.Icon.Default.imagePath = '/Content/assets/images/';
     var map = L.map('map', { continuousWorld: true }).setView([64.5, 10], 5);
+    var markers;
     new L.TileLayer.WMS("http://wms.geonorge.no/skwms1/wms.topo2", {
         layers: 'topo2_WMS',
         format: 'image/png',
@@ -91,6 +92,7 @@
         version: '1.3.0',
         transparent: true
     }).addTo(map);
+    markers = new L.LayerGroup().addTo(map);
 </script>
 <script>
     new Vue({
@@ -149,11 +151,12 @@
                     )
                     .then(function (result) {
                         $("#loading-animation").removeClass("active");
+                        markers.clearLayers();
                         this.positionsResult = result.body;
                         $(this.positionsResult.Positions).each(function () {
                             L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])
                                 .bindPopup("<b>" + this.CoordinateSystem.Name + "</b>")
-                                .addTo(map);
+                                .addTo(markers);
                         }).bind(this);
                     }
                     )

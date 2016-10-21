@@ -150,14 +150,11 @@
                     .then(function (result) {
                         $("#loading-animation").fadeOut("slow");
                         this.positionsResult = result.body;
-                        //addMapMarkers(this.testpositions);
                         $(this.positionsResult.Positions).each(function () {
                             L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])
                                 .bindPopup("<b>" + this.CoordinateSystem.Name + "</b>")
                                 .addTo(map);
                         }).bind(this);
-                        L.marker([this.testposition[0].Coordinates.North, this.testposition[0].Coordinates.East]).addTo(map);
-                        //addMapMarkers(this.testposition)
                     }
                     )
                     .bind(this);

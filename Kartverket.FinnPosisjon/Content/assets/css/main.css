@@ -3446,7 +3446,7 @@ input:focus {
   background-color: #FFF;
   height: 48px;
   width: 100%;
-  z-index: 2;
+  z-index: 1001;
   top: 0; }
   .navbar .logo {
     display: block;

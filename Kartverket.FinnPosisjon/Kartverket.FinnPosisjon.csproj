@@ -335,6 +335,7 @@
     <Content Include="Content\assets\fonts\MetaWeb-NormalIta.woff" />
     <Content Include="Content\src\sass\partials\_buttons.scss" />
     <Content Include="Content\src\sass\vendor\_leaflet.scss" />
+    <Content Include="Content\src\sass\partials\_map.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

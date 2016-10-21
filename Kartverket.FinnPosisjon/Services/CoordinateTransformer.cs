@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Helpers;
@@ -14,8 +15,10 @@ namespace Kartverket.FinnPosisjon.Services
             const string parameterizedWebServiceUrl =
                 "http://www.norgeskart.no/ws/trans.py?ost={0}&nord={1}&sosiKoordSys={2}&resSosiKoordSys={3}";
 
-            var callReadyUrl = string.Format(parameterizedWebServiceUrl, coordinates.X, coordinates.Y,
-                coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
+            var x = coordinates.X.ToString(CultureInfo.InvariantCulture);
+            var y = coordinates.Y.ToString(CultureInfo.InvariantCulture);
+
+            var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
 
             var json = GetJsonWebServiceResponse(callReadyUrl);
 

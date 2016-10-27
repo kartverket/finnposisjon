@@ -25,7 +25,10 @@ namespace Kartverket.FinnPosisjon.Services
 
             positions.RemoveAll(p => p.ReferenceCoordinates == null);
 
-            // TODO: Look up adresses for positions.
+            foreach (var position in positions)
+                AddressDataProvider.FetchAndSet(position);
+
+            positions.RemoveAll(p => p.AddressData == null);
 
             return positions;
         }

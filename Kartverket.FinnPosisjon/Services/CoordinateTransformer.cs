@@ -20,7 +20,7 @@ namespace Kartverket.FinnPosisjon.Services
 
             var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
 
-            var json = GetJsonWebServiceResponse(callReadyUrl);
+            var json = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);
 
             if (string.IsNullOrEmpty(json)) return null;
 
@@ -33,34 +33,6 @@ namespace Kartverket.FinnPosisjon.Services
                     Y = transformationResponse.Nord
                 }
                 : null;
-        }
-
-        private static string GetJsonWebServiceResponse(string url)
-        {
-            var request = (HttpWebRequest) WebRequest.Create(url);
-
-            try
-            {
-                var response = request.GetResponse();
-
-                using (var responseStream = response.GetResponseStream())
-                {
-                    var reader = new StreamReader(responseStream, Encoding.UTF8);
-                    return reader.ReadToEnd();
-                }
-            }
-            catch (WebException ex)
-            {
-                var errorResponse = ex.Response;
-
-                using (var responseStream = errorResponse.GetResponseStream())
-                {
-                    var reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
-                    var errorText = reader.ReadToEnd();
-                    // log errorText
-                }
-                throw;
-            }
         }
     }
 

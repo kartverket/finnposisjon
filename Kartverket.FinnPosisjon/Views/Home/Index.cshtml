@@ -36,9 +36,16 @@
                     <div class="list-item" v-for="position in positionsResult.Positions">
                         <div class="list-item-text">
                             <p class="list-item-title">
-                                <span class="list-item-number"></span>
-                                <span class="list-item-place">{{ position.CoordinateSystem.Name }}</span><br />
-                                <small>X: {{position.ReferenceCoordinates.X}} <br /> Y: {{position.ReferenceCoordinates.Y}}</small>
+                                <span class="list-item-number"><b>{{ position.Identifier }}</b></span>
+                                <span class="list-item-place"></span><br />
+                                <small>{{ position.CoordinateSystem.Name }}</small><br />
+                                <small>X: {{ position.Coordinates.X }} <br /> Y: {{ position.Coordinates.Y }}</small>
+                                <br /><br />
+                                <small><b>N&aelig;rmeste adresse:</b></small><br />
+                                <small>{{ position.AddressData.Address }}</small><br />
+                                <small>{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</small><br />
+                                @*<small>{{ position.AddressData.Municipality }}</small><br />*@
+                                <small>{{ position.AddressData.DistanceFromPosition }} km. unna punktet</small><br />
                             </p>
                         </div>
                         <!-- <button>Velg punkt</button>-->
@@ -83,6 +90,9 @@
         <div class="clearfix"></div>
     </div>
 </div>
+
+@*<pre>{{ $data | json }}</pre>*@
+
 <script>
     L.Icon.Default.imagePath = '/Content/assets/images/';
     var map = L.map('map', { continuousWorld: true }).setView([64.5, 10], 5);
@@ -154,10 +164,10 @@
                     .then(function (result) {
                         $("#loading-animation").removeClass("active");
                         markers.clearLayers();
-                        this.positionsResult = result.body;
+                            this.positionsResult = result.body;
                         $(this.positionsResult.Positions).each(function () {
                             L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])
-                                .bindPopup("<b>" + this.CoordinateSystem.Name + "</b>")
+                                .bindPopup("<b>" + this.Identifier + "</b>")
                                 .addTo(markers);
                         }).bind(this);
                     }

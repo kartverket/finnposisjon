@@ -75,7 +75,7 @@ namespace Kartverket.FinnPosisjon.Services
             var c = 2*Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
 
             var d = r*c;
-            return d;
+            return Math.Round(d, 2);
         }
 
         private static double ToRadians(double number)

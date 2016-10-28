@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Kartverket.FinnPosisjon.Models;
 
@@ -29,6 +30,15 @@ namespace Kartverket.FinnPosisjon.Services
                 AddressDataProvider.FetchAndSet(position);
 
             positions.RemoveAll(p => p.AddressData == null);
+
+            var orderedPositions = positions.OrderBy(p => p.AddressData.DistanceFromPosition);
+
+            var id = 'A';
+            foreach (var position in orderedPositions)
+            {
+                position.Identifier = id;
+                id = (char) (Convert.ToUInt16(id) + 1);
+            }
 
             return positions;
         }

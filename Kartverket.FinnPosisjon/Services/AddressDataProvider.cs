@@ -19,13 +19,13 @@ namespace Kartverket.FinnPosisjon.Services
 
             var x = position.ReferenceCoordinates.X.ToString(CultureInfo.InvariantCulture);
             var y = position.ReferenceCoordinates.Y.ToString(CultureInfo.InvariantCulture);
-            var r = radius.ToString(CultureInfo.InvariantCulture);
             const int hitLimit = 200;
 
             object[] addresses = null;
 
             while ((addresses == null) && (radius <= maxRadius))
             {
+                var r = radius.ToString(CultureInfo.InvariantCulture);
                 var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, r, hitLimit);
                 var jsonResponseString = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);
                 dynamic jsonAddressDataResponse = Json.Decode(jsonResponseString);

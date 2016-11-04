@@ -57,7 +57,7 @@
     </div>
     <div class="row">
         <div class="col-md-9">
-            <p><a href="#" v-on:click="showPrecisionOptions = !showPrecisionOptions">Sjekk nøyaktighet for punktene <span class="fa fa-chevron-down"></span></a></p>
+            <p><a href="#" v-on:click="showPrecisionOptions = !showPrecisionOptions">Sjekk n&oslash;yaktighet for punktene <span class="fa fa-chevron-down"></span></a></p>
             <div v-show="showPrecisionOptions" class="list precision-list">
                 <div class="list-item row">
                     <div class="list-item-text col-md-9">
@@ -106,6 +106,7 @@
     }).addTo(map);
     markers = new L.LayerGroup().addTo(map);
 </script>
+
 <script>
     new Vue({
         el: 'body',
@@ -114,45 +115,10 @@
             secondInput: '',
             thirdInput: '',
             positionsResult: '',
-            showPrecisionOptions: false,
-            testpositions: '',
-            testposition: [{
-                CoordinateSystem: {
-                    Name: 'EUREF89'
-                },
-                Coordinates: {
-                    East: 9.0586377,
-                    North: 59.4129367
-                }
-            }]
-        },
-        created: function () {
-
-            this.testpositions = [
-                {
-                    CoordinateSystem: {
-                        Name: 'EUREF89',
-
-                    },
-                    Coordinates: {
-                        East: 9.0586377,
-                        North: 59.4129367
-                    }
-                },
-                {
-                    CoordinateSystem: {
-                        Name: 'NGO48',
-
-                    },
-                    Coordinates: {
-                        East: 10,
-                        North: 60
-                    }
-                }
-            ];
+            showPrecisionOptions: false
         },
         methods: {
-            findPositions: function () {
+            findPositions: function() {
                 this.$http.get('/api/positions' +
                         '?firstInput=' +
                         this.firstInput +
@@ -161,16 +127,18 @@
                         '&thirdInput=' +
                         this.thirdInput
                     )
-                    .then(function (result) {
-                        $("#loading-animation").removeClass("active");
-                        markers.clearLayers();
+                    .then(function(result) {
+                            $("#loading-animation").removeClass("active");
+                            markers.clearLayers();
                             this.positionsResult = result.body;
-                        $(this.positionsResult.Positions).each(function () {
-                            L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])
-                                .bindPopup("<b>" + this.Identifier + "</b>")
-                                .addTo(markers);
-                        }).bind(this);
-                    }
+                            $(this.positionsResult.Positions)
+                                .each(function() {
+                                    L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])
+                                        .bindPopup("<b>" + this.Identifier + "</b>")
+                                        .addTo(markers);
+                                })
+                                .bind(this);
+                        }
                     )
                     .bind(this);
             }

@@ -35,12 +35,9 @@ namespace Kartverket.FinnPosisjon.Services
 
             var id = 'A';
             foreach (var position in orderedPositions)
-            {
-                position.Identifier = id;
-                id = (char) (Convert.ToUInt16(id) + 1);
-            }
+                if(id <= 90) position.Identifier = id ++;
 
-            return positions;
+            return orderedPositions.ToList();
         }
     }
 }

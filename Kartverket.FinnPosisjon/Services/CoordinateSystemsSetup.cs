@@ -5,6 +5,11 @@ namespace Kartverket.FinnPosisjon.Services
 {
     public static class CoordinateSystemsSetup
     {
+        public static List<CoordinateSystem> Find(int sosiCode)
+        {
+            return new List<CoordinateSystem> {Get().Find(c => c.SosiCode == sosiCode)};
+        }
+
         public static List<CoordinateSystem> Get()
         {
             return new List<CoordinateSystem>

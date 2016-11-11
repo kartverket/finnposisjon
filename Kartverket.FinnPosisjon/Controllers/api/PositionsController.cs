@@ -12,11 +12,11 @@ namespace Kartverket.FinnPosisjon.Controllers.api
         {
             var positionsResult = new PositionsResult {Positions = new List<Position>()};
 
-            // Return an empty result if user input is invalid
+            // Return an empty result if user input is invalid:
             if (string.IsNullOrWhiteSpace(firstInput) || string.IsNullOrWhiteSpace(secondInput))
                 return Json(positionsResult);
 
-            // Create possible coordinates from 2 or 3 input values
+            // Create possible coordinates from 2 or 3 input values:
             var coordinates = string.IsNullOrWhiteSpace(thirdInput)
                 ? CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: comprehensive)
                 : CoordinateInputParser.GetCoordinates(firstInput, secondInput, thirdInput);
@@ -24,9 +24,22 @@ namespace Kartverket.FinnPosisjon.Controllers.api
             // Return an empty result if no coordinates could be made from the user input
             if (coordinates.Count == 0) return Json(positionsResult);
 
-            // Try find positions for the coordinates, within supported coordinatesystems and defined limits
-            var positionFinder = new PositionFinder {SupportedCoordinateSystems = CoordinateSystemsSetup.Get()};
+            // Use all supported coordinatesystems if search is comprehensive, only WGS84 otherwise:
+            var supportedCoordinateSystems = comprehensive ? CoordinateSystemsSetup.Get() : CoordinateSystemsSetup.Find(84);
+
+            // Try find positions for the coordinates, within supported coordinatesystems and defined limits:
+            var positionFinder = new PositionFinder {SupportedCoordinateSystems = supportedCoordinateSystems};
             positionsResult.Positions = positionFinder.Find(coordinates);
+            positionsResult.Comprehensive = comprehensive;
+
+            if (positionsResult.Positions.Count > 0 || comprehensive)
+                return Json(positionsResult);
+
+            // Auto-comprehensive:
+            coordinates = CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: true);
+            positionFinder.SupportedCoordinateSystems = CoordinateSystemsSetup.Get();
+            positionsResult.Positions = positionFinder.Find(coordinates);
+            positionsResult.Comprehensive = true;
 
             return Json(positionsResult);
         }

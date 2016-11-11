@@ -12,7 +12,7 @@
             <input v-model="secondInput" />
         </div>
         <div class="col-sm-4 col-lg-2">
-            <button id="find-position" v-on:click="findPositions">Finn posisjon</button>
+            <button id="find-position" v-on:click="findPositionsQuick">Finn posisjon</button>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -49,6 +49,9 @@
                             </p>
                         </div>
                         <!-- <button>Velg punkt</button>-->
+                    </div>
+                    <div v-show="!positionsResult.Comprehensive">
+                        <button id="find-position" v-on:click="findPositionsComprehensive">Last flere</button>
                     </div>
                 </div>
             </div>
@@ -118,15 +121,25 @@
             showPrecisionOptions: false
         },
         methods: {
-            findPositions: function() {
-                this.$http.get('/api/positions' +
-                        '?firstInput=' +
-                        this.firstInput +
-                        '&secondInput=' +
-                        this.secondInput +
-                        '&thirdInput=' +
-                        this.thirdInput
-                    )
+            findPositionsComprehensive() {
+                this.findPositions(true);
+            },
+            findPositionsQuick() {
+                this.findPositions(false);
+            },
+            findPositions: function(comprehensive) {
+
+                var url = '/api/positions' +
+                    '?firstInput=' +
+                    this.firstInput +
+                    '&secondInput=' +
+                    this.secondInput +
+                    '&thirdInput=' +
+                    this.thirdInput;
+
+                if (comprehensive) url += '&comprehensive=true';
+
+                this.$http.get(url)
                     .then(function(result) {
                             $("#loading-animation").removeClass("active");
                             markers.clearLayers();

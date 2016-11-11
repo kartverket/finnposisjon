@@ -1,10 +1,23 @@
 ﻿.list {
     .list-item {
-        padding: 12px 0;
         display: block;
 
         &:not(:first-child) {
             border-top: 1px solid #ededed;
+        }
+
+        &.list-item-clickable {
+            &:hover {
+                background-color: $gray-light;
+            }
+
+            .list-item-content {
+                cursor: pointer;
+            }
+        }
+
+        .list-item-content {
+            padding: 12px 16px;
         }
 
         .list-item-title {
@@ -16,7 +29,15 @@
         }
     }
 
-    &.coordinate-list {
+    &.position-list {
+        .list-item-addressdata {
+            display: block;
+
+            &:first-child {
+                font-size: 18pt;
+            }
+        }
+
         @media (min-width: 992px) {
             overflow: auto;
             height: 600px;
@@ -34,4 +55,14 @@
             }
         }
     }
+}
+
+
+.modal-list-item-title {
+    display: block;
+    font-weight: bold;
+}
+
+.modal-list-item-data {
+    display: block;
 }

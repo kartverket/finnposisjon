@@ -65,8 +65,8 @@
     -webkit-transition: opacity 1s;
 }
 
-.map-container{
-     border: 1px solid #e3e3e3;
+.map-container {
+    border: 1px solid #e3e3e3;
 }
 
 @media (max-width: 549px) {
@@ -91,4 +91,9 @@
     .hide-big {
         display: none !important;
     }
+}
+
+hr {
+    border-top: 1px solid $gray-light;
+    border-bottom: none;
 }

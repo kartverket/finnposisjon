@@ -23,7 +23,7 @@
 <div class="result-container" id="results">
     <div class="map-container">
         <div class="row">
-            <div class="col-md-9 no-margin-bottom">
+            <div class="col-md-9 no-margin-bottom no-padding-right-big">
                 <div class="loading-animation" id="loading-animation">
                     <span>Finner posisjoner</span>
                 </div>
@@ -31,24 +31,12 @@
 
                 </div>
             </div>
-            <div class="col-md-3 no-margin-bottom">
-                <div id="position-list" class="list coordinate-list">
-                    <div class="list-item" v-for="position in positionsResult.Positions">
-                        <div class="list-item-text">
-                            <p class="list-item-title">
-                                <span class="list-item-number"><b>{{ position.Identifier }}</b></span>
-                                <span class="list-item-place"></span><br />
-                                <small>{{ position.CoordinateSystem.Name }}</small><br />
-                                <small>X: {{ position.Coordinates.X }} <br /> Y: {{ position.Coordinates.Y }}</small>
-                                <br /><br />
-                                <small><b>N&aelig;rmeste adresse:</b></small><br />
-                                <small>{{ position.AddressData.Address }}</small><br />
-                                <small>{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</small><br />
-                                @*<small>{{ position.AddressData.Municipality }}</small><br />*@
-                                <small>{{ position.AddressData.DistanceFromPosition }} meter unna punktet</small><br />
-                            </p>
-                        </div>
-                        <!-- <button>Velg punkt</button>-->
+            <div class="col-md-3 no-margin-bottom no-padding-left-big">
+                <div id="position-list" class="list position-list">
+                    <div v-for="position in positionsResult.Positions" class="list-item list-item-clickable">
+                        <position-result v-bind:position="position">
+
+                        </position-result>
                     </div>
                     <div v-show="!positionsResult.Comprehensive">
                         <button id="find-position" v-on:click="findPositionsComprehensive">Last flere</button>
@@ -95,6 +83,87 @@
 </div>
 
 @*<pre>{{ $data | json }}</pre>*@
+
+
+<template id="position-result">
+
+    <div v-on:click="active = !active" class="list-item-content">
+        <span v-if="position.AddressData.Address" class="list-item-addressdata">{{ position.AddressData.Address }}</span>
+        <span v-if="position.AddressData.Place" class="list-item-addressdata">{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</span>
+        <span v-if="position.AddressData.Municipality" class="list-item-addressdata">{{ position.AddressData.Municipality }}</span>
+    </div>
+    <div v-bind:class="active ? 'active' : ''" class="modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <span class="modal-title">
+                    {{ position.title }}
+                </span>
+
+                <span v-on:click="active = !active" class="hide-modal fa fa-close pull-right"></span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="modal-list-item-title">N&aelig;rmeste adresse:</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <span class="modal-list-item-data">
+                            {{ position.AddressData.Address }}
+                        </span>
+                        <span class="modal-list-item-data">
+                            {{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}
+                        </span>
+                        <span class="modal-list-item-data">
+                            {{ position.AddressData.Municipality }}
+                        </span>
+                        <span class="modal-list-item-data">
+                            {{ position.AddressData.DistanceFromPosition }} meter unna punktet
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="modal-list-item-title"> Koordinatsystem:</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <span class="modal-list-item-data">
+                            {{ position.CoordinateSystem.Name }}
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="modal-list-item-title"> Øst-koordinat:</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <span class="modal-list-item-data">{{ position.Coordinates.X }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="modal-list-item-title"> Nord-koordinat:</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <span class="modal-list-item-data">{{ position.Coordinates.Y }}</span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="modal-list-item-title">Koordinater for mobil enhet:</span>
+                        <span class="modal-list-item-data">
+                            {{position.ReferenceCoordinates.X}}, {{position.ReferenceCoordinates.Y}}
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+
 
 <script>
     L.Icon.Default.imagePath = '/Content/assets/images/';

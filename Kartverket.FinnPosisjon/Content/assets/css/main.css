@@ -3404,18 +3404,49 @@ input:focus {
 .no-margin-right {
   margin-right: 0 !important; }
 
+.no-padding {
+  padding: 0 !important; }
+
+.no-padding-top {
+  padding-top: 0 !important; }
+
+.no-padding-bottom {
+  padding-bottom: 0 !important; }
+
+.no-padding-left {
+  padding-left: 0 !important; }
+
+.no-padding-right {
+  padding-right: 0 !important; }
+
+@media (min-width: 750px) {
+  .no-padding-left-big {
+    padding-left: 0 !important; }
+  .no-padding-right-big {
+    padding-right: 0 !important; } }
+
 .list .list-item {
-  padding: 12px 0;
   display: block; }
   .list .list-item:not(:first-child) {
     border-top: 1px solid #ededed; }
+  .list .list-item.list-item-clickable:hover {
+    background-color: #e3e3e3; }
+  .list .list-item.list-item-clickable .list-item-content {
+    cursor: pointer; }
+  .list .list-item .list-item-content {
+    padding: 12px 16px; }
   .list .list-item .list-item-title {
     font-size: 18pt; }
   .list .list-item .list-item-description {
     font-size: 12pt; }
 
+.list.position-list .list-item-addressdata {
+  display: block; }
+  .list.position-list .list-item-addressdata:first-child {
+    font-size: 18pt; }
+
 @media (min-width: 992px) {
-  .list.coordinate-list {
+  .list.position-list {
     overflow: auto;
     height: 600px; } }
 
@@ -3423,6 +3454,13 @@ input:focus {
   width: 65px;
   height: 65px;
   margin-top: 55px; }
+
+.modal-list-item-title {
+  display: block;
+  font-weight: bold; }
+
+.modal-list-item-data {
+  display: block; }
 
 .map,
 .leaflet-container {
@@ -3511,6 +3549,34 @@ input:focus {
 @media (min-width: 1160px) {
   .hide-big {
     display: none !important; } }
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000; }
+  .modal.active {
+    display: block; }
+  .modal .modal-container {
+    width: 600px;
+    background: #FFF;
+    border: 1px solid #EEE;
+    margin: auto;
+    margin-top: 15%;
+    border-radius: 4px;
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12); }
+    .modal .modal-container .modal-header {
+      background-color: #e3e3e3;
+      padding: 10px 25px;
+      font-size: 1.2em; }
+      .modal .modal-container .modal-header .hide-modal {
+        cursor: pointer; }
+    .modal .modal-container .modal-body {
+      padding: 25px; }
 
 .navbar {
   position: fixed;

@@ -5,50 +5,57 @@ namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateInputParser
     {
-        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput)
+        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput, bool comprehensive = false)
         {
             double firstCoordinate;
             double secondCoordinate;
 
             var coordinates = new List<Coordinates>();
 
-            if (double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) &&
-                double.TryParse(secondInput.Replace(".", ","), out secondCoordinate))
+            if (!double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) ||
+                !double.TryParse(secondInput.Replace(".", ","), out secondCoordinate))
+                return coordinates;
+
+            coordinates.AddRange(new[]
+            {
+                new Coordinates
+                {
+                    // Normal order
+                    X = firstCoordinate,
+                    Y = secondCoordinate
+                },
+                new Coordinates
+                {
+                    // Swapped order
+                    X = secondCoordinate,
+                    Y = firstCoordinate
+                }
+            });
+
+            if (comprehensive)
                 coordinates.AddRange(new[]
                 {
                     new Coordinates
                     {
-                        // Normal order
-                        X = firstCoordinate,
-                        Y = secondCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order
-                        X = secondCoordinate,
-                        Y = firstCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Normal order, negative X
+                        // Normal order, inverted X
                         X = 0 - firstCoordinate,
                         Y = secondCoordinate
                     },
                     new Coordinates
                     {
-                        // Normal order, negative Y
+                        // Normal order, inverted Y
                         X = firstCoordinate,
                         Y = 0 - secondCoordinate
                     },
                     new Coordinates
                     {
-                        // Swapped order, negative X
+                        // Swapped order, inverted X
                         X = 0 - secondCoordinate,
                         Y = firstCoordinate
                     },
                     new Coordinates
                     {
-                        // Swapped order, negative Y
+                        // Swapped order, inverted Y
                         X = secondCoordinate,
                         Y = 0 - firstCoordinate
                     }

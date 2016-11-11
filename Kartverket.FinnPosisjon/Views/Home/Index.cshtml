@@ -225,7 +225,7 @@
                     this.thirdInput;
 
                 if (comprehensive) url += '&comprehensive=true';
-
+                $("#loading-animation, #results").addClass("active");
                 this.$http.get(url)
                     .then(function(result) {
                             $("#loading-animation").removeClass("active");

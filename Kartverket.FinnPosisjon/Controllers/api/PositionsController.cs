@@ -35,7 +35,14 @@ namespace Kartverket.FinnPosisjon.Controllers.api
             if (positionsResult.Positions.Count > 0 || comprehensive)
                 return Json(positionsResult);
 
-            // Auto-comprehensive:
+            // Use all coordinatesystems:
+            positionFinder.SupportedCoordinateSystems = CoordinateSystemsSetup.Get();
+            positionsResult.Positions = positionFinder.Find(coordinates);
+
+            if (positionsResult.Positions.Count > 0)
+                return Json(positionsResult);
+
+            // Auto-comprehensive - include inverted coordinatevalues:
             coordinates = CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: true);
             positionFinder.SupportedCoordinateSystems = CoordinateSystemsSetup.Get();
             positionsResult.Positions = positionFinder.Find(coordinates);

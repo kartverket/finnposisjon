@@ -17,8 +17,8 @@ namespace Kartverket.FinnPosisjon.Services
             var radius = 0.2; // km
             const double maxRadius = 25; // km
 
-            var x = position.ReferenceCoordinates.X.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
-            var y = position.ReferenceCoordinates.Y.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+            var x = position.ReferenceCoordinates.X.ToString(CultureInfo.InvariantCulture);
+            var y = position.ReferenceCoordinates.Y.ToString(CultureInfo.InvariantCulture);
 
             const int hitLimit = 200;
 

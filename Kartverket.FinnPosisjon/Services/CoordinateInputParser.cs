@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using Kartverket.FinnPosisjon.Models;
 
 namespace Kartverket.FinnPosisjon.Services
@@ -12,8 +13,11 @@ namespace Kartverket.FinnPosisjon.Services
 
             var coordinates = new List<Coordinates>();
 
-            if (!double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) ||
-                !double.TryParse(secondInput.Replace(".", ","), out secondCoordinate))
+            firstInput = firstInput.Replace(",", ".");
+            secondInput = secondInput.Replace(",", ".");
+
+            if (!double.TryParse(firstInput, NumberStyles.Any, CultureInfo.InvariantCulture, out firstCoordinate) ||
+                !double.TryParse(secondInput, NumberStyles.Any, CultureInfo.InvariantCulture, out secondCoordinate))
                 return coordinates;
 
             coordinates.AddRange(new[]

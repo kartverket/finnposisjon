@@ -15,11 +15,8 @@ namespace Kartverket.FinnPosisjon.Services
             const string parameterizedWebServiceUrl =
                 "http://www.norgeskart.no/ws/trans.py?ost={0}&nord={1}&sosiKoordSys={2}&resSosiKoordSys={3}";
 
-            var x = coordinates.X.ToString(CultureInfo.InvariantCulture);
-            var y = coordinates.Y.ToString(CultureInfo.InvariantCulture);
-
-            x = x.Replace(",", "."); // TODO: Handle with correct CultureInfo
-            y = y.Replace(",", "."); // TODO: Handle with correct CultureInfo
+            var x = coordinates.X.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+            var y = coordinates.Y.ToString(CultureInfo.CreateSpecificCulture("en-GB"));
 
             var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
 

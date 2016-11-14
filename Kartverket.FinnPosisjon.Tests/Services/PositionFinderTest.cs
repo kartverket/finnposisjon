@@ -5,7 +5,7 @@ using Kartverket.FinnPosisjon.Models;
 using Kartverket.FinnPosisjon.Services;
 using Xunit;
 
-namespace Kartverket.FinnPosisjon.Tests
+namespace Kartverket.FinnPosisjon.Tests.Services
 {
     public class PositionFinderTest
     {
@@ -14,7 +14,7 @@ namespace Kartverket.FinnPosisjon.Tests
             SupportedCoordinateSystems = CoordinateSystemsSetup.Get()
         };
 
-        [Fact (Skip= "Unknown problem")]
+        [Fact]
         public void ShouldFindPositionWithCoordSysEu89UtmZone33()
         {
             var coordinates = new Coordinates {X = 288889.7639, Y = 7231445.376};

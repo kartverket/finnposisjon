@@ -8,6 +8,12 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 {
     public class CoordinateTransformerTests
     {
+        private static double ClipDecimals(double coordinate, int length)
+        {
+            return double.Parse(coordinate.ToString(CultureInfo.InvariantCulture).Substring(0, length),
+                CultureInfo.InvariantCulture);
+        }
+
         [Fact]
         public void TransformTest()
         {
@@ -94,11 +100,6 @@ namespace Kartverket.FinnPosisjon.Tests.Services
             ClipDecimals(transformedCoordinates.X, ).Should().Be();
             ClipDecimals(transformedCoordinates.Y, ).Should().Be();
             */
-        }
-        private static double ClipDecimals(double coordinate, int length)
-        {
-            return double.Parse(coordinate.ToString(CultureInfo.InvariantCulture).Substring(0, length),
-                CultureInfo.InvariantCulture);
         }
     }
 }

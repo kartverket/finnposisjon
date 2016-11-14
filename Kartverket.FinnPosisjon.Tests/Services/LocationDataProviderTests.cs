@@ -1,18 +1,16 @@
 ﻿using FluentAssertions;
 using Kartverket.FinnPosisjon.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Kartverket.FinnPosisjon.Services;
 using Xunit;
-using Xunit.Sdk;
 
-namespace Kartverket.FinnPosisjon.Services.Tests.Services
+namespace Kartverket.FinnPosisjon.Tests.Services
 {
-    [TestClass]
     public class LocationDataProviderTests
     {
         [Fact]
         public void FetchAndSetTest()
         {
-            var position = new Position {ReferenceCoordinates = new Coordinates {X = 9.05871164, Y = 59.41283416 }};
+            var position = new Position {ReferenceCoordinates = new Coordinates {X = 9.05871164, Y = 59.41283416}};
 
             AddressDataProvider.FetchAndSet(position);
 

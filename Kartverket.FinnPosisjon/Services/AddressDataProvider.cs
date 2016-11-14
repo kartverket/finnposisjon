@@ -19,6 +19,10 @@ namespace Kartverket.FinnPosisjon.Services
 
             var x = position.ReferenceCoordinates.X.ToString(CultureInfo.InvariantCulture);
             var y = position.ReferenceCoordinates.Y.ToString(CultureInfo.InvariantCulture);
+
+            x = x.Replace(",", "."); // TODO: Handle with correct CultureInfo
+            y = y.Replace(",", "."); // TODO: Handle with correct CultureInfo
+
             const int hitLimit = 200;
 
             object[] addresses = null;

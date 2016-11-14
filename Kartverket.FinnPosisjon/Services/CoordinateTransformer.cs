@@ -18,6 +18,9 @@ namespace Kartverket.FinnPosisjon.Services
             var x = coordinates.X.ToString(CultureInfo.InvariantCulture);
             var y = coordinates.Y.ToString(CultureInfo.InvariantCulture);
 
+            x = x.Replace(",", "."); // TODO: Handle with correct CultureInfo
+            y = y.Replace(",", "."); // TODO: Handle with correct CultureInfo
+
             var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
 
             var json = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);

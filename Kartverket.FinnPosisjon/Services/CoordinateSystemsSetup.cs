@@ -36,7 +36,7 @@ namespace Kartverket.FinnPosisjon.Services
                         // UTM zone 33
                         MinX = 288889.7639,
                         MaxX = 804809.936,
-                        MinY = 7231445.376, // Norway
+                        MinY = 7211211.98, // Norway
                         MaxY = 7866186.306 // Norway
                     }
                 },
@@ -49,7 +49,7 @@ namespace Kartverket.FinnPosisjon.Services
                         // UTM zone 35
                         MinX = 253177.3653,
                         MaxX = 683621.7167,
-                        MinY = 7866186.306, // Norway
+                        MinY = 7603094.00, // Norway
                         MaxY = 7924929.221 // Norway
                     }
                 },
@@ -127,8 +127,8 @@ namespace Kartverket.FinnPosisjon.Services
                         // NGO1948 Axis 5-8
                         MinX = -312424.3471,
                         MaxX = 410629.5171,
-                        MinY = 1507978.752, // Norway
-                        MaxY = 808453.3338 // Norway
+                        MinY = 808453.3338, // Norway
+                        MaxY = 1507978.752 // Norway
                     }
                 },
                 new CoordinateSystem
@@ -140,8 +140,8 @@ namespace Kartverket.FinnPosisjon.Services
                         // NGO1948 Axis 5-8
                         MinX = -312424.3471,
                         MaxX = 410629.5171,
-                        MinY = 1507978.752, // Norway
-                        MaxY = 808453.3338 // Norway
+                        MinY = 808453.3338, // Norway
+                        MaxY = 1507978.752 // Norway
                     }
                 },
                 new CoordinateSystem
@@ -153,8 +153,8 @@ namespace Kartverket.FinnPosisjon.Services
                         // NGO1948 Axis 5-8
                         MinX = -312424.3471,
                         MaxX = 410629.5171,
-                        MinY = 1507978.752, // Norway
-                        MaxY = 808453.3338 // Norway
+                        MinY = 808453.3338, // Norway
+                        MaxY = 1507978.752 // Norway
                     }
                 },
                 new CoordinateSystem
@@ -166,8 +166,8 @@ namespace Kartverket.FinnPosisjon.Services
                         // NGO1948 Axis 5-8
                         MinX = -312424.3471,
                         MaxX = 410629.5171,
-                        MinY = 1507978.752, // Norway
-                        MaxY = 808453.3338 // Norway
+                        MinY = 808453.3338, // Norway
+                        MaxY = 1507978.752 // Norway
                     }
                 },
                 new CoordinateSystem

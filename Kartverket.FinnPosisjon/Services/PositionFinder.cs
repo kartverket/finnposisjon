@@ -21,8 +21,10 @@ namespace Kartverket.FinnPosisjon.Services
             if (positions.Count == 0) return positions;
 
             foreach (var position in positions)
-                position.ReferenceCoordinates = CoordinateTransformer.Transform(position.Coordinates,
-                    position.CoordinateSystem.SosiCode, 84);
+                position.ReferenceCoordinates = CoordinateTransformer.Transform(
+                    position.Coordinates.X, position.Coordinates.Y,
+                    position.CoordinateSystem.SosiCode
+                );
 
             positions.RemoveAll(p => p.ReferenceCoordinates == null);
 

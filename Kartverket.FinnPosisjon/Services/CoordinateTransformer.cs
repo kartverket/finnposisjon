@@ -1,7 +1,4 @@
 ﻿using System.Globalization;
-using System.IO;
-using System.Net;
-using System.Text;
 using System.Web.Helpers;
 using Kartverket.FinnPosisjon.Models;
 
@@ -9,29 +6,28 @@ namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateTransformer
     {
-        public static Coordinates Transform(Coordinates coordinates, int coordinateSystemSosiCode,
-            int resultCoordinateSystemSosiCode)
-        {
-            const string parameterizedWebServiceUrl =
-                "http://www.norgeskart.no/ws/trans.py?ost={0}&nord={1}&sosiKoordSys={2}&resSosiKoordSys={3}";
+        private const string UrlTemplate =
+            "http://www.norgeskart.no/ws/trans.py?ost={0}&nord={1}&sosiKoordSys={2}&resSosiKoordSys={3}";
 
-            var xCoordinate = coordinates.X;
-            var yCoordinate = coordinates.Y;
-            
-            if (coordinateSystemSosiCode == 101) // Is Oslo local coord.sys.
+        private const int ToSosiCodeDefault = 84;
+
+        public static Coordinates Transform(double xCoordinate, double yCoordinate,
+            int fromSosiCode, int toSosiCode = ToSosiCodeDefault)
+        {
+            if (fromSosiCode == 101) // Is Oslo local coord.sys.
             {
-                // Convert to NGO1948 Axis 3
-                coordinateSystemSosiCode = 3;
+                // Converts to NGO1948 Axis 3 for transformation:
+                fromSosiCode = 3;
                 xCoordinate += 0.102;
                 yCoordinate += 212979.333;
             }
 
-            var x = xCoordinate.ToString(CultureInfo.InvariantCulture);
-            var y = yCoordinate.ToString(CultureInfo.InvariantCulture);
+            var east = xCoordinate.ToString(CultureInfo.InvariantCulture);
+            var north = yCoordinate.ToString(CultureInfo.InvariantCulture);
 
-            var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
+            var url = string.Format(UrlTemplate, east, north, fromSosiCode, toSosiCode);
 
-            var json = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);
+            var json = WebServiceCaller.GetJsonWebServiceResponse(url);
 
             if (string.IsNullOrEmpty(json)) return null;
 

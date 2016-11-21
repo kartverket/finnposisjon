@@ -92,14 +92,11 @@ namespace Kartverket.FinnPosisjon.Tests.Services
             ClipDecimals(transformedCoordinates.X, 6).Should().Be(10.753);
             ClipDecimals(transformedCoordinates.Y, 6).Should().Be(59.905);
 
-
             // Oslo local coordinate system
-            /*
-            coordinates = new Coordinates { X = 1936.87, Y = -597.994 };
-            transformedCoordinates = CoordinateTransformer.Transform(coordinates, 101, 84);
-            ClipDecimals(transformedCoordinates.X, ).Should().Be();
-            ClipDecimals(transformedCoordinates.Y, ).Should().Be();
-            */
+            originalCoordinates = new Coordinates { X = 1936.87, Y = -597.994 };
+            transformedCoordinates = CoordinateTransformer.Transform(originalCoordinates, 101, 84);
+            ClipDecimals(transformedCoordinates.X, 6).Should().Be(10.752);
+            ClipDecimals(transformedCoordinates.Y, 6).Should().Be(59.907);
         }
     }
 }

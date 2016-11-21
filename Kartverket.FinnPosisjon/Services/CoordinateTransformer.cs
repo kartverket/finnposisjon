@@ -15,8 +15,19 @@ namespace Kartverket.FinnPosisjon.Services
             const string parameterizedWebServiceUrl =
                 "http://www.norgeskart.no/ws/trans.py?ost={0}&nord={1}&sosiKoordSys={2}&resSosiKoordSys={3}";
 
-            var x = coordinates.X.ToString(CultureInfo.InvariantCulture);
-            var y = coordinates.Y.ToString(CultureInfo.InvariantCulture);
+            var xCoordinate = coordinates.X;
+            var yCoordinate = coordinates.Y;
+            
+            if (coordinateSystemSosiCode == 101) // Is Oslo local coord.sys.
+            {
+                // Convert to NGO1948 Axis 3
+                coordinateSystemSosiCode = 3;
+                xCoordinate += 0.102;
+                yCoordinate += 212979.333;
+            }
+
+            var x = xCoordinate.ToString(CultureInfo.InvariantCulture);
+            var y = yCoordinate.ToString(CultureInfo.InvariantCulture);
 
             var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, coordinateSystemSosiCode, resultCoordinateSystemSosiCode);
 

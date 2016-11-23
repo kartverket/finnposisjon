@@ -8,7 +8,7 @@ namespace Kartverket.FinnPosisjon.Controllers.api
 {
     public class PositionsController : ApiController
     {
-        public JsonResult<PositionsResult> Get(string firstInput, string secondInput, string thirdInput, bool comprehensive = false)
+        public JsonResult<PositionsResult> Get(string firstInput, string secondInput, bool comprehensive = false)
         {
             var positionsResult = new PositionsResult {Positions = new List<Position>()};
 
@@ -16,10 +16,8 @@ namespace Kartverket.FinnPosisjon.Controllers.api
             if (string.IsNullOrWhiteSpace(firstInput) || string.IsNullOrWhiteSpace(secondInput))
                 return Json(positionsResult);
 
-            // Create possible coordinates from 2 or 3 input values:
-            var coordinates = string.IsNullOrWhiteSpace(thirdInput)
-                ? CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: comprehensive)
-                : CoordinateInputParser.GetCoordinates(firstInput, secondInput, thirdInput);
+            // Create possible coordinates from input values:
+            var coordinates = CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: comprehensive);
 
             // Return an empty result if no coordinates could be made from the user input
             if (coordinates.Count == 0) return Json(positionsResult);

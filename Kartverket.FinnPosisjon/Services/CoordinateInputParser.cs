@@ -67,30 +67,5 @@ namespace Kartverket.FinnPosisjon.Services
 
             return coordinates;
         }
-
-        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput, string thirdInput)
-        {
-            double firstCoordinate;
-            double secondCoordinate;
-            double thirdCoordinate;
-
-            var coordinates = new List<Coordinates>();
-
-            if (double.TryParse(firstInput.Replace(".", ","), out firstCoordinate) &&
-                double.TryParse(secondInput.Replace(".", ","), out secondCoordinate) &&
-                double.TryParse(thirdInput.Replace(".", ","), out thirdCoordinate))
-                coordinates.AddRange(new[]
-                {
-                    new Coordinates
-                    {
-                        // Normal order
-                        X = firstCoordinate,
-                        Y = secondCoordinate,
-                        Z = thirdCoordinate
-                    }
-                });
-
-            return coordinates;
-        }
     }
 }

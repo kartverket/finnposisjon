@@ -7,8 +7,11 @@ namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateInputParser
     {
-        public static List<Coordinates> GetCoordinates(string firstInput, string secondInput, bool comprehensive = false)
+        public static List<Coordinates> GetCoordinates(CoordinateInput coordinateInput, bool comprehensive = false)
         {
+            var firstInput = coordinateInput.FirstInput;
+            var secondInput = coordinateInput.SecondInput;
+
             var coordinates = new Coordinates();
 
             var firstInputNumberUnits = GetNumberUnits(firstInput);

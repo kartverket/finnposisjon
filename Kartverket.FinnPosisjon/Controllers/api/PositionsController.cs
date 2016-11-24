@@ -12,12 +12,13 @@ namespace Kartverket.FinnPosisjon.Controllers.api
         {
             var positionsResult = new PositionsResult {Positions = new List<Position>()};
 
-            // Return an empty result if user input is invalid:
-            if (string.IsNullOrWhiteSpace(firstInput) || string.IsNullOrWhiteSpace(secondInput))
+            var coordinateInput = new CoordinateInput(firstInput, secondInput);
+
+            if (!coordinateInput.IsParsable())
                 return Json(positionsResult);
 
             // Create possible coordinates from input values:
-            var coordinates = CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: comprehensive);
+            var coordinates = CoordinateInputParser.GetCoordinates(coordinateInput, comprehensive: comprehensive);
 
             // Return an empty result if no coordinates could be made from the user input
             if (coordinates.Count == 0) return Json(positionsResult);
@@ -41,7 +42,7 @@ namespace Kartverket.FinnPosisjon.Controllers.api
                 return Json(positionsResult);
 
             // Auto-comprehensive - include inverted coordinatevalues:
-            coordinates = CoordinateInputParser.GetCoordinates(firstInput, secondInput, comprehensive: true);
+            coordinates = CoordinateInputParser.GetCoordinates(coordinateInput, comprehensive: true);
             positionFinder.SupportedCoordinateSystems = CoordinateSystemsSetup.Get();
             positionsResult.Positions = positionFinder.Find(coordinates);
             positionsResult.Comprehensive = true;

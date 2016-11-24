@@ -7,12 +7,20 @@
         }
 
         &.list-item-clickable {
-            &:hover {
+            &:hover, &.hover {
+                background-color: $hover-background-color;
+                .list-item-content{
+                    border: 5px solid $blue-bright;
+                }
+            }
+
+            &.active {
                 background-color: $gray-light;
             }
 
             .list-item-content {
                 cursor: pointer;
+                border: 5px solid transparent;
             }
         }
 

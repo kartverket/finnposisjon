@@ -28,7 +28,10 @@ namespace Kartverket.FinnPosisjon.Services
             {
                 var r = radius.ToString(CultureInfo.InvariantCulture);
                 var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, r, hitLimit);
+                radius *= 5;
                 var jsonResponseString = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);
+                if (string.IsNullOrEmpty(jsonResponseString)) break;
+
                 dynamic jsonAddressDataResponse = Json.Decode(jsonResponseString);
 
                 var jsonAddresses = jsonAddressDataResponse.adresser;
@@ -39,7 +42,7 @@ namespace Kartverket.FinnPosisjon.Services
                         ? jsonAddresses
                         : new object[] { jsonAddresses };
                 }
-                radius *= 5;
+                
             }
 
             if (addresses == null) return;

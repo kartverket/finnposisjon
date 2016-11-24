@@ -20,17 +20,9 @@ namespace Kartverket.FinnPosisjon.Services
                     return reader.ReadToEnd();
                 }
             }
-            catch (WebException ex)
+            catch (WebException exception)
             {
-                var errorResponse = ex.Response;
-
-                using (var responseStream = errorResponse.GetResponseStream())
-                {
-                    var reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
-                    var errorText = reader.ReadToEnd();
-                    // log errorText
-                }
-                throw;
+                return ""; // TODO Log error
             }
         }
     }

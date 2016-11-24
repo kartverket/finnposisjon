@@ -31,7 +31,10 @@
             </div>
             <div class="col-md-3 no-margin-bottom no-padding-left-big">
                 <div id="position-list" class="list position-list">
-                    <div v-for="position in positionsResult.Positions" class="list-item list-item-clickable">
+                    <div v-for="position in positionsResult.Positions"
+                         v-bind:id="'list-item-' + position.Identifier"
+                         v-bind:class="{ active: position.Identifier == activeMarkerIdentifier }"
+                         class="list-item list-item-clickable">
                         <position-result v-bind:position="position">
 
                         </position-result>
@@ -80,15 +83,16 @@
     </div>
 </div>
 
-@*<pre>{{ $data | json }}</pre>*@
-
-
 <template id="position-result">
 
-    <div v-on:click="active = !active" class="list-item-content">
+    <div v-on:click="selectFromList(position.Identifier)"
+         v-on:mouseover="hoverFromList(position.Identifier)"
+         v-on:mouseout="hoverLeaveFromList(position.Identifier)"
+         class="list-item-content">
         <span v-if="position.AddressData.Address" class="list-item-addressdata">{{ position.AddressData.Address }}</span>
         <span v-if="position.AddressData.Place" class="list-item-addressdata">{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</span>
         <span v-if="position.AddressData.Municipality" class="list-item-addressdata">{{ position.AddressData.Municipality }}</span>
+        <button v-on:click="active = !active">modal</button>
     </div>
     <div v-bind:class="active ? 'active' : ''" class="modal">
         <div class="modal-container">
@@ -178,6 +182,11 @@
 </script>
 
 <script>
+
+
+</script>
+
+<script>
     Vue.component('position-result', {
         template: '#position-result',
         props: ['position'],
@@ -203,16 +212,28 @@
                     case 'DegMinSec':
                         return coordinate.Degrees + '\u00B0 ' + coordinate.Minutes + '\u2032 ' + coordinate.Seconds + '\u2033';
                 }
+            },
+            selectFromList: function (identifier) {
+                setMarkerIcon(getMarker(identifier), selectedMarkerIcon);
+                app.activeMarkerIdentifier = identifier;
+            },
+            hoverFromList: function (identifier) {
+                setMarkerIcon(getMarker(identifier), hoverMarkerIcon);
+            },
+            hoverLeaveFromList: function (identifier) {
+                deSelectMarkers(getMarkers());
+                if (app.activeMarkerIdentifier) setMarkerIcon(getMarker(app.activeMarkerIdentifier), selectedMarkerIcon);
             }
         }
     });
 
-    new Vue({
+    var app = new Vue({
         el: 'body',
         data: {
             firstInput: '',
             secondInput: '',
             thirdInput: '',
+            activeMarkerIdentifier: '',
             positionsResult: '',
             showPrecisionOptions: false
         },
@@ -223,7 +244,7 @@
             findPositionsQuick() {
                 this.findPositions(false);
             },
-            findPositions: function(comprehensive) {
+            findPositions: function (comprehensive) {
 
                 var url = '/api/positions' +
                     '?firstInput=' +
@@ -236,18 +257,20 @@
                 if (comprehensive) url += '&comprehensive=true';
                 $("#loading-animation, #results").addClass("active");
                 this.$http.get(url)
-                    .then(function(result) {
-                            $("#loading-animation").removeClass("active");
-                            markers.clearLayers();
-                            this.positionsResult = result.body;
-                            $(this.positionsResult.Positions)
-                                .each(function() {
-                                    L.marker([this.ReferenceCoordinates.Y.DecimalValue, this.ReferenceCoordinates.X.DecimalValue])
-                                        .bindPopup("<b>" + this.Identifier + "</b>")
-                                        .addTo(markers);
-                                })
-                                .bind(this);
-                        }
+                    .then(function (result) {
+                        $("#loading-animation").removeClass("active");
+                        markers.clearLayers();
+                        this.positionsResult = result.body;
+                        $(this.positionsResult.Positions)
+                            .each(function () {
+                                L.marker([this.ReferenceCoordinates.Y.DecimalValue, this.ReferenceCoordinates.X.DecimalValue], { name: "marker", identifier: this.Identifier })
+                                    .addTo(markers)
+                                    .on("mouseover", hoverFromMap)
+                                    .on("mouseout", hoverLeaveFromMap)
+                                    .on("click", selectFromMap);
+                            })
+                            .bind(this);
+                    }
                     )
                     .bind(this);
             }

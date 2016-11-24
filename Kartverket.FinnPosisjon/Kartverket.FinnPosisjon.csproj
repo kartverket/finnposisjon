@@ -139,6 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BoundaryBox.cs" />
+    <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\Coordinates.cs" />
     <Compile Include="Models\CoordinateSystem.cs" />
     <Compile Include="Models\AddressData.cs" />

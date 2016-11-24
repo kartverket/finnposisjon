@@ -17,7 +17,7 @@ namespace Kartverket.FinnPosisjon.Tests.Services
         [Fact]
         public void ShouldFindPositionWithCoordSysEu89UtmZone33()
         {
-            var coordinates = new Coordinates {X = 288889.7639, Y = 7231445.376};
+            var coordinates = new Coordinates {X = new Coordinate(288889.7639), Y = new Coordinate(7231445.376)};
 
             var positions = PositionFinder.Find(new List<Coordinates> {coordinates});
 

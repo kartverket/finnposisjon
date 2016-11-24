@@ -36,8 +36,8 @@ namespace Kartverket.FinnPosisjon.Services
             return transformationResponse.ErrKode == 0
                 ? new Coordinates
                 {
-                    X = transformationResponse.Ost,
-                    Y = transformationResponse.Nord
+                    X = new Coordinate(transformationResponse.Ost),
+                    Y = new Coordinate(transformationResponse.Nord)
                 }
                 : null;
         }

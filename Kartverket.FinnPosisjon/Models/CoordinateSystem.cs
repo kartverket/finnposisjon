@@ -9,8 +9,8 @@
 
         public bool IsOutOfBounds(Coordinates coordinates)
         {
-            return (coordinates.X < BoundaryBox.MinX) || (coordinates.X > BoundaryBox.MaxX)
-                   || (coordinates.Y < BoundaryBox.MinY) || (coordinates.Y > BoundaryBox.MaxY);
+            return (coordinates.X.DecimalValue < BoundaryBox.MinX) || (coordinates.X.DecimalValue > BoundaryBox.MaxX)
+                   || (coordinates.Y.DecimalValue < BoundaryBox.MinY) || (coordinates.Y.DecimalValue > BoundaryBox.MaxY);
         }
     }
 }

@@ -17,8 +17,8 @@ namespace Kartverket.FinnPosisjon.Services
             var radius = 0.2; // km
             const double maxRadius = 25; // km
 
-            var x = position.ReferenceCoordinates.X.ToString(CultureInfo.InvariantCulture);
-            var y = position.ReferenceCoordinates.Y.ToString(CultureInfo.InvariantCulture);
+            var x = position.ReferenceCoordinates.X.DecimalValue.ToString(CultureInfo.InvariantCulture);
+            var y = position.ReferenceCoordinates.Y.DecimalValue.ToString(CultureInfo.InvariantCulture);
 
             const int hitLimit = 200;
 
@@ -65,10 +65,10 @@ namespace Kartverket.FinnPosisjon.Services
         private static double GetDistance(Coordinates addressDataCoordinates, Coordinates refCoordinates)
         {
             const double r = 6387497.792; // metres
-            var φ1 = ToRadians(refCoordinates.X);
-            var φ2 = ToRadians(addressDataCoordinates.X);
-            var Δφ = ToRadians(addressDataCoordinates.X - refCoordinates.X);
-            var Δλ = ToRadians(addressDataCoordinates.Y - refCoordinates.Y);
+            var φ1 = ToRadians(refCoordinates.X.DecimalValue);
+            var φ2 = ToRadians(addressDataCoordinates.X.DecimalValue);
+            var Δφ = ToRadians(addressDataCoordinates.X.DecimalValue - refCoordinates.X.DecimalValue);
+            var Δλ = ToRadians(addressDataCoordinates.Y.DecimalValue - refCoordinates.Y.DecimalValue);
 
             var a = Math.Sin(Δφ/2)*Math.Sin(Δφ/2) +
                     Math.Cos(φ1)*Math.Cos(φ2)*

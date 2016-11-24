@@ -134,7 +134,7 @@
                         <span class="modal-list-item-title"> &Oslash;st-koordinat:</span>
                     </div>
                     <div class="col-sm-8">
-                        <span class="modal-list-item-data">{{ position.Coordinates.X }}</span>
+                        <span  class="modal-list-item-data">{{ getCoordinate(position.Coordinates.X) }}</span>
                     </div>
                 </div>
                 <div class="row">
@@ -142,7 +142,7 @@
                         <span class="modal-list-item-title"> Nord-koordinat:</span>
                     </div>
                     <div class="col-sm-8">
-                        <span class="modal-list-item-data">{{ position.Coordinates.Y }}</span>
+                        <span class="modal-list-item-data">{{ getCoordinate(position.Coordinates.Y) }}</span>
                     </div>
                 </div>
                 <hr />
@@ -150,7 +150,7 @@
                     <div class="col-sm-12">
                         <span class="modal-list-item-title">Koordinater for mobil enhet:</span>
                         <span class="modal-list-item-data">
-                            {{position.ReferenceCoordinates.X}}, {{position.ReferenceCoordinates.Y}}
+                            {{ getCoordinate(position.ReferenceCoordinates.X) }}, {{ getCoordinate(position.ReferenceCoordinates.Y) }}
                         </span>
                     </div>
                 </div>
@@ -193,6 +193,16 @@
                 else if (this.position.AddressData.Place) title = this.position.AddressData.Place;
                 else if (this.position.AddressData.Municipality) title = this.position.AddressData.Municipality;
                 this.position.title = title;
+            },
+            getCoordinate: function (coordinate) {
+                switch (coordinate.Format) {
+                    case 'Decimal':
+                        return coordinate.DecimalValue;
+                    case 'DegMin':
+                        return coordinate.Degrees + '\u00B0 ' + coordinate.Minutes + '\u2032';
+                    case 'DegMinSec':
+                        return coordinate.Degrees + '\u00B0 ' + coordinate.Minutes + '\u2032 ' + coordinate.Seconds + '\u2033';
+                }
             }
         }
     });
@@ -232,7 +242,7 @@
                             this.positionsResult = result.body;
                             $(this.positionsResult.Positions)
                                 .each(function() {
-                                    L.marker([this.ReferenceCoordinates.Y, this.ReferenceCoordinates.X])
+                                    L.marker([this.ReferenceCoordinates.Y.DecimalValue, this.ReferenceCoordinates.X.DecimalValue])
                                         .bindPopup("<b>" + this.Identifier + "</b>")
                                         .addTo(markers);
                                 })

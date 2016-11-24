@@ -22,7 +22,7 @@ namespace Kartverket.FinnPosisjon.Services
 
             foreach (var position in positions)
                 position.ReferenceCoordinates = CoordinateTransformer.Transform(
-                    position.Coordinates.X, position.Coordinates.Y,
+                    position.Coordinates.X.DecimalValue, position.Coordinates.Y.DecimalValue,
                     position.CoordinateSystem.SosiCode
                 );
 

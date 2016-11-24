@@ -35,7 +35,7 @@ namespace Kartverket.FinnPosisjon.Services
             var jsonLocationX = double.Parse(jsonLocation.aust, CultureInfo.InvariantCulture);
             var jsonLoactionY = double.Parse(jsonLocation.nord, CultureInfo.InvariantCulture);
 
-            return new Coordinates {X = jsonLocationX, Y = jsonLoactionY};
+            return new Coordinates {X = new Coordinate(jsonLocationX), Y = new Coordinate(jsonLoactionY)};
         }
     }
 }

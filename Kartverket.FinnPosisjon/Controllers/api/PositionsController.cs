@@ -28,9 +28,9 @@ namespace Kartverket.FinnPosisjon.Controllers.api
             // Try find positions for the coordinates, within supported coordinatesystems and defined limits:
             var positionFinder = new PositionFinder {SupportedCoordinateSystems = supportedCoordinateSystems};
             positionsResult.Positions = positionFinder.Find(coordinates);
-            positionsResult.Comprehensive = comprehensive || (positionsResult.Positions.Count > 0 && positionsResult.Positions[0].CoordinateSystem.SosiCode == 84);
+            positionsResult.Comprehensive = comprehensive || coordinates[0].X.Format.StartsWith("Deg");
 
-            if (positionsResult.Positions.Count > 0 || comprehensive)
+            if (positionsResult.Positions.Count > 0 || positionsResult.Comprehensive)
                 return Json(positionsResult);
 
             // Use all coordinatesystems:

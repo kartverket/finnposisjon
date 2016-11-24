@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using Kartverket.FinnPosisjon.Services;
 using Xunit;

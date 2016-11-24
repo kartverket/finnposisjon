@@ -94,6 +94,24 @@
 }
 
 hr {
-    border-top: 1px solid $gray-light;
+    border-top: 1px solid $gray-bright;
     border-bottom: none;
+}
+
+.show-on-hover {
+    opacity: 0;
+}
+
+.hover .show-on-hover,
+:hover > .show-on-hover {
+    opacity: 1;
+}
+
+.show-on-active {
+    opacity: 0;
+}
+
+.active .show-on-active,
+:active > .show-on-active {
+    opacity: 1;
 }

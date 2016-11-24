@@ -9,18 +9,18 @@
         &.list-item-clickable {
             &:hover, &.hover {
                 background-color: $hover-background-color;
-                .list-item-content{
-                    border: 5px solid $blue-bright;
-                }
             }
 
             &.active {
-                background-color: $gray-light;
+                background-color: $gray-brighter;
+
+                &:hover, &.hover {
+                    background-color: $hover-background-color;
+                }
             }
 
             .list-item-content {
-                cursor: pointer;
-                border: 5px solid transparent;
+                cursor: default;
             }
         }
 
@@ -39,6 +39,11 @@
 
         .list-item-description {
             font-size: 12pt;
+        }
+
+        .list-item-link {
+            color: $primary-color;
+            cursor: pointer;
         }
     }
 

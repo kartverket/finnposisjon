@@ -92,7 +92,8 @@
         <span v-if="position.AddressData.Address" class="list-item-addressdata">{{ position.AddressData.Address }}</span>
         <span v-if="position.AddressData.Place" class="list-item-addressdata">{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</span>
         <span v-if="position.AddressData.Municipality" class="list-item-addressdata">{{ position.AddressData.Municipality }}</span>
-        <button v-on:click="active = !active">modal</button>
+        <span v-on:click="active = !active" class="list-item-link pull-right"><span class="fa fa-info-circle"></span> Se detaljer</span>
+        <div class="clearfix"></div>
     </div>
     <div v-bind:class="active ? 'active' : ''" class="modal">
         <div class="modal-container">
@@ -138,7 +139,7 @@
                         <span class="modal-list-item-title"> &Oslash;st-koordinat:</span>
                     </div>
                     <div class="col-sm-8">
-                        <span  class="modal-list-item-data">{{ getCoordinate(position.Coordinates.X) }}</span>
+                        <span class="modal-list-item-data">{{ getCoordinate(position.Coordinates.X) }}</span>
                     </div>
                 </div>
                 <div class="row">

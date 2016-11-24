@@ -180,9 +180,7 @@
     <Content Include="Content\src\images\ripple.svg" />
     <Content Include="Content\src\js\jquery.min.js" />
     <Content Include="Content\src\js\leaflet.js" />
-    <Content Include="Content\src\js\map-init.js" />
     <Content Include="Content\src\js\app.js" />
-    <Content Include="Content\src\js\tooltip-popover.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />
     <Content Include="Content\src\js\vue.min.js" />
     <Content Include="favicon.ico" />

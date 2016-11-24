@@ -14,7 +14,7 @@ namespace Kartverket.FinnPosisjon.Tests.Services
             SupportedCoordinateSystems = CoordinateSystemsSetup.Get()
         };
 
-        [Fact]
+        [Fact(Skip = "Slow: Uses external service")]
         public void ShouldFindPositionWithCoordSysEu89UtmZone33()
         {
             var coordinates = new Coordinates {X = new Coordinate(288889.7639), Y = new Coordinate(7231445.376)};

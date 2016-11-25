@@ -30,6 +30,12 @@
                 </div>
             </div>
             <div class="col-md-3 no-margin-bottom no-padding-left-big">
+                <div v-if="mapCanHaveHiddenMarkers" id="result-statusbar">
+                    <p style="border-bottom: 1px solid #F3F3F3; padding: 3px 15px">&nbsp;
+                        <a v-on:click="showAllMarkers" style="float: right; cursor: pointer">Vis alle p&aring; kartet</a>
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
                 <div id="position-list" class="list position-list">
                     <div v-for="position in positionsResult.Positions"
                          v-bind:id="'list-item-' + position.Identifier"
@@ -271,11 +277,24 @@
                                     .on("mouseover", hoverFromMap)
                                     .on("mouseout", hoverLeaveFromMap)
                                     .on("click", selectFromMap);
-                            })
-                            .bind(this);
-                    }
+                            });
+                            this.showAllMarkers();
+                        }
                     )
                     .bind(this);
+            },
+            showAllMarkers: function() {
+                var bounds = [];
+                getMarkers().forEach(function (marker) {
+                    bounds.push(marker._latlng);
+                });
+                map.fitBounds(new L.LatLngBounds(bounds));
+            }
+        },
+        computed: {
+            mapCanHaveHiddenMarkers: function() {
+                return this.positionsResult.Positions.length > 0;
+                // TODO: return false if map is fitted to markers allready
             }
         }
     });

@@ -215,8 +215,10 @@
                 }
             },
             selectFromList: function (identifier) {
-                setMarkerIcon(getMarker(identifier), selectedMarkerIcon);
+                var marker = getMarker(identifier);
+                setMarkerIcon(marker, selectedMarkerIcon);
                 app.activeMarkerIdentifier = identifier;
+                map.panTo(new L.LatLng(marker._latlng.lat, marker._latlng.lng));
             },
             hoverFromList: function (identifier) {
                 setMarkerIcon(getMarker(identifier), hoverMarkerIcon);

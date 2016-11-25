@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-3 no-margin-bottom no-padding-left-big">
                 <div v-if="mapCanHaveHiddenMarkers" id="result-statusbar">
-                    <p style="border-bottom: 1px solid #F3F3F3; padding: 3px 15px">&nbsp;
+                    <p style="border-bottom: 1px solid #F3F3F3; padding: 3px 15px">Antall posisjoner funnet: {{ positionsResult.Positions.length }}
                         <a v-on:click="showAllMarkers" style="float: right; cursor: pointer">Vis alle p&aring; kartet</a>
                     </p>
                     <div class="clearfix"></div>

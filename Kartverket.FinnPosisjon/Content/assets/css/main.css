@@ -3678,7 +3678,9 @@ input:focus {
 
 .loading-animation {
   background-image: url(/Content/Assets/images/ripple.svg);
-  height: 400px;
+  height: -moz-calc(100% - 64px);
+  height: -webkit-calc(100% - 64px);
+  height: calc(100% - 64px);
   width: 100%;
   position: absolute;
   left: 0;

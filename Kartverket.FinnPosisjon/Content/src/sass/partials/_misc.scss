@@ -17,7 +17,7 @@
 
 .loading-animation {
     background-image: url(/Content/Assets/images/ripple.svg);
-    height: 400px;
+    @include calc(height, '100% - 64px');
     width: 100%;
     position: absolute;
     left: 0;

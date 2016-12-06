@@ -117,3 +117,13 @@ function selectMarker(identifier) {
     deSelectMarkers(getMarkers());
     setMarkerIcon(getMarker(identifier), icon);
 }
+
+$(document).ready(function () {
+    $("#find-position, .toggle-coordinates-input").click(function () {
+        $("body").toggleClass("has-dropdown");
+    });
+
+    $(".toggle-sidebar").click(function () {
+        $("body").toggleClass("has-sidebar");
+    });
+});

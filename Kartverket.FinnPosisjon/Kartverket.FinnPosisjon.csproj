@@ -347,6 +347,10 @@
     <Content Include="Content\src\sass\partials\_map.scss" />
     <Content Include="Content\src\sass\partials\_helpers.scss" />
     <Content Include="Content\src\sass\partials\_modals.scss" />
+    <Content Include="Content\src\sass\mixins\_transition.scss" />
+    <Content Include="Content\src\sass\mixins\_opacity.scss" />
+    <Content Include="Content\src\sass\mixins\_calc.scss" />
+    <Content Include="Content\src\sass\mixins\_box-shadow.scss" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>

@@ -88,7 +88,7 @@ namespace Kartverket.FinnPosisjon.Services
         {
             input = input.Replace(",", "."); // Do as part of regex?
 
-            const string findNumberUnitsPattern = "(\\d*\\.*)?\\d+";
+            const string findNumberUnitsPattern = "(\\-?\\d*\\.?)\\d+";
 
             var numberUnits = new List<double>();
 

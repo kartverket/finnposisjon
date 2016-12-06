@@ -4,3 +4,6 @@
 @mixin hover-color($color) {
   background-color: lighten($color, 4);
 }
+@mixin border-color($color) {
+    border-color: darken($color, 4);
+}

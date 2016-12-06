@@ -133,12 +133,8 @@
     L.Icon.Default.imagePath = '/Content/assets/images/';
     var map = L.map('map', { continuousWorld: true }).setView([64.5, 10], 5);
     var markers;
-    new L.TileLayer.WMS("http://wms.geonorge.no/skwms1/wms.topo2", {
-        layers: 'topo2_WMS',
-        format: 'image/png',
-        attribution: "Kartverket",
-        version: '1.3.0',
-        transparent: true
+    L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}', {
+        attribution: '<a href="http://www.kartverket.no/">Kartverket</a>'
     }).addTo(map);
     markers = new L.LayerGroup().addTo(map);
 </script>

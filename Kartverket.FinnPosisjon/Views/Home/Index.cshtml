@@ -39,7 +39,7 @@
 
             </position-result>
         </div>
-        <div class="list-item list-item-button" v-show="!positionsResult.Comprehensive && positionsResult.Positions.length > 0">
+        <div class="list-item list-item-button" v-show="!positionsResult.Comprehensive && positionsResult.Positions !== undefined && positionsResult.Positions.length > 0">
             <button id="find-position" v-on:click="findPositionsComprehensive">Last flere</button>
         </div>
     </div>
@@ -240,7 +240,7 @@
         },
         computed: {
             mapCanHaveHiddenMarkers: function () {
-                return this.positionsResult.Positions.length > 0;
+                return this.positionsResult.Positions !== undefined && this.positionsResult.Positions.length > 0;
                 // TODO: return false if map is fitted to markers allready
             }
         }

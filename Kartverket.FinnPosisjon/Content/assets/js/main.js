@@ -118,6 +118,27 @@ function selectMarker(identifier) {
     setMarkerIcon(getMarker(identifier), icon);
 }
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function parametersIsSet(parameterNames) {
+    var allParametersSet = true;
+    parameterNames.forEach(function (parameterName) {
+        if (getParameterByName(parameterName).length == 0) {
+            allParametersSet = false;
+        }
+    });
+    return allParametersSet;
+}
+
+function getRootUrl() {
+    return window.location.protocol + "//" + window.location.host;
+}
+
 $(document).ready(function () {
     $("#find-position, .toggle-coordinates-input").click(function () {
         $("body").toggleClass("has-dropdown");
@@ -126,4 +147,11 @@ $(document).ready(function () {
     $(".toggle-sidebar").click(function () {
         $("body").toggleClass("has-sidebar");
     });
+});
+
+var requiredUrlParameters = ['x', 'y'];
+
+$(document).ready(function () {
+    var autoTriggerSearch = parametersIsSet(requiredUrlParameters);
+    if (autoTriggerSearch) app.findPositions(false);
 });

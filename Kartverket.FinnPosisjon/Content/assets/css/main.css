@@ -4047,6 +4047,11 @@ body.sidebar-active .left-menu {
   -o-transition: top 0.5s;
   -webkit-transition: top 0.5s;
   transition: top 0.5s; }
+  .coordinates-input button {
+    float: right; }
+    @media only screen and (min-width: 768px) {
+      .coordinates-input button {
+        float: none; } }
 
 .has-dropdown .coordinates-input {
   top: 48px;

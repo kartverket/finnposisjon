@@ -307,6 +307,14 @@ body.sidebar-active .left-menu {
     top: -189px;
     background-color: #FFF;
     @include transition(top .5s);
+
+    button {
+        float: right;
+
+        @media only screen and (min-width: 768px) {
+            float: none;
+        }
+    }
 }
 
 .has-dropdown {

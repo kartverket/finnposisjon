@@ -3,8 +3,9 @@
     background-color: #FFF;
     height: 48px;
     width: 100%;
-    z-index: 1001;
+    z-index: 1003;
     top: 0;
+    @include box-shadow(0, 2px, 5px, rgba(0,0,0,.26));
 
     .logo {
         display: block;
@@ -39,21 +40,24 @@ a {
     color: $primary-color;
 }
 
-a.sidenav-toggle {
+a.sidenav-toggle,
+.toggle-coordinates-input {
     font-size: 20pt;
     display: inline-block;
     vertical-align: bottom;
     padding: 0 15px;
     cursor: pointer;
+    line-height: 48px;
+    color: $main-text-color;
+    @include transition(background .2s .1s, color .2s .1s);
 
     &:hover {
-        -webkit-transition: background .2s .1s;
-        transition: background .2s .1s;
         background-color: rgba(158, 158, 158, 0.2);
     }
 
     &:active {
         @include active-color($primary-color);
+        color: #FFF;
     }
 
     .sidenav-toggle-logo {
@@ -133,6 +137,7 @@ ul {
     ul li a {
         border-bottom: none;
         line-height: 60px;
+
         &:hover {
             border-bottom: none;
             background-color: #2571b2;
@@ -232,7 +237,7 @@ body.sidebar-active .left-menu {
     }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
     .navbar {
         height: 64px;
 
@@ -289,3 +294,85 @@ body.sidebar-active .left-menu {
         }
     }
 }
+
+
+
+
+.coordinates-input {
+    position: fixed;
+    width: 100%;
+    z-index: 1002;
+    padding: 12px 0;
+    left: 0;
+    top: -189px;
+    background-color: #FFF;
+    @include transition(top .5s);
+}
+
+.has-dropdown {
+    .coordinates-input {
+        top: 48px;
+        @include transition(top .5s);
+        @include box-shadow(0, 2px, 5px, rgba(0,0,0,.26));
+
+        @media only screen and (min-width: 768px) {
+            top: 0;
+        }
+    }
+
+    .navbar {
+        box-shadow: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .coordinates-input,
+    .has-dropdown .coordinates-input {
+        top: 0;
+        z-index: 1003;
+        background-color: transparent;
+        left: 230px;
+        box-shadow: none;
+        @include calc(width, '100% - 230px');
+
+        input {
+            background-color: #FFF;
+        }
+
+        button,
+        .button,
+        input[type="button"],
+        input[type="submit"] {
+            background-color: #FFF;
+            border: 5px solid #FFF;
+            white-space: nowrap;
+
+            &:hover, &:focus {
+                border: solid 5px $blue-bright;
+                background-color: #CBD5DE;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .has-dropdown .navbar {
+        @include box-shadow(0, 2px, 5px, rgba(0,0,0,.26));
+    }
+}
+
+/*
+.coordinates-input{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+    padding: 12px 0;
+    input{
+        background-color: #FFF;
+    }
+    button{
+        background-color: #FFF;
+        border: 5px solid #FFF;
+    }
+}
+*/

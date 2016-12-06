@@ -9,13 +9,19 @@
         &.list-item-clickable {
             &:hover, &.hover {
                 background-color: $hover-background-color;
+
+                .list-item-link {
+                    color: $primary-color;
+                }
             }
 
             &.active {
-                background-color: $gray-brighter;
+                background-color: $primary-color;
+                @include border-color($primary-color);
 
-                &:hover, &.hover {
-                    background-color: $hover-background-color;
+                .list-item-link,
+                .list-item-content > span {
+                    color: #FFF;
                 }
             }
 
@@ -42,39 +48,28 @@
         }
 
         .list-item-link {
-            color: $primary-color;
+            color: transparent;
             cursor: pointer;
+            margin-top: -10px;
+            padding: 5px 12px;
+            background-color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
         }
     }
 
     &.position-list {
+        overflow: auto;
+        @include calc(height, '100% - 144px');
+
         .list-item-addressdata {
             display: block;
 
             &:first-child {
-                font-size: 18pt;
-            }
-        }
-
-        @media (min-width: 992px) {
-            overflow: auto;
-            height: 600px;
-        }
-    }
-
-    &.precision-list {
-        .list-item {
-            .list-item-image {
-                img {
-                    width: 65px;
-                    height: 65px;
-                    margin-top: 55px;
-                }
+                font-size: 16pt;
             }
         }
     }
 }
-
 
 .modal-list-item-title {
     display: block;

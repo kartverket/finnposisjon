@@ -1,13 +1,22 @@
 ﻿.map,
 .leaflet-container {
     background-color: #FAFAFA;
-    height: 400px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 48px;
+    left: 0;
+    @include transition(left .5s);
 
-    @media (min-width: 750px) {
-        height: 500px;
+    @media only screen and (min-width: 768px) {
+        top: 64px;
     }
+}
 
-    @media (min-width: 992px) {
-        height: 600px;
+.has-sidebar {
+    .map,
+    .leaflet-container {
+        left: 300px;
+        @include transition(left .5s);
     }
 }

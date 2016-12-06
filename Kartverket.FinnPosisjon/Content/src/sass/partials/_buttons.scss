@@ -16,3 +16,35 @@ input[type="submit"] {
         cursor: pointer;
     }
 }
+
+.toggle-sidebar {
+    float: right;
+    background-color: $gray-bright;
+    color: #1E1E1C;
+    font-size: 12pt;
+    text-align: center;
+    padding: 18px 9px;
+    position: relative;
+    left: 24px;
+    top: 80px;
+    @include box-shadow(2px, 3px, 5px, rgba(0,0,0,.26));
+
+    &:hover, &:focus {
+        background-color: #CBD5DE;
+        cursor: pointer;
+    }
+
+    &:after {
+        display: block;
+        font-family: FontAwesome;
+        content: "\f0da";
+    }
+}
+
+.has-sidebar {
+    .toggle-sidebar {
+        &:after {
+            content: "\f0d9";
+        }
+    }
+}

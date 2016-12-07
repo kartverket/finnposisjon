@@ -10,8 +10,13 @@ namespace Kartverket.FinnPosisjon.Tests.Services
     {
         private static double ClipDecimals(double coordinate, int length)
         {
-            return double.Parse(coordinate.ToString(CultureInfo.InvariantCulture).Substring(0, length),
-                CultureInfo.InvariantCulture);
+            var coordinateString = coordinate.ToString(CultureInfo.InvariantCulture);
+
+            coordinateString = coordinateString.Length >= length
+                ? coordinateString.Substring(0, length)
+                : coordinateString;
+
+            return double.Parse(coordinateString, CultureInfo.InvariantCulture);
         }
 
         [Fact]

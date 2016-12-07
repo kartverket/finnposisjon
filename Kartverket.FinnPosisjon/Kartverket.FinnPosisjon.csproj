@@ -165,7 +165,9 @@
     <Content Include="Content\assets\images\layers-2x.png" />
     <Content Include="Content\assets\images\layers.png" />
     <Content Include="Content\assets\images\marker-icon-2x.png" />
+    <Content Include="Content\assets\images\marker-icon-hover-2x.png" />
     <Content Include="Content\assets\images\marker-icon-hover.png" />
+    <Content Include="Content\assets\images\marker-icon-selected-2x.png" />
     <Content Include="Content\assets\images\marker-icon-selected.png" />
     <Content Include="Content\assets\images\marker-icon.png" />
     <Content Include="Content\assets\images\marker-shadow.png" />
@@ -178,8 +180,10 @@
     <Content Include="Content\src\images\kartverket-logo.png" />
     <Content Include="Content\src\images\layers-2x.png" />
     <Content Include="Content\src\images\layers.png" />
+    <Content Include="Content\src\images\marker-icon-hover-2x.png" />
     <Content Include="Content\src\images\marker-icon-2x.png" />
     <Content Include="Content\src\images\marker-icon-hover.png" />
+    <Content Include="Content\src\images\marker-icon-selected-2x.png" />
     <Content Include="Content\src\images\marker-icon-selected.png" />
     <Content Include="Content\src\images\marker-icon.png" />
     <Content Include="Content\src\images\marker-shadow.png" />

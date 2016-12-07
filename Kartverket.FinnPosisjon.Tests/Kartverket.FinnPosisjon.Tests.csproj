@@ -53,6 +53,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -111,6 +113,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service References\no.geonorge.ws\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\PositionFinderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CoordinateInputParserTests.cs" />
@@ -119,15 +126,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <None Include="Service References\no.geonorge.ws\Kartverket.FinnPosisjon.Tests.no.geonorge.ws.sosiTransResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\no.geonorge.ws\Kartverket.FinnPosisjon.Tests.no.geonorge.ws.TranRes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\no.geonorge.ws\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\no.geonorge.ws\configuration.svcinfo" />
+    <None Include="Service References\no.geonorge.ws\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Service References\no.geonorge.ws\Tran.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kartverket.FinnPosisjon\Kartverket.FinnPosisjon.csproj">
       <Project>{CAF2BA92-6A53-4354-9797-180E55079B1C}</Project>
       <Name>Kartverket.FinnPosisjon</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\no.geonorge.ws\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

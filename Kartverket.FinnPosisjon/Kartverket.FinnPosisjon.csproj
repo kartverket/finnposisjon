@@ -56,6 +56,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -147,6 +149,11 @@
     <Compile Include="Models\PositionsResult.cs" />
     <Compile Include="Models\CoordinateInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\no.geonorge.ws\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\CoordinateSystemsSetup.cs" />
     <Compile Include="Services\CoordinateInputParser.cs" />
     <Compile Include="Services\CoordinateTransformer.cs" />
@@ -198,6 +205,18 @@
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\no.geonorge.ws\configuration91.svcinfo" />
+    <None Include="Service References\no.geonorge.ws\configuration.svcinfo" />
+    <Content Include="Service References\no.geonorge.ws\Kartverket.FinnPosisjon.no.geonorge.ws.sosiTransResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\no.geonorge.ws\Kartverket.FinnPosisjon.no.geonorge.ws.TranRes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\no.geonorge.ws\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -357,6 +376,13 @@
     <Content Include="Content\src\sass\mixins\_calc.scss" />
     <Content Include="Content\src\sass\mixins\_box-shadow.scss" />
     <None Include="Project_Readme.html" />
+    <None Include="Service References\no.geonorge.ws\Tran.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\no.geonorge.ws\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

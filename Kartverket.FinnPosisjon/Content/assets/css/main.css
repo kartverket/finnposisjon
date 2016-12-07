@@ -3677,7 +3677,7 @@ input:focus {
   float: none; }
 
 .loading-animation {
-  background-image: url(/Content/Assets/images/ripple.svg);
+  background-image: url(/Content/assets/images/svg/ripple.svg);
   height: -moz-calc(100% - 64px);
   height: -webkit-calc(100% - 64px);
   height: calc(100% - 64px);

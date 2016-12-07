@@ -161,6 +161,7 @@
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\assets\images\dummy-image-precision-maalebrev.png" />
     <Content Include="Content\assets\images\dummy-image-precision-mobile.png" />
+    <Content Include="Content\assets\images\ico\favicon.ico" />
     <Content Include="Content\assets\images\kartverket-logo.png" />
     <Content Include="Content\assets\images\layers-2x.png" />
     <Content Include="Content\assets\images\layers.png" />
@@ -171,12 +172,14 @@
     <Content Include="Content\assets\images\marker-icon-selected.png" />
     <Content Include="Content\assets\images\marker-icon.png" />
     <Content Include="Content\assets\images\marker-shadow.png" />
+    <Content Include="Content\assets\images\png\logo-graphic-512.png" />
     <Content Include="Content\assets\images\ripple.svg" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
     <Content Include="Content\src\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\src\images\dummy-image-precision-maalebrev.png" />
     <Content Include="Content\src\images\dummy-image-precision-mobile.png" />
+    <Content Include="Content\src\images\ico\favicon.ico" />
     <Content Include="Content\src\images\kartverket-logo.png" />
     <Content Include="Content\src\images\layers-2x.png" />
     <Content Include="Content\src\images\layers.png" />
@@ -187,6 +190,7 @@
     <Content Include="Content\src\images\marker-icon-selected.png" />
     <Content Include="Content\src\images\marker-icon.png" />
     <Content Include="Content\src\images\marker-shadow.png" />
+    <Content Include="Content\src\images\png\logo-graphic-512.png" />
     <Content Include="Content\src\images\ripple.svg" />
     <Content Include="Content\src\js\init.js" />
     <Content Include="Content\src\js\jquery.min.js" />

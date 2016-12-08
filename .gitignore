@@ -162,3 +162,6 @@ $RECYCLE.BIN/
 
 # NPM Packages
 node_modules/
+
+# Environment settings
+settings.config

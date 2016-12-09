@@ -9,13 +9,13 @@
 
 <div class="coordinates-input">
     <div class="input-container">
-        <div class="col-sm-4">
-            <input v-model="firstInput" />
+        <div class="col-sm-3 col-md-4 col-sm-offset-2 col-md-offset-0">
+            <input v-model="firstInput" placeholder="569400.383"/>
         </div>
-        <div class="col-sm-4">
-            <input v-model="secondInput" />
+        <div class="col-sm-3 col-md-4">
+            <input v-model="secondInput" placeholder="6668087.248"/>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3 col-md-4">
             <button id="find-position" v-on:click="findPositionsQuick" v-bind:disabled="!hasAtLeastOneDigit(firstInput) || !hasAtLeastOneDigit(secondInput)"><span class="fa fa-search"></span> Finn posisjon</button>
         </div>
         <div class="clearfix"></div>

@@ -205,6 +205,7 @@
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="PostDeploy.ps1" />
     <None Include="Service References\no.geonorge.ws\configuration91.svcinfo" />
     <None Include="Service References\no.geonorge.ws\configuration.svcinfo" />
     <Content Include="Service References\no.geonorge.ws\Kartverket.FinnPosisjon.no.geonorge.ws.sosiTransResponse.datasource">

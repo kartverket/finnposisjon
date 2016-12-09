@@ -3858,6 +3858,7 @@ hr {
     display: block; }
   .modal .modal-container {
     width: 600px;
+    max-width: 100%;
     background: #FFF;
     border: 1px solid #EEE;
     margin: auto;

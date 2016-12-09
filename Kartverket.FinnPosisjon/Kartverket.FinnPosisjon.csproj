@@ -201,6 +201,7 @@
     <Content Include="Content\src\js\app.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />
     <Content Include="Content\src\js\vue.min.js" />
+    <None Include="Content\src\sass\partials\_dropdown.scss" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />

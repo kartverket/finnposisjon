@@ -34,6 +34,26 @@
     padding-right: 0 !important;
 }
 
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right
+}
+
 @media (min-width: 750px) {
     .no-padding-left-big {
         padding-left: 0 !important;

@@ -5,6 +5,8 @@
     width: 100%;
     z-index: 1003;
     top: 0;
+    padding: 0 25px;
+
     @include box-shadow(0, 2px, 5px, rgba(0,0,0,.26));
 
     .logo {
@@ -41,13 +43,15 @@ a {
 }
 
 a.sidenav-toggle,
-.toggle-coordinates-input {
+.toggle-coordinates-input,
+.navbar-button {
     font-size: 20pt;
     display: inline-block;
     vertical-align: bottom;
-    padding: 0 15px;
     cursor: pointer;
     line-height: 48px;
+    width: 48px;
+    text-align: center;
     color: $main-text-color;
     @include transition(background .2s .1s, color .2s .1s);
 
@@ -55,9 +59,13 @@ a.sidenav-toggle,
         background-color: rgba(158, 158, 158, 0.2);
     }
 
-    &:active {
+    &:active, &.active {
         @include active-color($primary-color);
         color: #FFF;
+    }
+    @media only screen and (min-width: 768px) {
+        line-height: 64px;
+        width: 64px;
     }
 
     .sidenav-toggle-logo {
@@ -283,8 +291,6 @@ body.sidebar-active .left-menu {
 
 @media only screen and (min-width: 1160px) {
     .navbar {
-        padding: 0 25px;
-
         .logo {
             padding: 7.5px 0;
 
@@ -301,12 +307,17 @@ body.sidebar-active .left-menu {
 .coordinates-input {
     position: fixed;
     width: 100%;
-    z-index: 1002;
-    padding: 12px 0;
     left: 0;
     top: -189px;
-    background-color: #FFF;
+
     @include transition(top .5s);
+
+    .input-container {
+        padding: 12px 0;
+        background-color: #FFF;
+        z-index: 1002;
+        max-width: 600px;
+    }
 
     button {
         float: right;
@@ -321,27 +332,30 @@ body.sidebar-active .left-menu {
     .coordinates-input {
         top: 48px;
         @include transition(top .5s);
-        @include box-shadow(0, 2px, 5px, rgba(0,0,0,.26));
 
         @media only screen and (min-width: 768px) {
             top: 0;
         }
-    }
 
-    .navbar {
-        box-shadow: none;
+        .input-container {
+            @include box-shadow(0, 1px, 3px, rgba(0,0,0,.37));
+        }
     }
 }
 
 @media only screen and (min-width: 768px) {
     .coordinates-input,
     .has-dropdown .coordinates-input {
-        top: 0;
+        top: -66px;
+        position: relative;
         z-index: 1003;
-        background-color: transparent;
-        left: 230px;
-        box-shadow: none;
-        @include calc(width, '100% - 230px');
+        margin: auto;
+        max-width: 600px;
+
+        .input-container {
+            background-color: transparent;
+            box-shadow: none;
+        }
 
         input {
             background-color: #FFF;
@@ -367,20 +381,3 @@ body.sidebar-active .left-menu {
         @include box-shadow(0, 2px, 5px, rgba(0,0,0,.26));
     }
 }
-
-/*
-.coordinates-input{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1001;
-    padding: 12px 0;
-    input{
-        background-color: #FFF;
-    }
-    button{
-        background-color: #FFF;
-        border: 5px solid #FFF;
-    }
-}
-*/

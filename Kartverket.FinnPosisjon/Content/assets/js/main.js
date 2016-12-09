@@ -139,16 +139,50 @@ function getRootUrl() {
     return window.location.protocol + "//" + window.location.host;
 }
 
+function resetSidebar() {
+    $("body").removeClass("has-sidebar");
+}
+
+function resetDropdown() {
+    $("body").removeClass("has-dropdown");
+    $(".toggle-dropdown").removeClass("active");
+    $(".toggle-coordinates-input").removeClass("active");
+    $(".dropdown-container").removeClass("active");
+}
+
 $(document).ready(function () {
     $("#find-position, .toggle-coordinates-input").click(function () {
-        $("body").toggleClass("has-dropdown");
+        resetSidebar();
+        if ($(this).hasClass("active")) {
+            resetDropdown();
+        } else {
+            resetDropdown();
+            $("body").addClass("has-dropdown");
+            $(this).addClass("active");
+        }
     });
 
     $(".toggle-sidebar").click(function () {
+        resetDropdown();
         $("body").toggleClass("has-sidebar");
     });
-});
 
+    $(".hide-dropdown").on("click", function () {
+        resetDropdown();
+    });
+
+    $(".toggle-dropdown").on("click", function () {
+        resetSidebar();
+        var elementId = $(this).data("toggle");
+        if ($(this).hasClass("active")) {
+            resetDropdown();
+        } else {
+            resetDropdown();
+            $("#" + elementId).addClass("active");
+            $(this).addClass("active");
+        }
+    });
+});
 var requiredUrlParameters = ['x', 'y'];
 
 $(document).ready(function () {

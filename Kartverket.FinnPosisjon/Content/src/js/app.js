@@ -120,6 +120,10 @@ function resetDropdown() {
     $(".dropdown-container").removeClass("active");
 }
 
+function resetModal() {
+    $(".modal").removeClass("active");
+}
+
 $(document).ready(function () {
     $("#find-position, .toggle-coordinates-input").click(function () {
         resetSidebar();
@@ -143,6 +147,7 @@ $(document).ready(function () {
 
     $(".toggle-dropdown").on("click", function () {
         resetSidebar();
+        resetModal();
         var elementId = $(this).data("toggle");
         if ($(this).hasClass("active")) {
             resetDropdown();

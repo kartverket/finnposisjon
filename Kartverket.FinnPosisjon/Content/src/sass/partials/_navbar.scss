@@ -13,11 +13,9 @@
         display: block;
         padding: 4px 0;
         vertical-align: bottom;
-        width: 100%;
         position: absolute;
         top: 0;
         z-index: -1;
-        text-align: center;
 
         img {
             height: 40px;
@@ -30,6 +28,7 @@
             color: #000;
             vertical-align: super;
             margin: 0 4px;
+            display: none;
         }
     }
 }
@@ -63,6 +62,7 @@ a.sidenav-toggle,
         @include active-color($primary-color);
         color: #FFF;
     }
+
     @media only screen and (min-width: 768px) {
         line-height: 64px;
         width: 64px;
@@ -236,12 +236,17 @@ body.sidebar-active .left-menu {
     }
 }
 
+
+@media only screen and (min-width: 300px) {
+    .navbar .logo .logo-text {
+        display: inline-block;
+    }
+}
+
 @media only screen and (min-width: 550px) {
     .navbar .logo {
         position: static;
         display: inline-block;
-        width: auto;
-        text-align: left;
     }
 }
 
@@ -255,7 +260,8 @@ body.sidebar-active .left-menu {
 
         .logo {
             padding: 7.5px 0;
-            img{
+
+            img {
                 height: 46px;
             }
         }

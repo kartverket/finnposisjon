@@ -3888,11 +3888,9 @@ hr {
     display: block;
     padding: 4px 0;
     vertical-align: bottom;
-    width: 100%;
     position: absolute;
     top: 0;
-    z-index: -1;
-    text-align: center; }
+    z-index: -1; }
     .navbar .logo img {
       height: 40px;
       width: auto; }
@@ -3901,7 +3899,8 @@ hr {
       font-family: Meta Book,Arial,sans-serif;
       color: #000;
       vertical-align: super;
-      margin: 0 4px; }
+      margin: 0 4px;
+      display: none; }
 
 .main-menu {
   display: inline-block; }
@@ -4065,12 +4064,14 @@ body.sidebar-active .left-menu {
     -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4); }
 
+@media only screen and (min-width: 300px) {
+  .navbar .logo .logo-text {
+    display: inline-block; } }
+
 @media only screen and (min-width: 550px) {
   .navbar .logo {
     position: static;
-    display: inline-block;
-    width: auto;
-    text-align: left; } }
+    display: inline-block; } }
 
 @media only screen and (min-width: 768px) {
   .navbar {

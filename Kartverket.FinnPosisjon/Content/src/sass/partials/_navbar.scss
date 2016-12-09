@@ -11,7 +11,7 @@
 
     .logo {
         display: block;
-        padding: 2px 0;
+        padding: 4px 0;
         vertical-align: bottom;
         width: 100%;
         position: absolute;
@@ -254,7 +254,10 @@ body.sidebar-active .left-menu {
         }
 
         .logo {
-            padding: 10.5px 0;
+            padding: 7.5px 0;
+            img{
+                height: 46px;
+            }
         }
 
         a.sidenav-toggle {
@@ -285,18 +288,6 @@ body.sidebar-active .left-menu {
 
         > div {
             box-shadow: 2px 3px 5px rgba(0, 0, 0, .26);
-        }
-    }
-}
-
-@media only screen and (min-width: 1160px) {
-    .navbar {
-        .logo {
-            padding: 7.5px 0;
-
-            img {
-                height: 46px;
-            }
         }
     }
 }

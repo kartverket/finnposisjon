@@ -3886,7 +3886,7 @@ hr {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
   .navbar .logo {
     display: block;
-    padding: 2px 0;
+    padding: 4px 0;
     vertical-align: bottom;
     width: 100%;
     position: absolute;
@@ -4078,7 +4078,9 @@ body.sidebar-active .left-menu {
     .navbar .menu-divider {
       height: 50px; }
     .navbar .logo {
-      padding: 10.5px 0; }
+      padding: 7.5px 0; }
+      .navbar .logo img {
+        height: 46px; }
     .navbar a.sidenav-toggle {
       padding: 0 25px; }
       .navbar a.sidenav-toggle .sidenav-toggle-logo {
@@ -4093,12 +4095,6 @@ body.sidebar-active .left-menu {
     width: 245px; }
     body.sidebar-active .left-menu > div {
       box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.26); } }
-
-@media only screen and (min-width: 1160px) {
-  .navbar .logo {
-    padding: 7.5px 0; }
-    .navbar .logo img {
-      height: 46px; } }
 
 .coordinates-input {
   position: fixed;

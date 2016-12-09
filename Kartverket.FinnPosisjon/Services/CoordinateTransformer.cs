@@ -6,15 +6,15 @@ namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateTransformer
     {
-        private const int ToSosiCodeDefault = 84;
+        private const int ToCoordSysDefault = 84;
 
         public static Coordinates Transform(double xCoordinate, double yCoordinate,
-            int fromSosiCode, int toSosiCode = ToSosiCodeDefault)  // TODO: Batch-transform?
+            int fromCoordSys, int toCoordSys = ToCoordSysDefault)  // TODO: Batch-transform?
         {
-            if (fromSosiCode == 101) // Is Oslo local coord.sys.
+            if (fromCoordSys == 101) // Is Oslo local coord.sys.
             {
                 // Converts to NGO1948 Axis 3 for transformation:
-                fromSosiCode = 3;
+                fromCoordSys = 3;
                 xCoordinate += 0.102;
                 yCoordinate += 212979.333;
             }
@@ -23,38 +23,46 @@ namespace Kartverket.FinnPosisjon.Services
 
             var transInputCoords = new TranInpKoordSet
             {
-                kommuneNr = 0,
-                hoyde = 0.0,
                 nord = yCoordinate,
                 ost = xCoordinate,
-                sosiKoordSys = fromSosiCode
+                sosiKoordSys = fromCoordSys
             };
 
             var transInput = new TranInpData {inpKoordSets = new TranInpKoordSet[1]};
             transInput.inpKoordSets[0] = transInputCoords;
-            transInput.resSosiKoordSys = toSosiCode;
+            transInput.resSosiKoordSys = toCoordSys;
 
             var username = WebConfigurationManager.AppSettings["SosiTransUsername"];
             var password = WebConfigurationManager.AppSettings["SosiTransPassword"];
 
             var transResult = transClient.sosiTrans(username, password, "", transInput);
 
-            var transformedCoords = transResult.resKoordSets[0];
-
-            var transformedX = transformedCoords.ost;
-            var transformedY = transformedCoords.nord;
-
-            if (transformedCoords.sosiKoordSys == 84 && transResult.inpKoordSets[0].sosiKoordSys != 84)
+            if (!transResult.ok)
             {
-                transformedX = transformedX/3600;
-                transformedY = transformedY/3600;
+                // TODO: Log transResult.melding
+                return null;
+            }
+
+            var yCoordinateTransformed = transResult.resKoordSets[0].ost;
+            var xCoordinateTransformed = transResult.resKoordSets[0].nord;
+
+            if (IsArcSeconds(transResult))
+            {
+                // Convert to degrees
+                yCoordinateTransformed /= 3600;
+                xCoordinateTransformed /= 3600;
             }
 
             return new Coordinates
             {
-                X = new Coordinate(transformedX),
-                Y = new Coordinate(transformedY)
+                X = new Coordinate(yCoordinateTransformed),
+                Y = new Coordinate(xCoordinateTransformed)
             };
+        }
+
+        private static bool IsArcSeconds(TranRes transResult)
+        {
+            return transResult.resKoordSets[0].sosiKoordSys == 84 && transResult.inpKoordSets[0].sosiKoordSys != 84;
         }
     }
 }

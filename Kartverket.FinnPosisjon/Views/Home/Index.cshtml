@@ -160,10 +160,12 @@
         },
         computed: {
             url: function () {
-                return getRootUrl() +
+                var rootUrl = getRootUrl() +
                        "?x=" + this.getCoordinate(this.position.Coordinates.X) +
                        "&y=" + this.getCoordinate(this.position.Coordinates.Y) +
                        "&id=" + this.position.Identifier;
+                if (app.positionsResult.Comprehensive) rootUrl += "&comprehensive=true";
+                return rootUrl;
             }
         },
         methods: {
@@ -222,7 +224,7 @@
                 this.findPositions(false);
             },
             findPositions: function (comprehensive) {
-
+                if (getParameterByName('comprehensive') == "true") comprehensive = true;
                 var url = '/api/positions' +
                     '?firstInput=' +
                     this.firstInput +

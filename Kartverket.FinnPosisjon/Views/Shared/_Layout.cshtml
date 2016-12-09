@@ -10,28 +10,40 @@
     @Styles.Render("~/bundles/styles")
     @Scripts.Render("~/bundles/scripts")
 
-
 </head>
 <body>
     <div class="navbar navbar-gray z-2">
-        <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
+        <!--<a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>-->
         <a class="logo" href="/">
             <img src="~/Content/assets/images/png/kartverket-logo.png" alt="Kartverket logo">
             <span class="logo-text">Finn posisjon</span>
         </a>
         @*<ul class="main-menu hide-medium hide-small hide-xsmall pull-right">
-            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-        </ul>*@
-        <span class="pull-right hide-medium hide-big"><span class="toggle-coordinates-input fa fa-search"></span></span>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>*@
+        <span class="pull-right">
+            <span id="show-page-description" data-toggle="dropdown-container-page-description" class="toggle-dropdown navbar-button fa fa-question"></span>
+            <span class="toggle-coordinates-input hide-medium hide-big fa fa-search"></span>
+        </span>
+    </div>
+    <div id="dropdown-container-page-description" class="dropdown-container">
+        <div class="dropdown-content">
+            <div class="dropdown-body">
+                <p>Denne tjenesten viser deg hvor i kartet koordinatene for et punkt du ønsker å finne er, for eksempel fra et målebrev eller en GPS-mottaker uten kartvisning.</p>
+                <p>Tjenesten regner om de koordinatene du taster inn, uavhengig av hvilket koordinatsystem de måtte være i, til det nasjonale koordinatsystemet EUREF89.</p>
+                <p>Disse koordinatene kan du så bruke videre i for eksempel mobiltelefon eller tur-GPS. </p>
+                <button class="button float-right hide-dropdown">OK</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
     </div>
     <div class="main-content">
         <div class="container">
             @RenderBody()
         </div>
-        <footer>
-        </footer>
+        <footer></footer>
     </div>
     @RenderSection("scripts", required: false)
 </body>

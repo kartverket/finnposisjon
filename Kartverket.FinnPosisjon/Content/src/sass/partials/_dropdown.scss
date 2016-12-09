@@ -6,6 +6,7 @@
     padding: 0;
     width: 100%;
     @include transition(top .5s);
+
     &.active {
         top: 48px;
 
@@ -22,7 +23,7 @@
         margin: auto;
 
         .dropdown-body {
-            padding: 30px 15px 15px 15px;
+            padding: 15px;
         }
     }
 }

@@ -248,7 +248,11 @@
                                     .on("mouseout", hoverLeaveFromMap)
                                     .on("click", selectFromMap);
                             });
-                        this.showAllMarkers();
+                        if (this.positionsResult.Positions.length) {
+                            this.showAllMarkers();
+                        }
+
+                        resetDropdown();
                         $("body").addClass("has-results has-sidebar");
                     }).bind(this);
             },

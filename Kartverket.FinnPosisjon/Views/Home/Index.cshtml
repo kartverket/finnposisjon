@@ -16,7 +16,7 @@
             <input v-model="secondInput" />
         </div>
         <div class="col-sm-4">
-            <button id="find-position" v-on:click="findPositionsQuick"><span class="fa fa-search"></span> Finn posisjon</button>
+            <button id="find-position" v-on:click="findPositionsQuick" v-bind:disabled="!hasAtLeastOneDigit(firstInput) || !hasAtLeastOneDigit(secondInput)"><span class="fa fa-search"></span> Finn posisjon</button>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -212,6 +212,9 @@
             showPrecisionOptions: false
         },
         methods: {
+            hasAtLeastOneDigit: function (string) {
+                return string.match(/\d/);
+            },
             findPositionsComprehensive: function () {
                 this.findPositions(true);
             },

@@ -15,6 +15,13 @@ input[type="submit"] {
         background-color: #CBD5DE;
         cursor: pointer;
     }
+
+    &:disabled, &.disabled {
+        border: solid 5px $gray-brighter;
+        background-color: $gray-brighter;
+        color: $gray;
+        cursor: not-allowed;
+    }
 }
 
 .toggle-sidebar {

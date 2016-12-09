@@ -3019,6 +3019,17 @@ input[type="submit"] {
     border: solid 5px #7ea0c4;
     background-color: #CBD5DE;
     cursor: pointer; }
+  button:disabled, button.disabled,
+  .button:disabled,
+  .button.disabled,
+  input[type="button"]:disabled,
+  input[type="button"].disabled,
+  input[type="submit"]:disabled,
+  input[type="submit"].disabled {
+    border: solid 5px #f3f3f3;
+    background-color: #f3f3f3;
+    color: #8a8c8c;
+    cursor: not-allowed; }
 
 .toggle-sidebar {
   float: right;
@@ -3904,7 +3915,6 @@ a.sidenav-toggle,
   font-size: 20pt;
   display: inline-block;
   vertical-align: bottom;
-  padding: 0;
   cursor: pointer;
   line-height: 48px;
   width: 48px;

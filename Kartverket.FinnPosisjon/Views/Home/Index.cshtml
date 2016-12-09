@@ -9,18 +9,19 @@
 
 <div class="coordinates-input">
     <div class="input-container">
-        <div class="col-sm-4 col-lg-3 col-lg-offset-2">
+        <div class="col-sm-4">
             <input v-model="firstInput" />
         </div>
-        <div class="col-sm-4 col-lg-3">
+        <div class="col-sm-4">
             <input v-model="secondInput" />
         </div>
-        <div class="col-sm-4 col-lg-2">
+        <div class="col-sm-4">
             <button id="find-position" v-on:click="findPositionsQuick"><span class="fa fa-search"></span> Finn posisjon</button>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
+
 <div class="sidebar result-container" id="results">
     <span class="toggle-sidebar"></span>
     <div v-if="mapCanHaveHiddenMarkers" id="result-statusbar" class="sidebar-header">

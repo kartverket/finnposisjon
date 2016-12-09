@@ -3910,7 +3910,6 @@ a {
   color: #0058a3; }
 
 a.sidenav-toggle,
-.toggle-coordinates-input,
 .navbar-button {
   font-size: 20pt;
   display: inline-block;
@@ -3925,24 +3924,19 @@ a.sidenav-toggle,
   -webkit-transition: background 0.2s 0.1s, color 0.2s 0.1s;
   transition: background 0.2s 0.1s, color 0.2s 0.1s; }
   a.sidenav-toggle:hover,
-  .toggle-coordinates-input:hover,
   .navbar-button:hover {
     background-color: rgba(158, 158, 158, 0.2); }
   a.sidenav-toggle:active, a.sidenav-toggle.active,
-  .toggle-coordinates-input:active,
-  .toggle-coordinates-input.active,
   .navbar-button:active,
   .navbar-button.active {
     background-color: #006ecc;
     color: #FFF; }
   @media only screen and (min-width: 768px) {
     a.sidenav-toggle,
-    .toggle-coordinates-input,
     .navbar-button {
       line-height: 64px;
       width: 64px; } }
   a.sidenav-toggle .sidenav-toggle-logo,
-  .toggle-coordinates-input .sidenav-toggle-logo,
   .navbar-button .sidenav-toggle-logo {
     line-height: 48px; }
 

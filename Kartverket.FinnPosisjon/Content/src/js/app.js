@@ -125,16 +125,20 @@ function resetModal() {
 }
 
 $(document).ready(function () {
-    $("#find-position, .toggle-coordinates-input").click(function () {
+    $(document).on("click", ".toggle-coordinates-input", function () {
         resetSidebar();
-        if ($(this).hasClass("active")) {
+        if ($(".toggle-coordinates-input").hasClass("active")) {
             resetDropdown();
         } else {
             resetDropdown();
             $("body").addClass("has-dropdown");
-            $(this).addClass("active");
+            $(".toggle-coordinates-input").addClass("active");
         }
     });
+
+    $("#find-position").click(function () {
+        resetDropdown();
+    })
 
     $(".toggle-sidebar").click(function () {
         resetDropdown();

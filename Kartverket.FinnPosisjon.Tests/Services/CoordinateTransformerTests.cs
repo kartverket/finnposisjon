@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using System;
 using FluentAssertions;
 using Kartverket.FinnPosisjon.Models;
 using Kartverket.FinnPosisjon.Services;
@@ -17,8 +17,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 5).Should().Be(6.874);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(58.082);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(6.874);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(58.082);
         }
 
         [Fact]
@@ -30,8 +30,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 5).Should().Be(8.466);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(59.045);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(8.466);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(59.045);
         }
 
         [Fact]
@@ -43,8 +43,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(10.781);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(59.871);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(10.781);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(59.871);
         }
 
         [Fact]
@@ -56,8 +56,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(13.081);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(64.106);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(13.081);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(64.106);
         }
 
         [Fact]
@@ -69,8 +69,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(15.403);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(66.812);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(15.403);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(66.812);
         }
 
         [Fact]
@@ -82,8 +82,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(19.708);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(68.775);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(19.708);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(68.775);
         }
 
         [Fact]
@@ -95,8 +95,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(23.828);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(70.484);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(23.828);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(70.484);
         }
 
         [Fact]
@@ -108,8 +108,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(29.371);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(70.102);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(29.371);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(70.102);
         }
 
         [Fact]
@@ -121,8 +121,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(10.752);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(59.907);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(10.752);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(59.907);
         }
 
         [Fact]
@@ -134,8 +134,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 5).Should().Be(9.058);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(59.412);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(9.058);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(59.412);
         }
 
         [Fact]
@@ -147,8 +147,21 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(12.187);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(64.195);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(12.187);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(64.195);
+        }
+
+        [Fact]
+        public void ShouldTransformUtmZone33CoordinatesToUtmZone33()
+        {
+            const int fromSys = 23; // UTM Zone 33
+
+            var coords = new Coordinates {X = new Coordinate(363414.116), Y = new Coordinate(7121778.269)};
+
+            var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys, 23);
+
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(363414.116);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(7121778.269);
         }
 
         [Fact]
@@ -161,8 +174,8 @@ namespace Kartverket.FinnPosisjon.Tests.Services
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue,
                 coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(28.397);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(70.542);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(28.397);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(70.542);
         }
 
         [Fact]
@@ -174,19 +187,21 @@ namespace Kartverket.FinnPosisjon.Tests.Services
 
             var transCoords = CoordinateTransformer.Transform(coords.X.DecimalValue, coords.Y.DecimalValue, fromSys);
 
-            ClipDecimals(transCoords.X.DecimalValue, 6).Should().Be(10.753);
-            ClipDecimals(transCoords.Y.DecimalValue, 6).Should().Be(59.905);
+            ClipAt3Decimals(transCoords.X.DecimalValue).Should().Be(10.753);
+            ClipAt3Decimals(transCoords.Y.DecimalValue).Should().Be(59.905);
         }
 
-        private static double ClipDecimals(double coordinate, int length)
+        [Fact]
+        public void ClipTest()
         {
-            var coordinateString = coordinate.ToString(CultureInfo.InvariantCulture);
+            ClipAt3Decimals(123.123456).Should().Be(123.123);
+            ClipAt3Decimals(-123.123456).Should().Be(-123.123);
+            ClipAt3Decimals(.123456).Should().Be(0.123);
+        }
 
-            coordinateString = coordinateString.Length >= length
-                ? coordinateString.Substring(0, length)
-                : coordinateString;
-
-            return double.Parse(coordinateString, CultureInfo.InvariantCulture);
+        private static double ClipAt3Decimals(double coordinate)
+        {
+            return Math.Truncate(coordinate*1000)/1000;
         }
     }
 }

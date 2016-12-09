@@ -1,18 +1,15 @@
-﻿using System.Globalization;
-using System.Web.Helpers;
+﻿using System.Web.Configuration;
 using Kartverket.FinnPosisjon.Models;
+using Kartverket.FinnPosisjon.no.geonorge.ws;
 
 namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateTransformer
     {
-        private const string UrlTemplate =
-            "http://www.norgeskart.no/ws/trans.py?ost={0}&nord={1}&sosiKoordSys={2}&resSosiKoordSys={3}";
-
         private const int ToSosiCodeDefault = 84;
 
         public static Coordinates Transform(double xCoordinate, double yCoordinate,
-            int fromSosiCode, int toSosiCode = ToSosiCodeDefault)
+            int fromSosiCode, int toSosiCode = ToSosiCodeDefault)  // TODO: Batch-transform?
         {
             if (fromSosiCode == 101) // Is Oslo local coord.sys.
             {
@@ -22,34 +19,42 @@ namespace Kartverket.FinnPosisjon.Services
                 yCoordinate += 212979.333;
             }
 
-            var east = xCoordinate.ToString(CultureInfo.InvariantCulture);
-            var north = yCoordinate.ToString(CultureInfo.InvariantCulture);
+            var transClient = new TranClient();
 
-            var url = string.Format(UrlTemplate, east, north, fromSosiCode, toSosiCode);
+            var transInputCoords = new TranInpKoordSet
+            {
+                kommuneNr = 0,
+                hoyde = 0.0,
+                nord = yCoordinate,
+                ost = xCoordinate,
+                sosiKoordSys = fromSosiCode
+            };
 
-            var json = WebServiceCaller.GetJsonWebServiceResponse(url);
+            var transInput = new TranInpData {inpKoordSets = new TranInpKoordSet[1]};
+            transInput.inpKoordSets[0] = transInputCoords;
+            transInput.resSosiKoordSys = toSosiCode;
 
-            if (string.IsNullOrEmpty(json)) return null;
+            var username = WebConfigurationManager.AppSettings["SosiTransUsername"];
+            var password = WebConfigurationManager.AppSettings["SosiTransPassword"];
 
-            var transformationResponse = Json.Decode<TransformationResponse>(json);
+            var transResult = transClient.sosiTrans(username, password, "", transInput);
 
-            return transformationResponse.ErrKode == 0
-                ? new Coordinates
-                {
-                    X = new Coordinate(transformationResponse.Ost),
-                    Y = new Coordinate(transformationResponse.Nord)
-                }
-                : null;
+            var transformedCoords = transResult.resKoordSets[0];
+
+            var transformedX = transformedCoords.ost;
+            var transformedY = transformedCoords.nord;
+
+            if (transformedCoords.sosiKoordSys == 84 && transResult.inpKoordSets[0].sosiKoordSys != 84)
+            {
+                transformedX = transformedX/3600;
+                transformedY = transformedY/3600;
+            }
+
+            return new Coordinates
+            {
+                X = new Coordinate(transformedX),
+                Y = new Coordinate(transformedY)
+            };
         }
-    }
-
-    public class TransformationResponse
-    {
-        public int ErrKode { get; set; }
-        public int SosiKoordSys { get; set; }
-        public double Ost { get; set; }
-        public double Hoyde { get; set; }
-        public double Nord { get; set; }
-        public string ErrTekst { get; set; }
     }
 }

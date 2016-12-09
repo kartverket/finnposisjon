@@ -15,13 +15,20 @@ namespace Kartverket.FinnPosisjon.Controllers.api
             var coordinateInput = new CoordinateInput(firstInput, secondInput);
 
             if (!coordinateInput.IsParsable())
+            {
+                positionsResult.ParseError = true;
                 return Json(positionsResult);
+            }
 
             // Create possible coordinates from input values:
             var coordinates = CoordinateInputParser.GetCoordinates(coordinateInput, comprehensive: comprehensive);
 
             // Return an empty result if no coordinates could be made from the user input
-            if (coordinates.Count == 0) return Json(positionsResult);
+            if (coordinates.Count == 0)
+            {
+                positionsResult.ParseError = true;
+                return Json(positionsResult);
+            }
 
             // Use all supported coordinatesystems if search is comprehensive, only WGS84 otherwise:
             var supportedCoordinateSystems = comprehensive ? CoordinateSystemsSetup.Get() : CoordinateSystemsSetup.Find(84);

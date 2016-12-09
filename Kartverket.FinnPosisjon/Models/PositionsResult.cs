@@ -6,5 +6,6 @@ namespace Kartverket.FinnPosisjon.Models
     {
         public List<Position> Positions { get; set; }
         public bool Comprehensive { get; set; }
+        public bool ParseError { get; set; }
     }
 }

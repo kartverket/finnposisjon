@@ -124,10 +124,6 @@ function resetModal() {
     $(".modal").removeClass("active");
 }
 
-function resetOverflowed() {
-    $(".modal-container").removeClass("overflowed");
-}
-
 function resetModalBodyScroll() {
     $(".modal-body").css("max-height", "none");
     $(".modal-body").css("overflow-y", "hidden");
@@ -135,24 +131,50 @@ function resetModalBodyScroll() {
 
 function addModalBodyScroll(element) {
     resetModalBodyScroll();
-    if (isOverflowed(element)) {
+    if (modalIsOverflowed(element)) {
         var modalBody = $(element).find(".modal-body");
         $(modalBody[0]).css("max-height", element.clientHeight - 40 + "px");
         $(modalBody[0]).css("overflow-y", "auto");
     }
 }
 
-function isOverflowed(element) {
+function resetDropdownScroll() {
+    $(".dropdown-body").css("max-height", "none");
+    $(".dropdown-body").css("overflow-y", "hidden");
+}
+
+function addDropdownScroll(element) {
+    resetDropdownScroll();
+    if (dropdownIsOverflowed(element)) {
+        var dropdownContent = $(element).find(".dropdown-body");
+        $(dropdownContent[0]).css("max-height", $(window).height() - 50 + "px");
+        $(dropdownContent[0]).css("overflow-y", "auto");
+    }
+}
+
+function modalIsOverflowed(element) {
     return element.scrollHeight > element.clientHeight;
 }
 
+function dropdownIsOverflowed(element) {
+    return element.scrollHeight > $(window).height() - 50;
+}
+
 $(document).on("click", ".list-item-link", function () {
-    resetOverflowed();
     var modalContainer = $(this).closest(".list-item").find(".modal-container");
     addModalBodyScroll(modalContainer[0]);
-})
+});
+
+$(document).on("click", ".toggle-dropdown", function () {
+    var dropdownContainer = document.getElementById($(this).data("toggle"));
+    addDropdownScroll(dropdownContainer);
+});
 
 $(document).ready(function () {
+    $(".toggle-dropdown").each(function () {
+        var dropdownContainer = document.getElementById($(this).data("toggle"));
+        addDropdownScroll(dropdownContainer);
+    });
     $(document).on("click", ".toggle-coordinates-input", function () {
         resetModal();
         resetSidebar();

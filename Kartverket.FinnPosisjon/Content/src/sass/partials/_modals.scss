@@ -18,9 +18,20 @@
         background: #FFF;
         border: 1px solid #EEE;
         margin: auto;
-        margin-top: 15%;
         border-radius: 4px;
         box-shadow: 0 7px 8px -4px rgba(0,0,0,.2),0 13px 19px 2px rgba(0,0,0,.14),0 5px 24px 4px rgba(0,0,0,.12);
+        margin-top: 60px;
+        @include calc(max-height, '100% - 60px');
+
+        @media only screen and (min-width: 520px) {
+            margin-top: 80px;
+            @include calc(max-height, '100% - 80px');
+        }
+
+        @media only screen and (min-width: 750px) {
+            margin-top: 100px;
+            @include calc(max-height, '100% - 100px');
+        }
 
         .modal-header {
             background-color: $gray-bright;

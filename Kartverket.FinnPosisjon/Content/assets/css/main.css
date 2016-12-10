@@ -3879,9 +3879,24 @@ hr {
     background: #FFF;
     border: 1px solid #EEE;
     margin: auto;
-    margin-top: 15%;
     border-radius: 4px;
-    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12); }
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+    margin-top: 60px;
+    max-height: -moz-calc(100% - 60px);
+    max-height: -webkit-calc(100% - 60px);
+    max-height: calc(100% - 60px); }
+    @media only screen and (min-width: 520px) {
+      .modal .modal-container {
+        margin-top: 80px;
+        max-height: -moz-calc(100% - 80px);
+        max-height: -webkit-calc(100% - 80px);
+        max-height: calc(100% - 80px); } }
+    @media only screen and (min-width: 750px) {
+      .modal .modal-container {
+        margin-top: 100px;
+        max-height: -moz-calc(100% - 100px);
+        max-height: -webkit-calc(100% - 100px);
+        max-height: calc(100% - 100px); } }
     .modal .modal-container .modal-header {
       background-color: #e3e3e3;
       padding: 10px 25px;

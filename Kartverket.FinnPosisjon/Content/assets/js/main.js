@@ -154,6 +154,34 @@ function resetModal() {
     $(".modal").removeClass("active");
 }
 
+function resetOverflowed() {
+    $(".modal-container").removeClass("overflowed");
+}
+
+function resetModalBodyScroll() {
+    $(".modal-body").css("max-height", "none");
+    $(".modal-body").css("overflow-y", "hidden");
+}
+
+function addModalBodyScroll(element) {
+    resetModalBodyScroll();
+    if (isOverflowed(element)) {
+        var modalBody = $(element).find(".modal-body");
+        $(modalBody[0]).css("max-height", element.clientHeight - 40 + "px");
+        $(modalBody[0]).css("overflow-y", "auto");
+    }
+}
+
+function isOverflowed(element) {
+    return element.scrollHeight > element.clientHeight;
+}
+
+$(document).on("click", ".list-item-link", function () {
+    resetOverflowed();
+    var modalContainer = $(this).closest(".list-item").find(".modal-container");
+    addModalBodyScroll(modalContainer[0]);
+})
+
 $(document).ready(function () {
     $(document).on("click", ".toggle-coordinates-input", function () {
         resetSidebar();

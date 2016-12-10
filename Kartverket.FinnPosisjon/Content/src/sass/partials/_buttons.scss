@@ -16,7 +16,7 @@ input[type="submit"] {
         cursor: pointer;
     }
 
-    &:disabled, &.disabled {
+    &:disabled, &.disabled, &:disabled:hover, &.disabled:hover {
         border: solid 5px $gray-brighter;
         background-color: $gray-brighter;
         color: $gray;

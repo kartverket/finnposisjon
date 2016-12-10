@@ -361,14 +361,17 @@ body.sidebar-active .left-menu {
         .button,
         input[type="button"],
         input[type="submit"] {
-            background-color: #FFF;
-            border: 5px solid #FFF;
             white-space: nowrap;
 
-            &:hover, &:focus {
-                border: solid 5px $blue-bright;
-                background-color: #CBD5DE;
-                cursor: pointer;
+            &:not(:disabled) {
+                background-color: #FFF;
+                border: 5px solid #FFF;
+
+                &:hover, &:focus {
+                    border: solid 5px $blue-bright;
+                    background-color: #CBD5DE;
+                    cursor: pointer;
+                }
             }
         }
     }

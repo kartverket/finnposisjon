@@ -3025,13 +3025,19 @@ input[type="submit"] {
     border: solid 5px #7ea0c4;
     background-color: #CBD5DE;
     cursor: pointer; }
-  button:disabled, button.disabled,
+  button:disabled, button.disabled, button:disabled:hover, button.disabled:hover,
   .button:disabled,
   .button.disabled,
+  .button:disabled:hover,
+  .button.disabled:hover,
   input[type="button"]:disabled,
   input[type="button"].disabled,
+  input[type="button"]:disabled:hover,
+  input[type="button"].disabled:hover,
   input[type="submit"]:disabled,
-  input[type="submit"].disabled {
+  input[type="submit"].disabled,
+  input[type="submit"]:disabled:hover,
+  input[type="submit"].disabled:hover {
     border: solid 5px #f3f3f3;
     background-color: #f3f3f3;
     color: #8a8c8c;
@@ -4155,27 +4161,35 @@ body.sidebar-active .left-menu {
     .has-dropdown .coordinates-input .button,
     .has-dropdown .coordinates-input input[type="button"],
     .has-dropdown .coordinates-input input[type="submit"] {
-      background-color: #FFF;
-      border: 5px solid #FFF;
       white-space: nowrap; }
-      .coordinates-input button:hover, .coordinates-input button:focus,
-      .coordinates-input .button:hover,
-      .coordinates-input .button:focus,
-      .coordinates-input input[type="button"]:hover,
-      .coordinates-input input[type="button"]:focus,
-      .coordinates-input input[type="submit"]:hover,
-      .coordinates-input input[type="submit"]:focus,
-      .has-dropdown .coordinates-input button:hover,
-      .has-dropdown .coordinates-input button:focus,
-      .has-dropdown .coordinates-input .button:hover,
-      .has-dropdown .coordinates-input .button:focus,
-      .has-dropdown .coordinates-input input[type="button"]:hover,
-      .has-dropdown .coordinates-input input[type="button"]:focus,
-      .has-dropdown .coordinates-input input[type="submit"]:hover,
-      .has-dropdown .coordinates-input input[type="submit"]:focus {
-        border: solid 5px #7ea0c4;
-        background-color: #CBD5DE;
-        cursor: pointer; }
+      .coordinates-input button:not(:disabled),
+      .coordinates-input .button:not(:disabled),
+      .coordinates-input input[type="button"]:not(:disabled),
+      .coordinates-input input[type="submit"]:not(:disabled),
+      .has-dropdown .coordinates-input button:not(:disabled),
+      .has-dropdown .coordinates-input .button:not(:disabled),
+      .has-dropdown .coordinates-input input[type="button"]:not(:disabled),
+      .has-dropdown .coordinates-input input[type="submit"]:not(:disabled) {
+        background-color: #FFF;
+        border: 5px solid #FFF; }
+        .coordinates-input button:not(:disabled):hover, .coordinates-input button:not(:disabled):focus,
+        .coordinates-input .button:not(:disabled):hover,
+        .coordinates-input .button:not(:disabled):focus,
+        .coordinates-input input[type="button"]:not(:disabled):hover,
+        .coordinates-input input[type="button"]:not(:disabled):focus,
+        .coordinates-input input[type="submit"]:not(:disabled):hover,
+        .coordinates-input input[type="submit"]:not(:disabled):focus,
+        .has-dropdown .coordinates-input button:not(:disabled):hover,
+        .has-dropdown .coordinates-input button:not(:disabled):focus,
+        .has-dropdown .coordinates-input .button:not(:disabled):hover,
+        .has-dropdown .coordinates-input .button:not(:disabled):focus,
+        .has-dropdown .coordinates-input input[type="button"]:not(:disabled):hover,
+        .has-dropdown .coordinates-input input[type="button"]:not(:disabled):focus,
+        .has-dropdown .coordinates-input input[type="submit"]:not(:disabled):hover,
+        .has-dropdown .coordinates-input input[type="submit"]:not(:disabled):focus {
+          border: solid 5px #7ea0c4;
+          background-color: #CBD5DE;
+          cursor: pointer; }
   .has-dropdown .navbar {
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);

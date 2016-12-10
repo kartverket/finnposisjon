@@ -3104,6 +3104,26 @@ input:focus {
   padding: 10px;
   height: 2em;
   line-height: normal; }
+  input::-webkit-input-placeholder,
+  input:hover::-webkit-input-placeholder,
+  input:active::-webkit-input-placeholder,
+  input:focus::-webkit-input-placeholder {
+    color: #e3e3e3; }
+  input:-moz-placeholder,
+  input:hover:-moz-placeholder,
+  input:active:-moz-placeholder,
+  input:focus:-moz-placeholder {
+    color: #e3e3e3; }
+  input::-moz-placeholder,
+  input:hover::-moz-placeholder,
+  input:active::-moz-placeholder,
+  input:focus::-moz-placeholder {
+    color: #e3e3e3; }
+  input:-ms-input-placeholder,
+  input:hover:-ms-input-placeholder,
+  input:active:-ms-input-placeholder,
+  input:focus:-ms-input-placeholder {
+    color: #e3e3e3; }
 
 .input-container {
   width: auto;

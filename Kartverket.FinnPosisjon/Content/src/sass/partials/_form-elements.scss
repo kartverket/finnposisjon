@@ -8,6 +8,10 @@ input:focus {
     padding: 10px;
     height: 2em;
     line-height: normal;
+
+    @include placeholder {
+        color: $gray-bright;
+    }
 }
 
 .input-container {

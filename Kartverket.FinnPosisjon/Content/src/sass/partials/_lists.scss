@@ -19,7 +19,14 @@
                 background-color: $primary-color;
                 @include border-color($primary-color);
 
-                .list-item-link,
+                .list-item-content > .list-item-link {
+                    color: #1E1E1C;
+
+                    @media only screen and (min-width: 520px) {
+                        color: #FFF;
+                    }
+                }
+
                 .list-item-content > span {
                     color: #FFF;
                 }
@@ -48,12 +55,23 @@
         }
 
         .list-item-link {
-            color: transparent;
             cursor: pointer;
-            margin-top: -10px;
-            padding: 5px 12px;
-            background-color: rgba(255,255,255,0.25);
+            padding: 5px;
+            margin-top: 8px;
             text-transform: uppercase;
+            text-align: center;
+            display: block;
+            background-color: $gray-bright;
+            color: #1E1E1C;
+
+            @media only screen and (min-width: 520px) {
+                border: none;
+                display: inline-block;
+                color: transparent;
+                margin-top: -10px;
+                padding: 5px 12px;
+                background-color: rgba(255,255,255,0.25);
+            }
         }
     }
 
@@ -65,7 +83,12 @@
             display: block;
 
             &:first-child {
-                font-size: 16pt;
+                font-weight: bold;
+
+                @media only screen and (min-width: 520px) {
+                    font-size: 16pt;
+                    font-weight: normal;
+                }
             }
         }
     }

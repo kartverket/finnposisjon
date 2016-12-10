@@ -16,7 +16,11 @@
 .has-sidebar {
     .map,
     .leaflet-container {
-        left: 300px;
+        left: 0;
         @include transition(left .5s);
+
+        @media only screen and (min-width: 520px) {
+            left: 300px;
+        }
     }
 }

@@ -28,21 +28,21 @@
         <p>
             Antall posisjoner funnet: {{ positionsResult.Positions.length }}
         </p>
-        <a v-on:click="showAllMarkers" style="float: right; cursor: pointer">Vis alle på kartet</a>
+        <a v-on:click="showAllMarkers" class="sidebar-header-link">Vis alle på kartet</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="positionsResult.ParseError" id="result-statusbar" class="sidebar-header">
         <p>
             Søket ditt ga ingen mening
         </p>
-        <a class="toggle-coordinates-input" style="float: right; cursor: pointer">Prøv et annet søk</a>
+        <a class="toggle-coordinates-input sidebar-header-link">Prøv et annet søk</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="!positionsResult.ParseError && !positionsResult.Positions.length" id="result-statusbar" class="sidebar-header">
         <p>
             Søket ditt ga ingen treff
         </p>
-        <a class="toggle-coordinates-input" style="float: right; cursor: pointer">Prøv et annet søk</a>
+        <a class="toggle-coordinates-input sidebar-header-link">Prøv et annet søk</a>
         <div class="clearfix"></div>
     </div>
     <div id="position-list" class="list position-list">
@@ -69,7 +69,7 @@
         <span v-if="position.AddressData.Address" class="list-item-addressdata">{{ position.AddressData.Address }}</span>
         <span v-if="position.AddressData.Place" class="list-item-addressdata">{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</span>
         <span v-if="position.AddressData.Municipality" class="list-item-addressdata">{{ position.AddressData.Municipality }}</span>
-        <span v-on:click="active = !active" class="list-item-link pull-right">Se detaljer</span>
+        <span v-on:click="active = !active" class="list-item-link float-right">Se detaljer</span>
         <div class="clearfix"></div>
     </div>
     <div v-bind:class="active ? 'active' : ''" class="modal">

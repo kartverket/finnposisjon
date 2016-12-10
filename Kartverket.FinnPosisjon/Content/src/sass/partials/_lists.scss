@@ -12,6 +12,7 @@
 
                 .list-item-link {
                     color: $primary-color;
+                    visibility: visible;
                 }
             }
 
@@ -21,6 +22,7 @@
 
                 .list-item-content > .list-item-link {
                     color: #1E1E1C;
+                    visibility: visible;
 
                     @media only screen and (min-width: 520px) {
                         color: #FFF;
@@ -68,6 +70,7 @@
                 border: none;
                 display: inline-block;
                 color: transparent;
+                visibility: hidden;
                 margin-top: -10px;
                 padding: 5px 12px;
                 background-color: rgba(255,255,255,0.25);

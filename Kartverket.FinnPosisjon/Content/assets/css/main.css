@@ -3092,7 +3092,7 @@ input[type="submit"] {
     display: block;
     margin: auto; }
     .dropdown-container .dropdown-content .dropdown-body {
-      padding: 15px; }
+      padding: 15px 30px; }
 
 input,
 input:hover,
@@ -4134,7 +4134,7 @@ body.sidebar-active .left-menu {
   -webkit-transition: top 0.5s;
   transition: top 0.5s; }
   .coordinates-input .input-container {
-    padding: 15px 0;
+    padding: 15px;
     background-color: #FFF;
     z-index: 1002;
     max-width: 600px; }

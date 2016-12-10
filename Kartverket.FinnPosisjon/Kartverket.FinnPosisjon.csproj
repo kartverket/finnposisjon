@@ -201,12 +201,14 @@
     <Content Include="Content\src\js\app.js" />
     <Content Include="Content\src\js\vue-resource.min.js" />
     <Content Include="Content\src\js\vue.min.js" />
+    <Content Include="Content\src\sass\mixins\_placeholder.scss" />
     <None Include="Content\src\sass\partials\_dropdown.scss" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="PostDeploy.ps1" />
+    <Content Include="Content\src\sass\partials\_sidebar.scss" />
     <None Include="Service References\no.geonorge.ws\configuration91.svcinfo" />
     <None Include="Service References\no.geonorge.ws\configuration.svcinfo" />
     <Content Include="Service References\no.geonorge.ws\Kartverket.FinnPosisjon.no.geonorge.ws.sosiTransResponse.datasource">

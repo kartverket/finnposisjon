@@ -28,21 +28,21 @@
         <p>
             Antall posisjoner funnet: {{ positionsResult.Positions.length }}
         </p>
-        <a v-on:click="showAllMarkers" style="float: right; cursor: pointer">Vis alle p&aring; kartet</a>
+        <a v-on:click="showAllMarkers" style="float: right; cursor: pointer">Vis alle pï¿½ kartet</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="positionsResult.ParseError" id="result-statusbar" class="sidebar-header">
         <p>
-            Søket ditt ga ingen mening
+            Sï¿½ket ditt ga ingen mening
         </p>
-        <a class="toggle-coordinates-input" style="float: right; cursor: pointer">Pr&oslash;v et annet s&oslash;k</a>
+        <a class="toggle-coordinates-input" style="float: right; cursor: pointer">Prï¿½v et annet sï¿½k</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="!positionsResult.ParseError && !positionsResult.Positions.length" id="result-statusbar" class="sidebar-header">
         <p>
-            Søket ditt ga ingen treff
+            Sï¿½ket ditt ga ingen treff
         </p>
-        <a class="toggle-coordinates-input" style="float: right; cursor: pointer">Pr&oslash;v et annet s&oslash;k</a>
+        <a class="toggle-coordinates-input" style="float: right; cursor: pointer">Prï¿½v et annet sï¿½k</a>
         <div class="clearfix"></div>
     </div>
     <div id="position-list" class="list position-list">

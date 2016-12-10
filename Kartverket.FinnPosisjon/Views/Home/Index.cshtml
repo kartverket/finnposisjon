@@ -242,6 +242,7 @@
             },
             findPositions: function (comprehensive) {
                 if (getParameterByName('comprehensive') == "true") comprehensive = true;
+                resetDropdown();
                 if (!this.formIsValid()) return;
                 var url = '/api/positions' +
                     '?firstInput=' +
@@ -270,7 +271,6 @@
                             this.showAllMarkers();
                         }
 
-                        resetDropdown();
                         $("body").addClass("has-results has-sidebar");
                     }).bind(this);
             },

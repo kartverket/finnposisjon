@@ -4075,6 +4075,7 @@ ul {
   width: 100%;
   left: 0;
   top: -189px;
+  z-index: 1001;
   -moz-transition: top 0.5s;
   -o-transition: top 0.5s;
   -webkit-transition: top 0.5s;

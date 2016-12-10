@@ -184,6 +184,7 @@ $(document).on("click", ".list-item-link", function () {
 
 $(document).ready(function () {
     $(document).on("click", ".toggle-coordinates-input", function () {
+        resetModal();
         resetSidebar();
         if ($(".toggle-coordinates-input").hasClass("active")) {
             resetDropdown();

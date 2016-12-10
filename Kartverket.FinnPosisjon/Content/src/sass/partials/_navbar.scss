@@ -228,6 +228,7 @@ ul {
     width: 100%;
     left: 0;
     top: -189px;
+    z-index: 1001;
 
     @include transition(top .5s);
 

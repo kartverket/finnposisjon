@@ -204,6 +204,7 @@
     <Content Include="Content\src\js\vue-resource.min.js" />
     <Content Include="Content\src\js\vue.min.js" />
     <Content Include="Content\src\sass\mixins\_placeholder.scss" />
+    <Content Include="Content\src\sass\mixins\_appearance.scss" />
     <None Include="Content\src\sass\partials\_dropdown.scss" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

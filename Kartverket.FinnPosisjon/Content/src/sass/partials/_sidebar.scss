@@ -41,9 +41,11 @@
     @include border-color($gray-brighter);
     border-bottom-width: 1px;
     background-color: $gray-brighter;
+
     p {
         margin: 8px 0;
     }
+
     .sidebar-header-link {
         padding: 8px 0;
         text-align: center;
@@ -60,10 +62,12 @@
     }
 
     .sidebar-header {
-        height: 80px;
-        p{
+        padding: 10px 15px;
+
+        p {
             margin: 16px 0;
         }
+
         .sidebar-header-link {
             float: right;
             display: inline-block;

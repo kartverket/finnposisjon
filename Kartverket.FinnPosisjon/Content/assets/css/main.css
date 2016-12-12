@@ -4241,7 +4241,7 @@ ul {
     left: -300px;
     width: 300px; }
   .sidebar-header {
-    height: 80px; }
+    padding: 10px 15px; }
     .sidebar-header p {
       margin: 16px 0; }
     .sidebar-header .sidebar-header-link {

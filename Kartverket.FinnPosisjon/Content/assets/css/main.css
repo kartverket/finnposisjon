@@ -3094,36 +3094,71 @@ input[type="submit"] {
     .dropdown-container .dropdown-content .dropdown-body {
       padding: 15px 30px; }
 
-input,
-input:hover,
-input:active,
-input:focus {
+input[type="text"],
+input[type="number"] {
   font-size: 20px;
   width: 100%;
   border: solid 1px #0058a3;
   padding: 10px;
   height: 2em;
   line-height: normal; }
-  input::-webkit-input-placeholder,
-  input:hover::-webkit-input-placeholder,
-  input:active::-webkit-input-placeholder,
-  input:focus::-webkit-input-placeholder {
+  input[type="text"]::-webkit-input-placeholder,
+  input[type="number"]::-webkit-input-placeholder {
     color: #e3e3e3; }
-  input:-moz-placeholder,
-  input:hover:-moz-placeholder,
-  input:active:-moz-placeholder,
-  input:focus:-moz-placeholder {
+  input[type="text"]:-moz-placeholder,
+  input[type="number"]:-moz-placeholder {
     color: #e3e3e3; }
-  input::-moz-placeholder,
-  input:hover::-moz-placeholder,
-  input:active::-moz-placeholder,
-  input:focus::-moz-placeholder {
+  input[type="text"]::-moz-placeholder,
+  input[type="number"]::-moz-placeholder {
     color: #e3e3e3; }
-  input:-ms-input-placeholder,
-  input:hover:-ms-input-placeholder,
-  input:active:-ms-input-placeholder,
-  input:focus:-ms-input-placeholder {
+  input[type="text"]:-ms-input-placeholder,
+  input[type="number"]:-ms-input-placeholder {
     color: #e3e3e3; }
+  input[type="text"]:hover, input[type="text"]:active, input[type="text"]:focus,
+  input[type="number"]:hover,
+  input[type="number"]:active,
+  input[type="number"]:focus {
+    border: solid 1px #0058a3; }
+    input[type="text"]:hover::-webkit-input-placeholder, input[type="text"]:active::-webkit-input-placeholder, input[type="text"]:focus::-webkit-input-placeholder,
+    input[type="number"]:hover::-webkit-input-placeholder,
+    input[type="number"]:active::-webkit-input-placeholder,
+    input[type="number"]:focus::-webkit-input-placeholder {
+      color: #e3e3e3; }
+    input[type="text"]:hover:-moz-placeholder, input[type="text"]:active:-moz-placeholder, input[type="text"]:focus:-moz-placeholder,
+    input[type="number"]:hover:-moz-placeholder,
+    input[type="number"]:active:-moz-placeholder,
+    input[type="number"]:focus:-moz-placeholder {
+      color: #e3e3e3; }
+    input[type="text"]:hover::-moz-placeholder, input[type="text"]:active::-moz-placeholder, input[type="text"]:focus::-moz-placeholder,
+    input[type="number"]:hover::-moz-placeholder,
+    input[type="number"]:active::-moz-placeholder,
+    input[type="number"]:focus::-moz-placeholder {
+      color: #e3e3e3; }
+    input[type="text"]:hover:-ms-input-placeholder, input[type="text"]:active:-ms-input-placeholder, input[type="text"]:focus:-ms-input-placeholder,
+    input[type="number"]:hover:-ms-input-placeholder,
+    input[type="number"]:active:-ms-input-placeholder,
+    input[type="number"]:focus:-ms-input-placeholder {
+      color: #e3e3e3; }
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 14pt;
+  margin: 0;
+  width: 18px;
+  line-height: 38px;
+  vertical-align: middle;
+  color: #0058a3; }
+  input[type="checkbox"]:before {
+    font-family: FontAwesome;
+    width: 16px;
+    content: "\f096"; }
+  input[type="checkbox"]:checked:before {
+    content: "\f046"; }
+
+input + label {
+  cursor: pointer; }
 
 .input-container {
   width: auto;

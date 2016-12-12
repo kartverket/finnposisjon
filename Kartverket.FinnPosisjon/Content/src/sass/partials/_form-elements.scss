@@ -1,7 +1,5 @@
-﻿input,
-input:hover,
-input:active,
-input:focus {
+﻿input[type="text"],
+input[type="number"] {
     font-size: 20px;
     width: 100%;
     border: solid 1px $primary-color;
@@ -12,6 +10,44 @@ input:focus {
     @include placeholder {
         color: $gray-bright;
     }
+
+    &:hover,
+    &:active,
+    &:focus {
+        border: solid 1px $primary-color;
+
+        @include placeholder {
+            color: $gray-bright;
+        }
+    }
+}
+
+
+input[type="checkbox"] {
+    @include appearance(none);
+    font-size: 14pt;
+    margin: 0;
+    width: 18px;
+    line-height: 38px;
+    vertical-align: middle;
+    color: $primary-color;
+
+    &:before {
+        font-family: FontAwesome;
+        width: 16px;
+        content: "\f096";
+    }
+
+    &:checked {
+
+        &:before {
+            content: "\f046";
+        }
+    }
+}
+
+input + label {
+    cursor: pointer;
 }
 
 .input-container {

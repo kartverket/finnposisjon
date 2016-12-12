@@ -2,6 +2,7 @@
 var hoverMarkerIcon = "marker-icon-hover.png";
 var selectedMarkerIcon = "marker-icon-selected.png";
 
+
 function addListItemEvent(event, eventName) {
     var className = "",
         icon = "",
@@ -171,6 +172,12 @@ function toggleSidebar() {
     $("body").toggleClass("has-sidebar");
 }
 
+function showCoordinatesInput() {
+    resetDropdown();
+    $("body").addClass("has-dropdown");
+    $(".toggle-coordinates-input").addClass("active");
+}
+
 $(document).on("click", ".list-item-link", function () {
     var modalContainer = $(this).closest(".list-item").find(".modal-container");
     addModalBodyScroll(modalContainer[0]);
@@ -181,10 +188,18 @@ $(document).on("click", ".toggle-dropdown", function () {
     addDropdownScroll(dropdownContainer);
 });
 
+
 $(document).ready(function () {
     $(".toggle-dropdown").each(function () {
         var dropdownContainer = document.getElementById($(this).data("toggle"));
         addDropdownScroll(dropdownContainer);
+    });
+    if (localStorage.getItem("dont-show-description-on-startup") == undefined) {
+        localStorage.setItem("dont-show-description-on-startup", false);
+    }
+    $("#dont-show-description-on-startup").prop("checked", localStorage.getItem("dont-show-description-on-startup") === "true");
+    $("#dont-show-description-on-startup").click(function () {
+        localStorage.setItem("dont-show-description-on-startup", $(this).prop("checked"));
     });
     $(document).on("click", ".toggle-coordinates-input", function () {
         resetModal();

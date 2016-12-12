@@ -28,21 +28,21 @@
         <p>
             Antall posisjoner funnet: {{ positionsResult.Positions.length }}
         </p>
-        <a v-on:click="showAllMarkers" class="sidebar-header-link">Vis alle på kartet</a>
+        <a v-on:click="showAllMarkers" class="sidebar-header-link">Vis alle p&aring; kartet</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="positionsResult.ParseError" id="result-statusbar" class="sidebar-header">
         <p>
-            Søket ditt ga ingen mening
+            S&oslash;ket ditt ga ingen mening
         </p>
-        <a class="toggle-coordinates-input sidebar-header-link">Prøv et annet søk</a>
+        <a class="toggle-coordinates-input sidebar-header-link">Pr&oslash;v et annet s&oslash;k</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="!positionsResult.ParseError && !positionsResult.Positions.length" id="result-statusbar" class="sidebar-header">
         <p>
-            Søket ditt ga ingen treff
+            S&oslash;ket ditt ga ingen treff
         </p>
-        <a class="toggle-coordinates-input sidebar-header-link">Prøv et annet søk</a>
+        <a class="toggle-coordinates-input sidebar-header-link">Pr&oslash;v et annet s&oslash;k</a>
         <div class="clearfix"></div>
     </div>
     <div id="position-list" class="list position-list">

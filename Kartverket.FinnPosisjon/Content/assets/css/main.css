@@ -3992,21 +3992,25 @@ hr {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
   .navbar .logo {
     display: block;
-    padding: 4px 0;
+    padding: 0;
     vertical-align: bottom;
     position: absolute;
-    top: 0;
+    top: 4px;
     z-index: -1; }
     .navbar .logo img {
       height: 40px;
       width: auto; }
     .navbar .logo .logo-text {
-      font-size: 15pt;
+      font-size: 16pt;
       font-family: Meta Book,Arial,sans-serif;
-      color: #000;
+      line-height: 50px;
+      color: #171815;
       vertical-align: super;
       margin: 0 4px;
       display: none; }
+      @media only screen and (min-width: 768px) {
+        .navbar .logo .logo-text {
+          font-size: 18pt; } }
 
 .main-menu {
   display: inline-block; }
@@ -4114,18 +4118,13 @@ ul {
   .navbar .logo .logo-text {
     display: inline-block; } }
 
-@media only screen and (min-width: 550px) {
-  .navbar .logo {
-    position: static;
-    display: inline-block; } }
-
 @media only screen and (min-width: 768px) {
   .navbar {
     height: 64px; }
     .navbar .menu-divider {
       height: 50px; }
     .navbar .logo {
-      padding: 7.5px 0; }
+      padding: 3.5px 0; }
       .navbar .logo img {
         height: 46px; }
     .navbar a.sidenav-toggle {

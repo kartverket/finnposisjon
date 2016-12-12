@@ -11,10 +11,10 @@
 
     .logo {
         display: block;
-        padding: 4px 0;
+        padding: 0;
         vertical-align: bottom;
         position: absolute;
-        top: 0;
+        top: 4px;
         z-index: -1;
 
         img {
@@ -23,12 +23,17 @@
         }
 
         .logo-text {
-            font-size: 15pt;
+            font-size: 16pt;
             font-family: Meta Book,Arial,sans-serif;
-            color: #000;
+            line-height: 50px;
+            color: $main-text-color;
             vertical-align: super;
             margin: 0 4px;
             display: none;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 18pt;
+            }
         }
     }
 }
@@ -165,13 +170,6 @@ ul {
     }
 }
 
-@media only screen and (min-width: 550px) {
-    .navbar .logo {
-        position: static;
-        display: inline-block;
-    }
-}
-
 @media only screen and (min-width: 768px) {
     .navbar {
         height: 64px;
@@ -181,7 +179,7 @@ ul {
         }
 
         .logo {
-            padding: 7.5px 0;
+            padding: 3.5px 0;
 
             img {
                 height: 46px;

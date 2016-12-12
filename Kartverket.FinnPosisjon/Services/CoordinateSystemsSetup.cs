@@ -55,6 +55,19 @@ namespace Kartverket.FinnPosisjon.Services
                 },
                 new CoordinateSystem
                 {
+                    Name = "EUREF89, UTM-sone 33 for hele Norge",
+                    SosiCode = 23,
+                    BoundaryBox = new BoundaryBox
+                    {
+                        // UTM zone 33 for all of Norway
+                        MinX = -128551.4542,
+                        MaxX = 1148218.099,
+                        MinY = 6404024.705, // Norway
+                        MaxY = 8010780.591 // Norway
+                    }
+                },
+                new CoordinateSystem
+                {
                     Name = "WGS84",
                     SosiCode = 84,
                     BoundaryBox = new BoundaryBox

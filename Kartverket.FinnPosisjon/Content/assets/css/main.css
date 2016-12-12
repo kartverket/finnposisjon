@@ -4233,7 +4233,8 @@ ul {
   .sidebar-header .sidebar-header-link {
     padding: 8px 0;
     text-align: center;
-    display: block; }
+    display: block;
+    cursor: pointer; }
 
 @media only screen and (min-width: 520px) {
   .sidebar {

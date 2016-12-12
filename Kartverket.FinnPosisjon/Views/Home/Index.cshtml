@@ -33,16 +33,16 @@
     </div>
     <div v-if="positionsResult.ParseError" id="result-statusbar" class="sidebar-header">
         <p>
-            S&oslash;ket ditt ga ingen mening
+            Det du skrev inn kunne ikke tolkes som koordinater.
         </p>
-        <a class="toggle-coordinates-input sidebar-header-link">Pr&oslash;v et annet s&oslash;k</a>
+        <a class="toggle-coordinates-input sidebar-header-link hide-medium hide-big">Vis koordinatfeltene</a>
         <div class="clearfix"></div>
     </div>
     <div v-if="!positionsResult.ParseError && !positionsResult.Positions.length" id="result-statusbar" class="sidebar-header">
         <p>
-            S&oslash;ket ditt ga ingen treff
+            Vi fant ingen posisjoner i Norge med disse koordinatene.
         </p>
-        <a class="toggle-coordinates-input sidebar-header-link">Pr&oslash;v et annet s&oslash;k</a>
+        <a class="toggle-coordinates-input sidebar-header-link hide-medium hide-big">Vis koordinatfeltene</a>
         <div class="clearfix"></div>
     </div>
     <div id="position-list" class="list position-list">

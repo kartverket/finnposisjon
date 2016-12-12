@@ -36,6 +36,7 @@ function removeListItemEvent(event, eventName) {
 }
 
 function selectFromMap(event) {
+    showSidebar();
     deSelectMarkers(getMarkers());
     addListItemEvent(event, "select");
     var identifier = (event.target.options.identifier !== undefined) ? event.target.options.identifier : false;
@@ -160,6 +161,16 @@ function dropdownIsOverflowed(element) {
     return element.scrollHeight > $(window).height() - 50;
 }
 
+function showSidebar() {
+    resetDropdown();
+    $("body").addClass("has-sidebar");
+}
+
+function toggleSidebar() {
+    resetDropdown();
+    $("body").toggleClass("has-sidebar");
+}
+
 $(document).on("click", ".list-item-link", function () {
     var modalContainer = $(this).closest(".list-item").find(".modal-container");
     addModalBodyScroll(modalContainer[0]);
@@ -192,8 +203,7 @@ $(document).ready(function () {
     })
 
     $(".toggle-sidebar").click(function () {
-        resetDropdown();
-        $("body").toggleClass("has-sidebar");
+        toggleSidebar();
     });
 
     $(".hide-dropdown").on("click", function () {

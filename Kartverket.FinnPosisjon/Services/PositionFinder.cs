@@ -20,6 +20,10 @@ namespace Kartverket.FinnPosisjon.Services
             // Return an empty result if no coordinates were within the bounds for any of the coordinate systems.
             if (positions.Count == 0) return positions;
 
+            // TODO: Make more readable
+            if (positions.Count(p => p.CoordinateSystem.SosiCode == 23) > 1)
+                positions.Remove(positions.Where(p => p.CoordinateSystem.SosiCode == 23).OrderBy(p => p.Coordinates.X).ToList().Last());
+            
             foreach (var position in positions)
                 position.ReferenceCoordinates = CoordinateTransformer.Transform(
                     position.Coordinates.X.DecimalValue, position.Coordinates.Y.DecimalValue,

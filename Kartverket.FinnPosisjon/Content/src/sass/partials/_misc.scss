@@ -102,3 +102,41 @@ hr {
 :active > .show-on-active {
     @include opacity(1);
 }
+
+.attribution {
+    left: 30px;
+    bottom: 30px;
+    font-size: 14px;
+    position: absolute;
+    z-index: 1000;
+    @include transition(left .5s);
+
+    &:hover {
+        a {
+            opacity: 1;
+        }
+    }
+
+    a {
+        color: #000;
+        display: table-cell;
+        height: 60px;
+        background-position: left;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        text-indent: 35px;
+        vertical-align: middle;
+        opacity: .9;
+        font-weight: 600;
+        background-image: url(/Content/assets/images/svg/kartverket-attribution.svg);
+        @include transition(opacity .2s);
+    }
+}
+
+.has-sidebar .attribution {
+    left: 230px;
+
+    @media only screen and (min-width: 520px) {
+        left: 330px;
+    }
+}

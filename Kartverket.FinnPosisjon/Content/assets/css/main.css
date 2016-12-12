@@ -3865,6 +3865,41 @@ hr {
   opacity: 1;
   filter: alpha(opacity=100); }
 
+.attribution {
+  left: 30px;
+  bottom: 30px;
+  font-size: 14px;
+  position: absolute;
+  z-index: 1000;
+  -moz-transition: left 0.5s;
+  -o-transition: left 0.5s;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s; }
+  .attribution:hover a {
+    opacity: 1; }
+  .attribution a {
+    color: #000;
+    display: table-cell;
+    height: 60px;
+    background-position: left;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    text-indent: 35px;
+    vertical-align: middle;
+    opacity: .9;
+    font-weight: 600;
+    background-image: url(/Content/assets/images/svg/kartverket-attribution.svg);
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s; }
+
+.has-sidebar .attribution {
+  left: 230px; }
+  @media only screen and (min-width: 520px) {
+    .has-sidebar .attribution {
+      left: 330px; } }
+
 .modal {
   display: none;
   position: fixed;

@@ -178,6 +178,7 @@
     <Content Include="Content\assets\images\marker-shadow.png" />
     <Content Include="Content\assets\images\png\kartverket-logo.png" />
     <Content Include="Content\assets\images\png\logo-graphic-512.png" />
+    <Content Include="Content\assets\images\svg\kartverket-attribution.svg" />
     <Content Include="Content\assets\images\svg\ripple.svg" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
@@ -194,6 +195,7 @@
     <Content Include="Content\src\images\marker-icon.png" />
     <Content Include="Content\src\images\marker-shadow.png" />
     <Content Include="Content\src\images\png\logo-graphic-512.png" />
+    <Content Include="Content\src\images\svg\kartverket-attribution.svg" />
     <Content Include="Content\src\images\svg\ripple.svg" />
     <Content Include="Content\src\js\init.js" />
     <Content Include="Content\src\js\jquery.min.js" />

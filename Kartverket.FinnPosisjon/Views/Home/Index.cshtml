@@ -155,6 +155,14 @@
 <script>
     L.Icon.Default.imagePath = '/Content/assets/images/';
     var map = L.map('map', { continuousWorld: true }).setView([64.5, 10], 5);
+    var markerIcon = L.icon({
+        iconUrl: '/Content/assets/images/svg/map-marker.svg',
+        iconSize: [30, 43.5],
+        iconAnchor: [15, 43.5],
+        shadowUrl: '/Content/assets/images/svg/map-marker-shadow.png',
+        shadowSize: [68, 95],
+        shadowAnchor: [22, 94]
+    });
     var markers;
     L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}', {
         attribution: '<a href="http://www.kartverket.no/">Kartverket</a>'
@@ -261,7 +269,7 @@
                         this.positionsResult = result.body;
                         $(this.positionsResult.Positions)
                             .each(function () {
-                                L.marker([this.ReferenceCoordinates.Y.DecimalValue, this.ReferenceCoordinates.X.DecimalValue], { name: "marker", identifier: this.Identifier })
+                                L.marker([this.ReferenceCoordinates.Y.DecimalValue, this.ReferenceCoordinates.X.DecimalValue], { name: "marker", identifier: this.Identifier, icon: markerIcon })
                                     .addTo(markers)
                                     .on("mouseover", hoverFromMap)
                                     .on("mouseout", hoverLeaveFromMap)

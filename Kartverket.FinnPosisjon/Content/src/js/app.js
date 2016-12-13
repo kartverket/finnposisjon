@@ -1,6 +1,6 @@
-﻿var defaultMarkerIcon = "marker-icon.png";
-var hoverMarkerIcon = "marker-icon-hover.png";
-var selectedMarkerIcon = "marker-icon-selected.png";
+﻿var defaultMarkerIcon = "map-marker.svg";
+var hoverMarkerIcon = "map-marker-hover.svg";
+var selectedMarkerIcon = "map-marker-active.svg";
 
 
 function addListItemEvent(event, eventName) {

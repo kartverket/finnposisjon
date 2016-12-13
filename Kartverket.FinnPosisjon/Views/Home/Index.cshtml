@@ -69,16 +69,16 @@
         <span v-if="position.AddressData.Address" class="list-item-addressdata">{{ position.AddressData.Address }}</span>
         <span v-if="position.AddressData.Place" class="list-item-addressdata">{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</span>
         <span v-if="position.AddressData.Municipality" class="list-item-addressdata">{{ position.AddressData.Municipality }}</span>
-        <span v-on:click="active = !active" class="list-item-link float-right">Se detaljer</span>
+        <span v-on:click="activeModal = !activeModal" class="list-item-link float-right">Se detaljer</span>
         <div class="clearfix"></div>
     </div>
-    <div v-bind:class="active ? 'active' : ''" class="modal">
+    <div v-bind:class="activeModal ? 'active' : ''" class="modal">
         <div class="modal-container">
             <div class="modal-header">
                 <span class="modal-title">
                     {{ position.title }}
                 </span>
-                <span v-on:click="active = !active" class="hide-modal fa fa-close pull-right"></span>
+                <span v-on:click="activeModal = false" class="hide-modal fa fa-close pull-right"></span>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -176,7 +176,7 @@
         props: ['position'],
         data: function () {
             return {
-                active: false,
+                activeModal: false,
                 title: this.getTitle()
             }
         },
@@ -220,6 +220,16 @@
             hoverLeaveFromList: function (identifier) {
                 deSelectMarkers(getMarkers());
                 if (app.activeMarkerIdentifier) setMarkerIcon(getMarker(app.activeMarkerIdentifier), selectedMarkerIcon);
+            }
+        },
+        created: function () {
+            var positionIdentifier = getParameterByName('id') !== "" ? getParameterByName('id') : false;
+            console.log("this.position.Identifier");
+            console.log(this.position.Identifier);
+            console.log(this.position);
+            if (positionIdentifier && positionIdentifier == this.position.Identifier) {
+                console.log("MATCH");
+                this.activeModal = true;
             }
         }
     });

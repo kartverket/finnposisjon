@@ -249,7 +249,6 @@
                 this.findPositions(false);
             },
             findPositions: function (comprehensive) {
-                if (getParameterByName('comprehensive') == "true") comprehensive = true;
                 resetDropdown();
                 if (!this.formIsValid()) return;
                 var url = '/api/positions' +

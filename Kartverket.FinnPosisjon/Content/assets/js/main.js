@@ -213,12 +213,14 @@ function showCoordinatesInput() {
 
 function scrollToPositionListItem(identifier) {
     var positionList = $("#results").find("#position-list");
-    positionList.scrollTop(0);
 
-    var listPositionVertical = positionList.offset().top;
+    var scrollTopPosition = positionList.find("#list-item-A").offset().top;
     var listItemPositionVertical = positionList.find("#list-item-" + identifier).offset().top;
-    var listItemPositionVerticalInsideList = listItemPositionVertical - listPositionVertical;
-    positionList.scrollTop(listItemPositionVerticalInsideList);
+
+    var listItemPositionVerticalInsideList = listItemPositionVertical - scrollTopPosition;
+    positionList.animate({
+        scrollTop: listItemPositionVerticalInsideList
+    }, 500);
 }
 
 $(document).on("click", ".list-item-link", function () {

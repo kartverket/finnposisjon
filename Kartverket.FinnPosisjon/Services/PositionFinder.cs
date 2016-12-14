@@ -20,10 +20,8 @@ namespace Kartverket.FinnPosisjon.Services
             // Return an empty result if no coordinates were within the bounds for any of the coordinate systems.
             if (positions.Count == 0) return positions;
 
-            // TODO: Make more readable
-            if (positions.Count(p => p.CoordinateSystem.SosiCode == 23) > 1)
-                positions.Remove(positions.Where(p => p.CoordinateSystem.SosiCode == 23).OrderBy(p => p.Coordinates.X).ToList().Last());
-            
+            RemoveRedundantPositions(positions);
+
             foreach (var position in positions)
                 position.ReferenceCoordinates = CoordinateTransformer.Transform(
                     position.Coordinates.X.DecimalValue, position.Coordinates.Y.DecimalValue,
@@ -44,6 +42,25 @@ namespace Kartverket.FinnPosisjon.Services
                 if(id <= 90) position.Identifier = id ++;
 
             return orderedPositions.ToList();
+        }
+
+        public static void RemoveRedundantPositions(List<Position> positions)
+        {
+            var groupsOfSimilarPositions = positions.GroupBy(p => new
+            {
+                p.CoordinateSystem.SosiCode,
+                X = p.Coordinates.X.DecimalValue,
+                Y = p.Coordinates.Y.DecimalValue
+            }, (key, group) => new {Positions = group});
+
+            foreach (var groupOfSimilarPositions in groupsOfSimilarPositions)
+            {
+                var redundantPositions = // All but the one with the smallest coordinatesystem boundary box.
+                    groupOfSimilarPositions.Positions.OrderBy(p => p.CoordinateSystem.BoundaryBox.GetArea()).Skip(1);
+
+                foreach (var redundantPosition in redundantPositions)
+                    positions.Remove(redundantPosition);
+            }
         }
     }
 }

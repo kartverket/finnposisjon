@@ -224,11 +224,7 @@
         },
         created: function () {
             var positionIdentifier = getParameterByName('id') !== "" ? getParameterByName('id') : false;
-            console.log("this.position.Identifier");
-            console.log(this.position.Identifier);
-            console.log(this.position);
             if (positionIdentifier && positionIdentifier == this.position.Identifier) {
-                console.log("MATCH");
                 this.activeModal = true;
             }
         }

@@ -71,7 +71,10 @@ function selectFromMap(event) {
     deSelectMarkers(getMarkers());
     addListItemEvent(event, "select");
     var identifier = (event.target.options.identifier !== undefined) ? event.target.options.identifier : false;
-    if (identifier) app.activeMarkerIdentifier = identifier;
+    if (identifier) {
+        scrollToPositionListItem(identifier);
+        app.activeMarkerIdentifier = identifier;
+    }
 }
 
 function hoverFromMap(event) {
@@ -206,6 +209,16 @@ function showCoordinatesInput() {
     resetDropdown();
     $("body").addClass("has-dropdown");
     $(".toggle-coordinates-input").addClass("active");
+}
+
+function scrollToPositionListItem(identifier) {
+    var positionList = $("#results").find("#position-list");
+    positionList.scrollTop(0);
+
+    var listPositionVertical = positionList.offset().top;
+    var listItemPositionVertical = positionList.find("#list-item-" + identifier).offset().top;
+    var listItemPositionVerticalInsideList = listItemPositionVertical - listPositionVertical;
+    positionList.scrollTop(listItemPositionVerticalInsideList);
 }
 
 $(document).on("click", ".list-item-link", function () {

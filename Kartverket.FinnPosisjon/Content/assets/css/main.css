@@ -3821,6 +3821,9 @@ input + label {
   display: inline-block;
   float: none; }
 
+.print-actions {
+  display: none; }
+
 .loading-animation {
   background-image: url(/Content/assets/images/svg/ripple.svg);
   height: -moz-calc(100% - 64px);
@@ -4329,3 +4332,120 @@ button,
 input[type="button"],
 input[type="submit"] {
   font-family: "Meta Book", Verdana, Arial, sans-serif; }
+
+@page {
+  size: 8.267in 11.692in; }
+
+body.print {
+  margin: 30px;
+  background-color: #efefef; }
+  body.print .print-actions {
+    display: block;
+    margin-bottom: 25px;
+    width: 8.267in; }
+  body.print .main-content {
+    background: #FFFFFF;
+    width: 8.267in;
+    height: 11.692in;
+    padding: 50px 25px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.37);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.37); }
+  body.print .navbar {
+    display: none; }
+  body.print .dropdown-container {
+    display: none; }
+  body.print .coordinates-input {
+    display: none; }
+  body.print .loading-animation {
+    display: none; }
+  body.print .attribution {
+    position: static;
+    display: inline-block;
+    margin: 160px 25px 0; }
+  body.print.has-sidebar .map {
+    left: 0;
+    top: 0; }
+    body.print.has-sidebar .map:after {
+      display: block;
+      content: ""; }
+  body.print.has-sidebar .sidebar {
+    box-shadow: none; }
+  body.print .map {
+    position: relative !important;
+    width: auto;
+    max-width: 100%;
+    height: 12cm !important;
+    display: block;
+    top: 0;
+    left: 0; }
+    body.print .map .leaflet-control-container {
+      display: none; }
+    body.print .map:after {
+      content: "";
+      clear: both;
+      display: block; }
+    body.print .map img[src*="/Content/assets/images/svg/map-marker.svg"] {
+      display: none; }
+    body.print .map img[src*="/Content/assets/images/svg/map-marker-active.svg"] {
+      content: url(/Content/assets/images/svg/map-marker.svg); }
+    body.print .map .leaflet-marker-shadow {
+      opacity: 0; }
+  body.print .sidebar {
+    width: 100%;
+    position: static !important;
+    display: block;
+    box-shadow: none; }
+    body.print .sidebar .sidebar-header {
+      display: none; }
+    body.print .sidebar .toggle-sidebar {
+      display: none; }
+    body.print .sidebar .position-list .list-item:not(.active) {
+      display: none; }
+    body.print .sidebar .position-list .list-item.list-item-button {
+      display: none; }
+    body.print .sidebar .position-list .list-item.list-item-clickable.active {
+      background: none;
+      border: none; }
+    body.print .sidebar .position-list .list-item .list-item-content {
+      display: none; }
+    body.print .sidebar .position-list .list-item .modal {
+      background: none;
+      position: static !important;
+      height: auto !important;
+      float: none; }
+      body.print .sidebar .position-list .list-item .modal .modal-container {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        margin-top: 0;
+        box-shadow: none;
+        background: none;
+        border-radius: 0;
+        border: none;
+        display: block;
+        position: static; }
+        body.print .sidebar .position-list .list-item .modal .modal-container .modal-header {
+          background: none;
+          padding: 0; }
+          body.print .sidebar .position-list .list-item .modal .modal-container .modal-header .modal-title {
+            font-size: 2.2em; }
+          body.print .sidebar .position-list .list-item .modal .modal-container .modal-header .hide-modal {
+            display: none; }
+        body.print .sidebar .position-list .list-item .modal .modal-container .modal-body {
+          height: auto;
+          padding: 15px 20px 0; }
+          body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .result-link-title, body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .result-link {
+            display: none; }
+          body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .show-print {
+            display: none; }
+
+@media print {
+  body.print {
+    margin: 0;
+    background-color: #FFFFFF; }
+    body.print .print-actions {
+      display: none; }
+    body.print .main-content {
+      box-shadow: none;
+      padding: 20px 0 0; } }

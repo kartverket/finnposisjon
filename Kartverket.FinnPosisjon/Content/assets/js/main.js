@@ -258,6 +258,16 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on("click", ".show-print", function () {
+        $("body").addClass("print");
+        map.invalidateSize();
+    });
+
+    $(document).on("click", ".hide-print", function () {
+        $("body").removeClass("print");
+        map.invalidateSize();
+    });
+
     $("#find-position").click(function () {
         resetDropdown();
     })

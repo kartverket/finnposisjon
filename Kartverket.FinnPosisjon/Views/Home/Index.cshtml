@@ -2,11 +2,6 @@
 <div class="loading-animation" id="loading-animation">
     <span>Finner posisjoner</span>
 </div>
-<div id="map" class="map">
-
-</div>
-
-
 <div class="coordinates-input">
     <div class="input-container">
         <div class="col-sm-3 col-md-4 col-sm-offset-2 col-md-offset-0">
@@ -58,6 +53,10 @@
             <button id="find-position" v-on:click="findPositionsComprehensive">Last flere</button>
         </div>
     </div>
+</div>
+
+<div id="map" class="map">
+
 </div>
 
 <template id="position-result">
@@ -137,12 +136,17 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <span class="modal-list-item-title">Lenke til resultat:</span>
-                        <span class="modal-list-item-data">
+                        <span class="modal-list-item-title result-link-title">Lenke til resultat:</span>
+                        <span class="modal-list-item-data result-link">
                             <a v-bind:href="url">{{url}}</a>
                         </span>
                     </div>
                 </div>
+              
+                
+                        <button class="button float-right show-print"><span class="fa fa-print"></span> Utskriftsvennlig versjon</button>
+                    
+               
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -228,6 +232,9 @@
                 this.activeModal = true;
                 var marker = getMarker(positionIdentifier);
                 setMarkerIcon(marker, selectedMarkerIcon);
+                setTimeout(function () {
+                    map.fitBounds(new L.LatLngBounds([marker._latlng]));
+                }, 500);
             }
         }
     });

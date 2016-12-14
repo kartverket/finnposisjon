@@ -15,6 +15,10 @@
     float: none;
 }
 
+.print-actions{
+    display: none;
+}
+
 .loading-animation {
     background-image: url(/Content/assets/images/svg/ripple.svg);
     @include calc(height, '100% - 64px');

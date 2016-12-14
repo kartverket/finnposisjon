@@ -4347,7 +4347,7 @@ body.print {
     background: #FFFFFF;
     width: 8.267in;
     height: 11.692in;
-    padding: 50px 25px;
+    padding: 60px 25px 0;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.37);
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.37);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.37); }
@@ -4362,7 +4362,7 @@ body.print {
   body.print .attribution {
     position: static;
     display: inline-block;
-    margin: 160px 25px 0; }
+    margin: 175px 25px 0; }
   body.print.has-sidebar .map {
     left: 0;
     top: 0; }
@@ -4427,14 +4427,22 @@ body.print {
         position: static; }
         body.print .sidebar .position-list .list-item .modal .modal-container .modal-header {
           background: none;
-          padding: 0; }
+          padding: 0;
+          margin-bottom: 15px; }
           body.print .sidebar .position-list .list-item .modal .modal-container .modal-header .modal-title {
             font-size: 2.2em; }
           body.print .sidebar .position-list .list-item .modal .modal-container .modal-header .hide-modal {
             display: none; }
         body.print .sidebar .position-list .list-item .modal .modal-container .modal-body {
           height: auto;
-          padding: 15px 20px 0; }
+          padding: 15px 20px;
+          line-height: 14pt; }
+          body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .col-sm-4 {
+            width: 33.33333%;
+            float: left; }
+          body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .col-sm-8 {
+            width: 66.66667%;
+            float: left; }
           body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .result-link-title, body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .result-link {
             display: none; }
           body.print .sidebar .position-list .list-item .modal .modal-container .modal-body .show-print {
@@ -4448,4 +4456,8 @@ body.print {
       display: none; }
     body.print .main-content {
       box-shadow: none;
-      padding: 20px 0 0; } }
+      padding: 30px 0 0; }
+      body.print .main-content .container {
+        padding: 0; }
+    body.print .attribution {
+      margin: 195px 25px 0; } }

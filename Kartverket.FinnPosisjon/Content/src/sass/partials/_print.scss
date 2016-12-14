@@ -16,7 +16,7 @@ body.print {
         background: #FFFFFF;
         width: 8.267in;
         height: 11.692in;
-        padding: 50px 25px;
+        padding: 60px 25px 0;
         @include box-shadow(0, 1px, 3px, rgba(0,0,0,.37));
     }
 
@@ -39,7 +39,7 @@ body.print {
     .attribution {
         position: static;
         display: inline-block;
-        margin: 160px 25px 0;
+        margin: 175px 25px 0;
     }
 
     &.has-sidebar {
@@ -147,6 +147,7 @@ body.print {
                         .modal-header {
                             background: none;
                             padding: 0;
+                            margin-bottom: 15px;
 
                             .modal-title {
                                 font-size: 2.2em;
@@ -159,7 +160,18 @@ body.print {
 
                         .modal-body {
                             height: auto;
-                            padding: 15px 20px 0;
+                            padding: 15px 20px;
+                            line-height: 14pt;
+
+                            .col-sm-4 {
+                                width: 33.33333%;
+                                float: left;
+                            }
+
+                            .col-sm-8 {
+                                width: 66.66667%;
+                                float: left;
+                            }
 
                             .result-link-title, .result-link {
                                 display: none;
@@ -188,7 +200,14 @@ body.print {
 
         .main-content {
             box-shadow: none;
-            padding: 20px 0 0;
+            padding: 30px 0 0;
+
+            .container {
+                padding: 0;
+            }
+        }
+        .attribution{
+            margin: 195px 25px 0;
         }
     }
 }

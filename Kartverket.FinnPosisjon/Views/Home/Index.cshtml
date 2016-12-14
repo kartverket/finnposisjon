@@ -226,6 +226,8 @@
             var positionIdentifier = getParameterByName('id') !== "" ? getParameterByName('id') : false;
             if (positionIdentifier && positionIdentifier == this.position.Identifier) {
                 this.activeModal = true;
+                var marker = getMarker(positionIdentifier);
+                setMarkerIcon(marker, selectedMarkerIcon);
             }
         }
     });

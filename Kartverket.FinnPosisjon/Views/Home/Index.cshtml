@@ -142,11 +142,11 @@
                         </span>
                     </div>
                 </div>
-              
-                
-                        <button class="button float-right show-print"><span class="fa fa-print"></span> Utskriftsvennlig versjon</button>
-                    
-               
+
+
+                <button class="button float-right show-print"><span class="fa fa-print"></span> Utskriftsvennlig versjon</button>
+
+
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -233,6 +233,7 @@
                 var marker = getMarker(positionIdentifier);
                 setMarkerIcon(marker, selectedMarkerIcon);
                 setTimeout(function () {
+                    setModalBodyScroll();
                     map.fitBounds(new L.LatLngBounds([marker._latlng]));
                 }, 500);
             }

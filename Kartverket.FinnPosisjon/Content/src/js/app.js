@@ -193,6 +193,11 @@ function scrollToPositionListItem(identifier) {
     }, 500);
 }
 
+function setModalBodyScroll() {
+    var modalContainer = $(document).find(".modal.active .modal-container");
+    addModalBodyScroll(modalContainer[0]);
+}
+
 $(document).on("click", ".list-item-link", function () {
     var modalContainer = $(this).closest(".list-item").find(".modal-container");
     addModalBodyScroll(modalContainer[0]);

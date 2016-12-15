@@ -4424,8 +4424,6 @@ body.print {
       display: block; }
     body.print .map img[src*="/Content/assets/images/svg/map-marker.svg"] {
       display: none; }
-    body.print .map img[src*="/Content/assets/images/svg/map-marker-active.svg"] {
-      content: url(/Content/assets/images/svg/map-marker.svg); }
     body.print .map .leaflet-marker-shadow {
       opacity: 0; }
   body.print .sidebar {

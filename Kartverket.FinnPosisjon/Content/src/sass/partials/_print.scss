@@ -81,10 +81,6 @@ body.print {
             display: none;
         }
 
-        img[src*="/Content/assets/images/svg/map-marker-active.svg"] {
-            content: url(/Content/assets/images/svg/map-marker.svg);
-        }
-
         .leaflet-marker-shadow {
             opacity: 0;
         }

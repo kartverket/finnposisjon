@@ -25,14 +25,29 @@
     <div id="dropdown-container-page-description" class="dropdown-container">
         <div class="dropdown-content">
             <div class="dropdown-body">
-                <p>Denne tjenesten viser deg hvor i kartet koordinatene for et punkt du ønsker å finne er, for eksempel fra et målebrev eller en GPS-mottaker uten kartvisning.</p>
-                <p>Tjenesten regner om de koordinatene du taster inn, uavhengig av hvilket koordinatsystem de måtte være i, til det nasjonale koordinatsystemet EUREF89.</p>
-                <p>Disse koordinatene kan du så bruke videre i for eksempel mobiltelefon eller tur-GPS. </p>
+                <p>Skriv inn koordinatene for et punkt du ønsker å finne, for eksempel fra et målebrev eller en GPS-mottaker uten kartvisning.</p>
+                <p>Tjenesten regner om koordinatene til nasjonalt koordinatsystem og viser deg hvor i kartet punktet er.</p>
+                <p>Disse koordinatene kan du så bruke videre i for eksempel mobiltelefon eller tur-GPS.</p>
+                <p data-read-more="read-more-page-description" class="link toggle-read-more">Les mer om Finn posisjon</p>
+                <div class="read-more" id="read-more-page-description">
+                    <hr />
+                    <p>Tjenesten transformerer koordinater fra følgende systemer:</p>
+                    <ul class="list">
+                        <li>EUREF89  UTM sone 32-36 og EUREF89 bredde/lengde</li>
+                        <li>NGO1948 akse 1 – 8</li>
+                        <li>Oslo kommunes lokale koordinatsystem (tilnærmet løsning med usikkerhet ca. 10 cm)</li>
+                    </ul>
+                    <p>Tjenesten er under utvikling og vi ønsker å utvide med flere koordinatsystemer etter hvert.</p>
+                    <p><a href="http://kartverket.no/Posisjonstjenester/bruke-referanserammer/">Les mer om koordinatsystemer og referanserammer på kartverket.no</a></p>
+                </div>
                 <hr />
                 <input id="dont-show-description-on-startup" type="checkbox" />
                 <label for="dont-show-description-on-startup">Ikke vis ved sidelast</label>
-                <button class="button float-right hide-dropdown">OK</button>
+                <div class="float-right">
+                    <button class="button hide-dropdown">OK</button>
+                </div>
                 <div class="clearfix"></div>
+
             </div>
         </div>
     </div>

@@ -2949,9 +2949,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-a, a:visited {
+a, a:visited, .link {
   color: #0058a3;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
+  a:hover, a:visited:hover, .link:hover {
+    cursor: pointer; }
 
 img {
   width: 100%;
@@ -3708,6 +3711,38 @@ input + label {
   .no-padding-right-big {
     padding-right: 0 !important; } }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  ul li {
+    margin-left: 26px;
+    line-height: 1.3em; }
+    ul li:before {
+      display: inline-block;
+      font-family: FontAwesome;
+      color: #0058a3;
+      content: "\f111";
+      margin-left: -16px;
+      font-size: 0.5em;
+      vertical-align: middle;
+      margin: 0 8px .4em -18px; }
+    ul li a {
+      color: #0058a3;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin: 0 -2px;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 52px;
+      vertical-align: bottom;
+      border-bottom: 6px solid transparent;
+      padding: 6px 16px 0;
+      -webkit-transition: border-color .2s;
+      transition: border-color .2s; }
+      ul li a:hover {
+        border-bottom: 6px solid #0058a3; }
+
 .list .list-item {
   display: block; }
   .list .list-item:not(:first-child) {
@@ -3838,8 +3873,10 @@ input + label {
   background-position: center;
   display: none;
   opacity: 0;
-  transition: opacity 1s;
-  -webkit-transition: opacity 1s; }
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s; }
 
 .has-sidebar .loading-animation {
   left: 200px;
@@ -3856,8 +3893,10 @@ input + label {
 .loading-animation.active {
   display: table;
   opacity: 1;
-  transition: opacity 1s;
-  -webkit-transition: opacity 1s; }
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s; }
 
 .loading-animation span {
   display: table-cell;
@@ -4065,28 +4104,6 @@ a.sidenav-toggle,
   font-size: 28px;
   line-height: 48px;
   vertical-align: bottom; }
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-  ul li {
-    display: inline-block; }
-    ul li a {
-      color: #0058a3;
-      text-decoration: none;
-      text-transform: uppercase;
-      margin: 0 -2px;
-      display: inline-block;
-      font-size: 20px;
-      line-height: 52px;
-      vertical-align: bottom;
-      border-bottom: 6px solid transparent;
-      padding: 6px 16px 0;
-      -webkit-transition: border-color .2s;
-      transition: border-color .2s; }
-      ul li a:hover {
-        border-bottom: 6px solid #0058a3; }
 
 .navbar-primary {
   background-color: #0058a3; }

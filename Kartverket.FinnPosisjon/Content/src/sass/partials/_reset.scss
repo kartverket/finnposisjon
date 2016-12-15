@@ -17,9 +17,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-a, a:visited {
+a, a:visited, .link {
     color: $primary-color;
     text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 img {
@@ -61,18 +66,18 @@ button:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 14px;
+    width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: none;
-  border-radius: 0;
+    -webkit-box-shadow: none;
+    border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e3e3e3;
-  border-radius: 0;
-  -webkit-box-shadow: none;
+    background-color: #e3e3e3;
+    border-radius: 0;
+    -webkit-box-shadow: none;
 }
 
 @media only screen and (min-width: 750px) {

@@ -3977,6 +3977,26 @@ hr {
     .has-sidebar .attribution {
       left: 330px; } }
 
+.toggle-read-more:after {
+  display: inline-block;
+  font-family: FontAwesome;
+  margin-left: 4px;
+  content: "\f078"; }
+
+.toggle-read-more.active:after {
+  content: "\f077"; }
+
+.read-more {
+  max-height: 0;
+  overflow: hidden;
+  -moz-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s; }
+
+.read-more.active {
+  max-height: 475px; }
+
 .modal {
   display: none;
   position: fixed;

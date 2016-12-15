@@ -198,6 +198,12 @@ function setModalBodyScroll() {
     addModalBodyScroll(modalContainer[0]);
 }
 
+function toggleReadMore(element) {
+    var readMoreElement = $("#" + element.data("read-more"));
+    element.toggleClass("active");
+    readMoreElement.toggleClass("active");
+}
+
 $(document).on("click", ".list-item-link", function () {
     var modalContainer = $(this).closest(".list-item").find(".modal-container");
     addModalBodyScroll(modalContainer[0]);
@@ -208,6 +214,14 @@ $(document).on("click", ".toggle-dropdown", function () {
     addDropdownScroll(dropdownContainer);
 });
 
+
+$(document).on("click", ".dropdown-container .toggle-read-more", function () {
+    toggleReadMore($(this));
+    var dropdownContainer = $(this).closest(".dropdown-container");
+    setTimeout(function () {
+        addDropdownScroll(dropdownContainer[0]);
+    }, 1000);
+});
 
 $(document).ready(function () {
     $(".toggle-dropdown").each(function () {

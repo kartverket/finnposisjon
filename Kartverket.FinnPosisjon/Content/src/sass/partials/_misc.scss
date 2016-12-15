@@ -142,3 +142,28 @@ hr {
         left: 330px;
     }
 }
+
+.toggle-read-more {
+    &:after {
+        display: inline-block;
+        font-family: FontAwesome;
+        margin-left: 4px;
+        content: "\f078";
+    }
+
+    &.active {
+        &:after {
+            content: "\f077";
+        }
+    }
+}
+
+.read-more {
+    max-height: 0;
+    overflow: hidden;
+    @include transition(max-height 1s);
+}
+
+.read-more.active {
+    max-height: 475px;
+}

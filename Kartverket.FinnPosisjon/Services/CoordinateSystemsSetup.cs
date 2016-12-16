@@ -198,7 +198,7 @@ namespace Kartverket.FinnPosisjon.Services
                 },
                 new CoordinateSystem
                 {
-                    Name = "Oslo kommune",
+                    Name = "Lokalt nett, Oslo",
                     SosiCode = 101,
                     BoundaryBox = new BoundaryBox
                     {

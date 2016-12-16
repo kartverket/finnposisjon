@@ -56,6 +56,9 @@
         &.list-item-clickable {
             &:hover, &.hover {
                 background-color: $hover-background-color;
+                .list-item-badge {
+                    content: url(/Content/assets/images/svg/map-marker-hover.svg);
+                }
             }
 
             &.active {

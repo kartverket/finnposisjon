@@ -3753,6 +3753,8 @@ ul {
     border-top: 1px solid #ededed; }
   .list .list-item.list-item-clickable:hover, .list .list-item.list-item-clickable.hover {
     background-color: #cbd5de; }
+    .list .list-item.list-item-clickable:hover .list-item-badge, .list .list-item.list-item-clickable.hover .list-item-badge {
+      content: url(/Content/assets/images/svg/map-marker-hover.svg); }
   .list .list-item.list-item-clickable.active {
     background-color: #0058a3;
     border-color: #004d8f; }

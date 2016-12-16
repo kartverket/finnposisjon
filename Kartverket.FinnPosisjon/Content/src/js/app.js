@@ -257,12 +257,16 @@ $(document).ready(function () {
 
     $(document).on("click", ".show-print", function () {
         $("body").addClass("print");
+        var activeMarker = getMarker(app.activeMarkerIdentifier);
         map.invalidateSize();
+        map.fitBounds(new L.LatLngBounds([activeMarker._latlng]), { paddingTopLeft: [0, 0] });
     });
 
     $(document).on("click", ".hide-print", function () {
         $("body").removeClass("print");
+        var activeMarker = getMarker(app.activeMarkerIdentifier);
         map.invalidateSize();
+        map.fitBounds(new L.LatLngBounds([activeMarker._latlng]), { paddingTopLeft: getBoundsPadding() });
     });
 
     $("#find-position").click(function () {

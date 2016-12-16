@@ -48,7 +48,10 @@ function selectFromMap(event) {
 }
 
 function hoverFromMap(event) {
-    addListItemEvent(event, "hover");
+    var iconSrc = event.target._icon.currentSrc;
+    if (iconSrc.indexOf("active.svg") == -1) {
+        addListItemEvent(event, "hover");
+    }
 }
 
 function hoverLeaveFromMap(event) {
@@ -90,7 +93,8 @@ function deSelectMarkers(markers) {
 
 function selectMarker(identifier) {
     deSelectMarkers(getMarkers());
-    setMarkerIcon(getMarker(identifier), icon);
+    var marker = getMarker(identifier);
+    setMarkerIcon(marker, selectedMarkerIcon);
 }
 
 function getParameterByName(name) {

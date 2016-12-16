@@ -214,13 +214,14 @@
             },
             selectFromList: function (identifier) {
                 var marker = getMarker(identifier);
-                setMarkerIcon(marker, selectedMarkerIcon);
+                selectMarker(identifier);
                 app.activeMarkerIdentifier = identifier;
                 map.fitBounds(new L.LatLngBounds([marker._latlng]), { paddingTopLeft: getBoundsPadding() });
             },
             hoverFromList: function (identifier) {
-                setMarkerIcon(getMarker(identifier), hoverMarkerIcon);
-                var marker = getMarker(identifier);
+                if (!$("#list-item-" + identifier).hasClass("active")) {
+                    setMarkerIcon(getMarker(identifier), hoverMarkerIcon);
+                }
             },
             hoverLeaveFromList: function (identifier) {
                 deSelectMarkers(getMarkers());

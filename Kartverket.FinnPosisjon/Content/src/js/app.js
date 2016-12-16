@@ -204,6 +204,10 @@ function toggleReadMore(element) {
     readMoreElement.toggleClass("active");
 }
 
+function getBoundsPadding() {
+    return $(window).width() < 520 ? [200, 0] : [300, 0];
+}
+
 $(document).on("click", ".list-item-link", function () {
     var modalContainer = $(this).closest(".list-item").find(".modal-container");
     addModalBodyScroll(modalContainer[0]);

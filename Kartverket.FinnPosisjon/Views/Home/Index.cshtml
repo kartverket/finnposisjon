@@ -215,7 +215,7 @@
                 var marker = getMarker(identifier);
                 setMarkerIcon(marker, selectedMarkerIcon);
                 app.activeMarkerIdentifier = identifier;
-                map.fitBounds(new L.LatLngBounds([marker._latlng]));
+                map.fitBounds(new L.LatLngBounds([marker._latlng]), { paddingTopLeft: getBoundsPadding() });
             },
             hoverFromList: function (identifier) {
                 setMarkerIcon(getMarker(identifier), hoverMarkerIcon);
@@ -303,7 +303,9 @@
                 getMarkers().forEach(function (marker) {
                     bounds.push(marker._latlng);
                 });
-                map.fitBounds(new L.LatLngBounds(bounds));
+                map.fitBounds(new L.LatLngBounds(bounds), { paddingTopLeft: getBoundsPadding() });
+
+
             }
         },
         computed: {

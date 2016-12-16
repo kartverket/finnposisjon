@@ -3818,30 +3818,40 @@ ul {
 .leaflet-container {
   background-color: #FAFAFA;
   position: fixed;
-  height: 100%;
   width: 100%;
   top: 48px;
   left: 0;
-  -moz-transition: left 0.5s;
-  -o-transition: left 0.5s;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s; }
+  -moz-transition: left 0.5s, width 0.5s;
+  -o-transition: left 0.5s, width 0.5s;
+  -webkit-transition: left 0.5s, width 0.5s;
+  transition: left 0.5s, width 0.5s;
+  height: -moz-calc(100% - 48px);
+  height: -webkit-calc(100% - 48px);
+  height: calc(100% - 48px); }
   @media only screen and (min-width: 768px) {
     .map,
     .leaflet-container {
-      top: 64px; } }
+      top: 64px;
+      height: -moz-calc(100% - 64px);
+      height: -webkit-calc(100% - 64px);
+      height: calc(100% - 64px); } }
+
+.leaflet-left .leaflet-control.leaflet-control-zoom {
+  -moz-transition: margin-left 0.5s;
+  -o-transition: margin-left 0.5s;
+  -webkit-transition: margin-left 0.5s;
+  transition: margin-left 0.5s; }
 
 .has-sidebar .map,
 .has-sidebar .leaflet-container {
-  left: 0;
-  -moz-transition: left 0.5s;
-  -o-transition: left 0.5s;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s; }
-  @media only screen and (min-width: 520px) {
-    .has-sidebar .map,
-    .has-sidebar .leaflet-container {
-      left: 300px; } }
+  left: 0; }
+  .has-sidebar .map .leaflet-left .leaflet-control.leaflet-control-zoom,
+  .has-sidebar .leaflet-container .leaflet-left .leaflet-control.leaflet-control-zoom {
+    margin-left: 210px; }
+    @media only screen and (min-width: 520px) {
+      .has-sidebar .map .leaflet-left .leaflet-control.leaflet-control-zoom,
+      .has-sidebar .leaflet-container .leaflet-left .leaflet-control.leaflet-control-zoom {
+        margin-left: 310px; } }
 
 .z-1 {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37); }

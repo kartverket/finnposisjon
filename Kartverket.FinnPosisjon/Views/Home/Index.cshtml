@@ -65,6 +65,7 @@
          v-on:mouseover="hoverFromList(position.Identifier)"
          v-on:mouseout="hoverLeaveFromList(position.Identifier)"
          class="list-item-content">
+        <i class="list-item-badge"></i>
         <span v-if="position.AddressData.Address" class="list-item-addressdata">{{ position.AddressData.Address }}</span>
         <span v-if="position.AddressData.Place" class="list-item-addressdata">{{ position.AddressData.ZipCode }} {{ position.AddressData.Place }}</span>
         <span v-if="position.AddressData.Municipality" class="list-item-addressdata">{{ position.AddressData.Municipality }}</span>

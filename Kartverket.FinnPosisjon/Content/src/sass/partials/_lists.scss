@@ -43,6 +43,12 @@
     .list-item {
         display: block;
 
+        .list-item-badge {
+            width: 20px;
+            margin: -9px;
+            float: right;
+        }
+
         &:not(:first-child) {
             border-top: 1px solid #ededed;
         }
@@ -50,16 +56,15 @@
         &.list-item-clickable {
             &:hover, &.hover {
                 background-color: $hover-background-color;
-
-                .list-item-link {
-                    color: $primary-color;
-                    visibility: visible;
-                }
             }
 
             &.active {
                 background-color: $primary-color;
                 @include border-color($primary-color);
+
+                .list-item-badge {
+                    content: url(/Content/assets/images/svg/map-marker-active.svg);
+                }
 
                 .list-item-content > .list-item-link {
                     color: #1E1E1C;
@@ -86,7 +91,7 @@
         }
 
         .list-item-content {
-            padding: 12px 16px;
+            padding: 16px;
         }
 
         .list-item-title {
@@ -110,11 +115,14 @@
             @media only screen and (min-width: 520px) {
                 border: none;
                 display: inline-block;
-                color: transparent;
-                visibility: hidden;
+                color: $primary-color;
                 margin-top: -10px;
                 padding: 5px 12px;
                 background-color: rgba(255,255,255,0.25);
+
+                &:hover, &.hover {
+                    color: $primary-color;
+                }
             }
         }
     }
@@ -126,7 +134,7 @@
         .list-item-addressdata {
             display: block;
 
-            &:first-child {
+            &:nth-child(2) {
                 font-weight: bold;
 
                 @media only screen and (min-width: 520px) {

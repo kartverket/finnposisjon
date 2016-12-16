@@ -3745,16 +3745,19 @@ ul {
 
 .list .list-item {
   display: block; }
+  .list .list-item .list-item-badge {
+    width: 20px;
+    margin: -9px;
+    float: right; }
   .list .list-item:not(:first-child) {
     border-top: 1px solid #ededed; }
   .list .list-item.list-item-clickable:hover, .list .list-item.list-item-clickable.hover {
     background-color: #cbd5de; }
-    .list .list-item.list-item-clickable:hover .list-item-link, .list .list-item.list-item-clickable.hover .list-item-link {
-      color: #0058a3;
-      visibility: visible; }
   .list .list-item.list-item-clickable.active {
     background-color: #0058a3;
     border-color: #004d8f; }
+    .list .list-item.list-item-clickable.active .list-item-badge {
+      content: url(/Content/assets/images/svg/map-marker-active.svg); }
     .list .list-item.list-item-clickable.active .list-item-content > .list-item-link {
       color: #1E1E1C;
       visibility: visible; }
@@ -3769,7 +3772,7 @@ ul {
     text-align: center;
     padding: 8px; }
   .list .list-item .list-item-content {
-    padding: 12px 16px; }
+    padding: 16px; }
   .list .list-item .list-item-title {
     font-size: 18pt; }
   .list .list-item .list-item-description {
@@ -3787,11 +3790,12 @@ ul {
       .list .list-item .list-item-link {
         border: none;
         display: inline-block;
-        color: transparent;
-        visibility: hidden;
+        color: #0058a3;
         margin-top: -10px;
         padding: 5px 12px;
-        background-color: rgba(255, 255, 255, 0.25); } }
+        background-color: rgba(255, 255, 255, 0.25); }
+        .list .list-item .list-item-link:hover, .list .list-item .list-item-link.hover {
+          color: #0058a3; } }
 
 .list.position-list {
   overflow: auto;
@@ -3800,10 +3804,10 @@ ul {
   height: calc(100% - 144px); }
   .list.position-list .list-item-addressdata {
     display: block; }
-    .list.position-list .list-item-addressdata:first-child {
+    .list.position-list .list-item-addressdata:nth-child(2) {
       font-weight: bold; }
       @media only screen and (min-width: 520px) {
-        .list.position-list .list-item-addressdata:first-child {
+        .list.position-list .list-item-addressdata:nth-child(2) {
           font-size: 16pt;
           font-weight: normal; } }
 

@@ -28,7 +28,7 @@
             line-height: 50px;
             color: $main-text-color;
             vertical-align: super;
-            margin: 0 4px;
+            margin: 0;
             display: none;
 
             @media only screen and (min-width: 768px) {
@@ -63,7 +63,7 @@ a.sidenav-toggle,
     }
 
     &:active, &.active {
-        @include active-color($primary-color);
+        background-color: $primary-color;
         color: #FFF;
     }
 

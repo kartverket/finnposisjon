@@ -143,6 +143,10 @@ hr {
     }
 }
 
+.app-attribution{
+    display: none;
+}
+
 .toggle-read-more {
     &:after {
         display: inline-block;

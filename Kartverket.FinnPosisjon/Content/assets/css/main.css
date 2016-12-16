@@ -3993,6 +3993,9 @@ hr {
     .has-sidebar .attribution {
       left: 330px; } }
 
+.app-attribution {
+  display: none; }
+
 .toggle-read-more:after {
   display: inline-block;
   font-family: FontAwesome;
@@ -4084,7 +4087,7 @@ hr {
       line-height: 50px;
       color: #171815;
       vertical-align: super;
-      margin: 0 4px;
+      margin: 0;
       display: none; }
       @media only screen and (min-width: 768px) {
         .navbar .logo .logo-text {
@@ -4116,7 +4119,7 @@ a.sidenav-toggle,
   a.sidenav-toggle:active, a.sidenav-toggle.active,
   .navbar-button:active,
   .navbar-button.active {
-    background-color: #006ecc;
+    background-color: #0058a3;
     color: #FFF; }
   @media only screen and (min-width: 768px) {
     a.sidenav-toggle,
@@ -4416,6 +4419,22 @@ body.print {
     position: static;
     display: inline-block;
     margin: 175px 25px 0; }
+    body.print .attribution a {
+      background-image: url(/Content/assets/images/png/kartverket-logo.png);
+      opacity: 1; }
+  body.print .app-attribution {
+    display: inline-block;
+    float: right;
+    margin: 183px 25px 0; }
+    body.print .app-attribution img {
+      height: 40px;
+      width: auto; }
+    body.print .app-attribution span {
+      font-weight: bold;
+      line-height: 50px;
+      vertical-align: super;
+      display: inline-block;
+      font-size: 16pt; }
   body.print.has-sidebar .map {
     left: 0;
     top: 0; }

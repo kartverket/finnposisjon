@@ -40,6 +40,30 @@ body.print {
         position: static;
         display: inline-block;
         margin: 175px 25px 0;
+
+        a {
+            background-image: url(/Content/assets/images/png/kartverket-logo.png);
+            opacity: 1;
+        }
+    }
+
+    .app-attribution {
+        display: inline-block;
+        float: right;
+        margin: 183px 25px 0;
+
+        img {
+            height: 40px;
+            width: auto;
+        }
+
+        span {
+            font-weight: bold;
+            line-height: 50px;
+            vertical-align: super;
+            display: inline-block;
+            font-size: 16pt;
+        }
     }
 
     &.has-sidebar {
@@ -202,7 +226,8 @@ body.print {
                 padding: 0;
             }
         }
-        .attribution{
+
+        .attribution {
             margin: 195px 25px 0;
         }
     }

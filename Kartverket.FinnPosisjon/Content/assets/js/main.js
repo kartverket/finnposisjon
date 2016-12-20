@@ -78,8 +78,12 @@ function selectFromMap(event) {
 }
 
 function hoverFromMap(event) {
-    var iconSrc = event.target._icon.currentSrc;
-    if (iconSrc.indexOf("active.svg") == -1) {
+    var iconSrc = event.target._icon.currentSrc !== undefined ? event.target._icon.currentSrc : false;
+    //Get iconSrc in IE browsers:
+    if (!iconSrc) { iconSrc = event.target._icon.href !== undefined ? event.target._icon.href : false };
+
+
+    if (iconSrc && iconSrc.indexOf("active.svg") == -1) {
         addListItemEvent(event, "hover");
     }
 }

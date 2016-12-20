@@ -1,8 +1,17 @@
 # Finn posisjon
 **En tjeneste fra [Kartverket](https://kartverket.no) som tilbyr hjelp til å finne koordinaters posisjon i Norge**
 
-### Prototype: [finnposisjon.test.geonorge.no](http://finnposisjon.test.geonorge.no/)
+Tjenesten tolker koordinater som oppgis og viser punkter i kartet for koordinatenes mulige posisjoner i Norge. Pr. 20.12.2016 behandler tjenesten koordinater i følgende systemer:
 
+* EUREF89 UTM sone 32–35 pluss sone 33 utvidet for hele Norge.
+* WGS84 (desimalgrader / grader, minutter, / grader, minutter, sekunder)
+* NGO1948 akse 1–8 (akse 1–4 og akse 5–8 vist samlet)
+* Lokalt nett, Oslo (tilnærmet)
+Tjenesten er under utvikling og vil kunne utvides med flere koordinatsystemer.
+
+**Presisjonen for posisjoner funnet av systemet varierer med usikkerhet fra flere faktorer bl.a. hvilket innmålingsutstyr som er brukt til å finne koordinatene.**
+
+### Prototype: [finnposisjon.test.geonorge.no](http://finnposisjon.test.geonorge.no/)
 
 #### Applikasjon
 

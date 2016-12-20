@@ -7,7 +7,7 @@ namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateInputParser
     {
-        public static List<Coordinates> GetCoordinates(CoordinateInput coordinateInput, bool comprehensive = false)
+        public static Coordinates GetCoordinates(CoordinateInput coordinateInput)
         {
             var firstInput = coordinateInput.FirstInput;
             var secondInput = coordinateInput.SecondInput;
@@ -18,10 +18,10 @@ namespace Kartverket.FinnPosisjon.Services
             var secondInputNumberUnits = GetNumberUnits(secondInput);
 
             if ((firstInputNumberUnits.Count > 3) || (secondInputNumberUnits.Count > 3))
-                return new List<Coordinates>(); // Invalid format
+                return null; // Invalid format
 
             if (firstInputNumberUnits.Count != secondInputNumberUnits.Count)
-                return new List<Coordinates>(); // Invalid format
+                return null; // Invalid format
 
             if (firstInputNumberUnits.Count == 1 && secondInputNumberUnits.Count == 1) // Single number unit
             {
@@ -40,8 +40,6 @@ namespace Kartverket.FinnPosisjon.Services
                  minutes = secondInputNumberUnits[1];
 
                 coordinates.Y = new Coordinate(degrees, minutes, seconds);
-
-                comprehensive = false;
             }
             else if (IsDegreesMinutesSeconds(firstInputNumberUnits) && IsDegreesMinutesSeconds(secondInputNumberUnits))
             {
@@ -56,11 +54,9 @@ namespace Kartverket.FinnPosisjon.Services
                 seconds = secondInputNumberUnits[2];
 
                 coordinates.Y = new Coordinate(degrees, minutes, seconds);
-
-                comprehensive = false;
             }
             
-            return MakeCoordinates(coordinates, comprehensive);
+            return coordinates;
         }
 
         public static bool IsDecimalDegrees(List<double> numberUnits)
@@ -99,61 +95,6 @@ namespace Kartverket.FinnPosisjon.Services
             }
 
             return numberUnits;
-        }
-
-        public static List<Coordinates> MakeCoordinates(Coordinates coordinates, bool comprehensive) // TODO: Move to List<Coordinates>CoordinateTweaker().Swap(Coordinates naturalCoordinates).Invert(noko)
-        {
-            var firstCoordinate = coordinates.X;
-            var secondCoordinate = coordinates.Y;
-
-            var coordinatesCollection = new List<Coordinates>();
-
-            coordinatesCollection.AddRange(new[]
-            {
-                new Coordinates
-                {
-                    // Normal order
-                    X = firstCoordinate,
-                    Y = secondCoordinate
-                },
-                new Coordinates
-                {
-                    // Swapped order
-                    X = secondCoordinate,
-                    Y = firstCoordinate
-                }
-            });
-
-            if (comprehensive)
-                coordinatesCollection.AddRange(new[]
-                {
-                    new Coordinates
-                    {
-                        // Normal order, inverted X
-                        X = new Coordinate(0 - firstCoordinate.DecimalValue),
-                        Y = secondCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Normal order, inverted Y
-                        X = firstCoordinate,
-                        Y = new Coordinate(0 - secondCoordinate.DecimalValue)
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order, inverted X
-                        X = new Coordinate(0 - secondCoordinate.DecimalValue),
-                        Y = firstCoordinate
-                    },
-                    new Coordinates
-                    {
-                        // Swapped order, inverted Y
-                        X = secondCoordinate,
-                        Y = new Coordinate(0 - firstCoordinate.DecimalValue)
-                    }
-                });
-
-            return coordinatesCollection;
         }
     }
 }

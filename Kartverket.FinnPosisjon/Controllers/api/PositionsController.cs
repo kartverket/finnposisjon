@@ -20,38 +20,40 @@ namespace Kartverket.FinnPosisjon.Controllers.api
                 return Json(positionsResult);
             }
 
-            // Create possible coordinates from input values:
-            var coordinates = CoordinateInputParser.GetCoordinates(coordinateInput, comprehensive: comprehensive);
-
+            // Create coordinates from input values:
+            var coordinates = CoordinateInputParser.GetCoordinates(coordinateInput);
+            
             // Return an empty result if no coordinates could be made from the user input
-            if (coordinates.Count == 0)
+            if (coordinates == null)
             {
                 positionsResult.ParseError = true;
                 return Json(positionsResult);
             }
+
+            var coordinatesCollection = comprehensive ? CoordinateTweaker.AddSwapped(coordinates) : CoordinateTweaker.AddSwappedAndInverted(coordinates);
 
             // Use all supported coordinatesystems if search is comprehensive, only WGS84 otherwise:
             var supportedCoordinateSystems = comprehensive ? CoordinateSystemsSetup.Get() : CoordinateSystemsSetup.Find(84);
 
             // Try find positions for the coordinates, within supported coordinatesystems and defined limits:
             var positionFinder = new PositionFinder {SupportedCoordinateSystems = supportedCoordinateSystems};
-            positionsResult.Positions = positionFinder.Find(coordinates);
-            positionsResult.Comprehensive = comprehensive || coordinates[0].X.Format.StartsWith("Deg");
+            positionsResult.Positions = positionFinder.Find(coordinatesCollection);
+            positionsResult.Comprehensive = comprehensive || coordinatesCollection[0].X.Format.StartsWith("Deg");
 
             if (positionsResult.Positions.Count > 0 || positionsResult.Comprehensive)
                 return Json(positionsResult);
 
             // Use all coordinatesystems:
             positionFinder.SupportedCoordinateSystems = CoordinateSystemsSetup.Get();
-            positionsResult.Positions = positionFinder.Find(coordinates);
+            positionsResult.Positions = positionFinder.Find(coordinatesCollection);
 
             if (positionsResult.Positions.Count > 0)
                 return Json(positionsResult);
 
             // Auto-comprehensive - include inverted coordinatevalues:
-            coordinates = CoordinateInputParser.GetCoordinates(coordinateInput, comprehensive: true);
+            coordinatesCollection = CoordinateInputParser.GetCoordinates(coordinateInput);
             positionFinder.SupportedCoordinateSystems = CoordinateSystemsSetup.Get();
-            positionsResult.Positions = positionFinder.Find(coordinates);
+            positionsResult.Positions = positionFinder.Find(coordinatesCollection);
             positionsResult.Comprehensive = true;
 
             return Json(positionsResult);

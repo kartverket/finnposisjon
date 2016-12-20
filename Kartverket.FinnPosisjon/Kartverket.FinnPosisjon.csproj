@@ -154,6 +154,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Services\CoordinateTweaker.cs" />
     <Compile Include="Services\CoordinateSystemsSetup.cs" />
     <Compile Include="Services\CoordinateInputParser.cs" />
     <Compile Include="Services\CoordinateTransformer.cs" />

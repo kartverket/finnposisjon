@@ -3147,18 +3147,21 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  display: none; }
+
+input[type="checkbox"] + label:before {
+  font-family: FontAwesome;
+  content: "\f096";
   font-size: 14pt;
   margin: 0;
-  width: 18px;
+  width: 20px;
+  display: inline-block;
   line-height: 38px;
   vertical-align: middle;
   color: #0058a3; }
-  input[type="checkbox"]:before {
-    font-family: FontAwesome;
-    width: 16px;
-    content: "\f096"; }
-  input[type="checkbox"]:checked:before {
-    content: "\f046"; }
+
+input[type="checkbox"]:checked + label:before {
+  content: "\f046"; }
 
 input + label {
   cursor: pointer; }

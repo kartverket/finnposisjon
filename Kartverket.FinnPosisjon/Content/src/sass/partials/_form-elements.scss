@@ -25,24 +25,26 @@ input[type="number"] {
 
 input[type="checkbox"] {
     @include appearance(none);
-    font-size: 14pt;
-    margin: 0;
-    width: 18px;
-    line-height: 38px;
-    vertical-align: middle;
-    color: $primary-color;
+    display: none;
+}
 
+input[type="checkbox"] + label {
     &:before {
         font-family: FontAwesome;
-        width: 16px;
         content: "\f096";
+        font-size: 14pt;
+        margin: 0;
+        width: 20px;
+        display: inline-block;
+        line-height: 38px;
+        vertical-align: middle;
+        color: $primary-color;
     }
+}
 
-    &:checked {
-
-        &:before {
-            content: "\f046";
-        }
+input[type="checkbox"]:checked + label {
+    &:before {
+        content: "\f046";
     }
 }
 

@@ -3999,6 +3999,9 @@ hr {
 .app-attribution {
   display: none; }
 
+.arkitektum-attribution {
+  display: none; }
+
 .toggle-read-more:after {
   display: inline-block;
   font-family: FontAwesome;
@@ -4437,7 +4440,15 @@ body.print {
       line-height: 50px;
       vertical-align: super;
       display: inline-block;
-      font-size: 16pt; }
+      font-size: 13pt;
+      margin-left: -2px; }
+  body.print .arkitektum-attribution {
+    display: inline-block;
+    left: 85px;
+    position: relative;
+    font-size: 10pt;
+    width: 274px;
+    text-align: center; }
   body.print.has-sidebar .map {
     left: 0;
     top: 0; }

@@ -62,8 +62,18 @@ body.print {
             line-height: 50px;
             vertical-align: super;
             display: inline-block;
-            font-size: 16pt;
+            font-size: 13pt;
+            margin-left: -2px;
         }
+    }
+
+    .arkitektum-attribution {
+        display: inline-block;
+        left: 85px;
+        position: relative;
+        font-size: 10pt;
+        width: 274px;
+        text-align: center;
     }
 
     &.has-sidebar {

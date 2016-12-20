@@ -45,6 +45,7 @@
 
         .list-item-badge {
             width: 20px;
+            height: 29px;
             margin: -9px;
             float: right;
         }
@@ -56,8 +57,10 @@
         &.list-item-clickable {
             &:hover, &.hover {
                 background-color: $hover-background-color;
+
                 .list-item-badge {
-                    content: url(/Content/assets/images/svg/map-marker-hover.svg);
+                    background: url(/Content/assets/images/svg/map-marker-hover.svg);
+                    background-repeat: no-repeat;
                 }
             }
 
@@ -66,7 +69,8 @@
                 @include border-color($primary-color);
 
                 .list-item-badge {
-                    content: url(/Content/assets/images/svg/map-marker-active.svg);
+                    background: url(/Content/assets/images/svg/map-marker-active.svg);
+                    background-repeat: no-repeat;
                 }
 
                 .list-item-content > .list-item-link {

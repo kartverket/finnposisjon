@@ -3747,6 +3747,7 @@ ul {
   display: block; }
   .list .list-item .list-item-badge {
     width: 20px;
+    height: 29px;
     margin: -9px;
     float: right; }
   .list .list-item:not(:first-child) {
@@ -3754,12 +3755,14 @@ ul {
   .list .list-item.list-item-clickable:hover, .list .list-item.list-item-clickable.hover {
     background-color: #cbd5de; }
     .list .list-item.list-item-clickable:hover .list-item-badge, .list .list-item.list-item-clickable.hover .list-item-badge {
-      content: url(/Content/assets/images/svg/map-marker-hover.svg); }
+      background: url(/Content/assets/images/svg/map-marker-hover.svg);
+      background-repeat: no-repeat; }
   .list .list-item.list-item-clickable.active {
     background-color: #0058a3;
     border-color: #004d8f; }
     .list .list-item.list-item-clickable.active .list-item-badge {
-      content: url(/Content/assets/images/svg/map-marker-active.svg); }
+      background: url(/Content/assets/images/svg/map-marker-active.svg);
+      background-repeat: no-repeat; }
     .list .list-item.list-item-clickable.active .list-item-content > .list-item-link {
       color: #1E1E1C;
       visibility: visible; }

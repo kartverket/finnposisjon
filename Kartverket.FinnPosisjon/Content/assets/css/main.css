@@ -3146,7 +3146,6 @@ input[type="number"] {
 input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
   display: none; }
 
 input[type="checkbox"] + label:before {

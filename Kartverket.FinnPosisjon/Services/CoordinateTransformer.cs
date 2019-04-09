@@ -1,68 +1,47 @@
-﻿using System.Web.Configuration;
+using System;
+using System.Globalization;
 using Kartverket.FinnPosisjon.Models;
-using Kartverket.FinnPosisjon.no.geonorge.ws;
+using RestSharp;
 
 namespace Kartverket.FinnPosisjon.Services
 {
     public class CoordinateTransformer
     {
         private const int ToCoordSysDefault = 84;
+        private static readonly NumberFormatInfo NumberFormat = new NumberFormatInfo {NumberDecimalSeparator = "."};
 
         public static Coordinates Transform(double xCoordinate, double yCoordinate,
             int fromCoordSys, int toCoordSys = ToCoordSysDefault)  // TODO: Batch-transform?
         {
             if (fromCoordSys == 101) // Is Oslo local coord.sys.
-            {
-                // Converts to NGO1948 Axis 3 for transformation:
-                fromCoordSys = 3;
-                xCoordinate += 0.102;
-                yCoordinate += 212979.333;
-            }
+               return Transform(xCoordinate + 0.102, yCoordinate + 212979.333, 3); // NGO1948 Axis 3
 
-            var transClient = new TranClient();
+            var restClient = new RestClient("https://ws.geonorge.no/SkTransRestWS/");
 
-            var transInputCoords = new TranInpKoordSet
-            {
-                nord = yCoordinate,
-                ost = xCoordinate,
-                sosiKoordSys = fromCoordSys
-            };
+            var requestString = "transformer?system=koordsys"
+                                + "&frasys=" + fromCoordSys
+                                + "&tilsys=" + toCoordSys
+                                + "&lengde=" + xCoordinate.ToString(NumberFormat)
+                                + "&bredde=" + yCoordinate.ToString(NumberFormat);
 
-            var transInput = new TranInpData {inpKoordSets = new TranInpKoordSet[1]};
-            transInput.inpKoordSets[0] = transInputCoords;
-            transInput.resSosiKoordSys = toCoordSys;
+            var skTransRequest = new RestRequest(requestString);
 
-            var username = WebConfigurationManager.AppSettings["SosiTransUsername"];
-            var password = WebConfigurationManager.AppSettings["SosiTransPassword"];
+            var skTransResponse = restClient.Execute<SKTransResponse>(skTransRequest);
 
-            var transResult = transClient.sosiTrans(username, password, "", transInput);
-
-            if (!transResult.ok)
-            {
-                // TODO: Log transResult.melding
-                return null;
-            }
-
-            var yCoordinateTransformed = transResult.resKoordSets[0].ost;
-            var xCoordinateTransformed = transResult.resKoordSets[0].nord;
-
-            if (IsArcSeconds(transResult))
-            {
-                // Convert to degrees
-                yCoordinateTransformed /= 3600;
-                xCoordinateTransformed /= 3600;
-            }
-
-            return new Coordinates
-            {
-                X = new Coordinate(yCoordinateTransformed),
-                Y = new Coordinate(xCoordinateTransformed)
-            };
+            return (int) skTransResponse.Data.TransErr != 0
+                ? null
+                : new Coordinates
+                {
+                    X = new Coordinate(skTransResponse.Data.Tily),
+                    Y = new Coordinate(skTransResponse.Data.Tilx)
+                };
         }
+    }
 
-        private static bool IsArcSeconds(TranRes transResult)
-        {
-            return transResult.resKoordSets[0].sosiKoordSys == 84 && transResult.inpKoordSets[0].sosiKoordSys != 84;
-        }
+    public class SKTransResponse
+    {
+        public double Tilx { get; set; }
+        public double Tily { get; set; }
+        public double TransErr { get; set; }
     }
 }

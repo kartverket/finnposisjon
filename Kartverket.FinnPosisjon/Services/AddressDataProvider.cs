@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Web.Helpers;
 using Kartverket.FinnPosisjon.Models;
 
@@ -12,19 +9,19 @@ namespace Kartverket.FinnPosisjon.Services
         public static void FetchAndSet(Position position)
         {
             const string parameterizedWebServiceUrl =
-                "http://ws.geonorge.no/AdresseWS/adresse/radius?aust={0}&nord={1}&radius={2}&antPerSide={3}";
+                "https://ws.geonorge.no/adresser/v1/punktsok?lon={0}&lat={1}&radius={2}&treffPerSide={3}";
 
-            var radius = 0.2; // km
-            const double maxRadius = 25; // km
+            var radius = 200; // meter
+            const double maxRadius = 25000; // meter
 
             var x = position.ReferenceCoordinates.X.DecimalValue.ToString(CultureInfo.InvariantCulture);
             var y = position.ReferenceCoordinates.Y.DecimalValue.ToString(CultureInfo.InvariantCulture);
 
             const int hitLimit = 200;
 
-            object[] addresses = null;
+            object[] addresses = new object[0];
 
-            while ((addresses == null) && (radius <= maxRadius))
+            while (addresses.Length == 0 && (radius <= maxRadius))
             {
                 var r = radius.ToString(CultureInfo.InvariantCulture);
                 var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, r, hitLimit);
@@ -45,46 +42,13 @@ namespace Kartverket.FinnPosisjon.Services
                 
             }
 
-            if (addresses == null) return;
+            if (addresses.Length == 0) return;
 
-            var addressDataList = new List<AddressData>();
+            var closestLocation = addresses[0]; // First hit on API is the closest
 
-            foreach (var jsonLocation in addresses)
-                addressDataList.Add(LocationTranslator.FromJson(jsonLocation));
+            var closestLocationAddressData = LocationTranslator.FromJson(closestLocation);
 
-            var closetsLocation = GetClosestLocation(addressDataList, position.ReferenceCoordinates);
-
-            position.AddressData = closetsLocation;
-        }
-
-        private static AddressData GetClosestLocation(List<AddressData> addressDataList, Coordinates refCoordinates)
-        {
-            foreach (var addressData in addressDataList)
-                addressData.DistanceFromPosition = GetDistance(addressData.Coordinates, refCoordinates);
-
-            return addressDataList.OrderBy(a => a.DistanceFromPosition).ToList().First();
-        }
-
-        private static double GetDistance(Coordinates addressDataCoordinates, Coordinates refCoordinates)
-        {
-            const double r = 6387497.792; // metres
-            var φ1 = ToRadians(refCoordinates.X.DecimalValue);
-            var φ2 = ToRadians(addressDataCoordinates.X.DecimalValue);
-            var Δφ = ToRadians(addressDataCoordinates.X.DecimalValue - refCoordinates.X.DecimalValue);
-            var Δλ = ToRadians(addressDataCoordinates.Y.DecimalValue - refCoordinates.Y.DecimalValue);
-
-            var a = Math.Sin(Δφ/2)*Math.Sin(Δφ/2) +
-                    Math.Cos(φ1)*Math.Cos(φ2)*
-                    Math.Sin(Δλ/2)*Math.Sin(Δλ/2);
-            var c = 2*Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-
-            var d = r*c;
-            return Math.Round(d, 2);
-        }
-
-        private static double ToRadians(double number)
-        {
-            return number*Math.PI/180;
+            position.AddressData = closestLocationAddressData;
         }
     }
 }

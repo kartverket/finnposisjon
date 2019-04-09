@@ -23,14 +23,13 @@ Tjenesten er under utvikling og vil kunne utvides med flere koordinatsystemer.
 * Basis: HTML5, Javascript
 * Databinding: [Vue.js](https://vuejs.org/)
 * Kartmotor: [Leaflet](http://leafletjs.com/)
-* Kartbakgrunnstjeneste: [Toporaster 3](https://kartkatalog.geonorge.no/metadata/kartverket/toporaster-3-wms-cache/2070733b-272f-4f49-9e2d-33357b28d9d1) (Kartverket)
+* Kartbakgrunnstjeneste: Toporaster 4 (Kartverket)
  
 **Back-end**
 
 * Basis: C# (.NET ASP MVC)
-* Transformasjonstjeneste: [sosiTrans](https://kartkatalog.geonorge.no/metadata/uuid/b0a3c1e7-36a8-4329-9c78-e8722145fb40) (Kartverket)
-    * Dokumentasjon: [SKWS2.SSR](https://baat.geonorge.no/skdokbaat/WEBSERVICES/SKWS2.SSR/index.html)
-* Adressetjeneste: [ws.geonorge.no/AdresseWS/adresse](http://ws.geonorge.no/AdresseWS/adresse/) (Kartverket)
+* Transformasjonstjeneste: [skTransRest](https://ws.geonorge.no/SkTransRestWS/) (Kartverket)
+* Adressetjeneste: [ws.geonorge.no/adresser/v1](https://ws.geonorge.no/adresser/v1/) (Kartverket)
 
 **Kildekode**
 

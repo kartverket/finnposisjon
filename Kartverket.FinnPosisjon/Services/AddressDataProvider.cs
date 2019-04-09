@@ -12,7 +12,7 @@ namespace Kartverket.FinnPosisjon.Services
                 "https://ws.geonorge.no/adresser/v1/punktsok?lon={0}&lat={1}&radius={2}&treffPerSide={3}";
 
             var radius = 200; // meter
-            const double maxRadius = 25000; // meter
+            const double maxRadius = 50000; // meter
 
             var x = position.ReferenceCoordinates.X.DecimalValue.ToString(CultureInfo.InvariantCulture);
             var y = position.ReferenceCoordinates.Y.DecimalValue.ToString(CultureInfo.InvariantCulture);
@@ -25,7 +25,7 @@ namespace Kartverket.FinnPosisjon.Services
             {
                 var r = radius.ToString(CultureInfo.InvariantCulture);
                 var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, r, hitLimit);
-                radius *= 5;
+                radius *= radius < 25000 ? 5 : 2; // 200, 1000, 5000, 25000, 50000
                 var jsonResponseString = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);
                 if (string.IsNullOrEmpty(jsonResponseString)) break;
 

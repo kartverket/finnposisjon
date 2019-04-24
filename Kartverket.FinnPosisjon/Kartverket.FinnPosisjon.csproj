@@ -216,7 +216,6 @@
     <Content Include="Global.asax" />
     <Content Include="Gulpfile.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="PostDeploy.ps1" />
     <Content Include="Content\src\sass\partials\_sidebar.scss" />
     <Content Include="Content\src\sass\partials\_print.scss" />
     <Content Include="Web.config">

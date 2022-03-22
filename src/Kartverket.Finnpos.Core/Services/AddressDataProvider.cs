@@ -1,6 +1,6 @@
 using System.Globalization;
-using System.Web.Helpers;
 using Kartverket.Finnpos.Core.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Kartverket.Finnpos.Core.Services;
 
@@ -19,9 +19,9 @@ public static class AddressDataProvider
 
         const int hitLimit = 200;
 
-        object[] addresses = new object[0];
+        var addresses = new JArray();
 
-        while (addresses.Length == 0 && (radius <= maxRadius))
+        while (addresses.Count == 0 && (radius <= maxRadius))
         {
             var r = radius.ToString(CultureInfo.InvariantCulture);
             var callReadyUrl = string.Format(parameterizedWebServiceUrl, x, y, r, hitLimit);
@@ -29,19 +29,17 @@ public static class AddressDataProvider
             var jsonResponseString = WebServiceCaller.GetJsonWebServiceResponse(callReadyUrl);
             if (string.IsNullOrEmpty(jsonResponseString)) break;
 
-            dynamic jsonAddressDataResponse = Json.Decode(jsonResponseString);
+            dynamic jsonAddressDataResponse = JObject.Parse(jsonResponseString);
 
             var jsonAddresses = jsonAddressDataResponse.adresser;
 
             if (jsonAddresses != null)
             {
-                addresses = jsonAddresses.GetType() == typeof(DynamicJsonArray)
-                    ? jsonAddresses
-                    : new object[] { jsonAddresses };
+                addresses = jsonAddresses;
             }
         }
 
-        if (addresses.Length == 0) return;
+        if (addresses.Count == 0) return;
 
         var closestLocation = addresses[0]; // First hit on API is the closest
 

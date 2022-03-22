@@ -8,6 +8,8 @@ namespace Kartverket.Finnpos.Core.Tests.Services;
 public class LocationDataProviderTests
 {
     [Fact]
+    [Trait("Category", "Integration")]
+    [Trait("Dependency", "network-service")]
     public void FetchAndSetTest()
     {
         var position = new Position

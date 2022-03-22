@@ -7,7 +7,7 @@ namespace Kartverket.Finnpos.Core.Tests.Services;
 
 public class LocationDataProviderTests
 {
-    [Fact(Skip = "Slow: Uses external service")]
+    [Fact]
     public void FetchAndSetTest()
     {
         var position = new Position

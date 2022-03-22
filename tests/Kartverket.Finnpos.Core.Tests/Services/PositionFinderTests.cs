@@ -14,7 +14,7 @@ public class PositionFinderTests
         SupportedCoordinateSystems = CoordinateSystemsSetup.Get()
     };
 
-    [Fact(Skip = "Slow: Uses external service")]
+    [Fact]
     public void ShouldFindPositionWithCoordSysEu89UtmZone33()
     {
         var coordinates = new Coordinates { X = new Coordinate(288889.7639), Y = new Coordinate(7231445.376) };

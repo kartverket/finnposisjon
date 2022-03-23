@@ -3,7 +3,7 @@ using Kartverket.Finnpos.Core.Services;
 
 namespace Kartverket.Finnpos.Core;
 
-public static class Api
+public static class Finnpos
 {
     public static PositionsResult GetPositions(string firstInput, string secondInput, bool comprehensive = false)
     {

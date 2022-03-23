@@ -1,3 +1,5 @@
+using Kartverket.Finnpos.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -9,5 +11,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.MapGet("/", Finnpos.GetPositions);
 
 app.Run();

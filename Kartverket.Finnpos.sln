@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{84553A06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kartverket.Finnpos.Core.Tests", "tests\Kartverket.Finnpos.Core.Tests\Kartverket.Finnpos.Core.Tests.csproj", "{F879FDDB-B98D-4D80-BD19-AAF5D6B998ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kartverket.Finnpos.WebAPI", "src\Kartverket.Finnpos.WebAPI\Kartverket.Finnpos.WebAPI.csproj", "{F1E67136-CFA0-442A-8CB9-83D0E05E0345}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +30,14 @@ Global
 		{F879FDDB-B98D-4D80-BD19-AAF5D6B998ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F879FDDB-B98D-4D80-BD19-AAF5D6B998ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F879FDDB-B98D-4D80-BD19-AAF5D6B998ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E67136-CFA0-442A-8CB9-83D0E05E0345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E67136-CFA0-442A-8CB9-83D0E05E0345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E67136-CFA0-442A-8CB9-83D0E05E0345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E67136-CFA0-442A-8CB9-83D0E05E0345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E5FD0E4A-47EE-41F7-A4DA-456FBB70F9AE} = {07E46C2D-1B4C-4B4D-884D-BCEA84374600}
 		{F879FDDB-B98D-4D80-BD19-AAF5D6B998ED} = {84553A06-294B-4B3C-8EC5-585699A1F42A}
+		{F1E67136-CFA0-442A-8CB9-83D0E05E0345} = {07E46C2D-1B4C-4B4D-884D-BCEA84374600}
 	EndGlobalSection
 EndGlobal

@@ -13,7 +13,7 @@ public class CoordinateTransformer
         int fromCoordSys, int toCoordSys = ToCoordSysDefault) // TODO: Batch-transform?
     {
         if (fromCoordSys == 101) // Is Oslo local coord.sys.
-            return Transform(xCoordinate + 0.102, yCoordinate + 212979.333, 3); // NGO1948 Axis 3
+            return Transform(xCoordinate + 0.102, yCoordinate + 212979.333, 3, toCoordSys); // From NGO1948 Axis 3
 
         var restClient = new RestClient("https://ws.geonorge.no/SkTransRestWS/");
 

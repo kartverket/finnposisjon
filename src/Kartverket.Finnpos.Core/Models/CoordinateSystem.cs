@@ -4,6 +4,7 @@ public class CoordinateSystem
 {
     public string Name { get; set; }
     public int SosiCode { get; set; }
+    public int EpsgCode { get; set; }
 
     public BoundaryBox BoundaryBox { get; set; }
 

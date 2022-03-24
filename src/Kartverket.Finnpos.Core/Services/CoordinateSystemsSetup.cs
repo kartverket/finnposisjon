@@ -17,6 +17,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "EUREF89, UTM-sone 32",
                 SosiCode = 22,
+                EpsgCode = 25832,
                 BoundaryBox = new BoundaryBox
                 {
                     // UTM zone 32
@@ -30,6 +31,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "EUREF89, UTM-sone 33",
                 SosiCode = 23,
+                EpsgCode = 25833,
                 BoundaryBox = new BoundaryBox
                 {
                     // UTM zone 33
@@ -43,6 +45,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "EUREF89, UTM-sone 34",
                 SosiCode = 24,
+                EpsgCode = 25834,
                 BoundaryBox = new BoundaryBox
                 {
                     // UTM zone 34
@@ -56,6 +59,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "EUREF89, UTM-sone 35",
                 SosiCode = 25,
+                EpsgCode = 25835,
                 BoundaryBox = new BoundaryBox
                 {
                     // UTM zone 35
@@ -69,6 +73,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "EUREF89, UTM-sone 33 for hele Norge",
                 SosiCode = 23,
+                EpsgCode = 25833,
                 BoundaryBox = new BoundaryBox
                 {
                     // UTM zone 33 for all of Norway
@@ -82,6 +87,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "WGS84",
                 SosiCode = 84,
+                EpsgCode = 4326,
                 BoundaryBox = new BoundaryBox
                 {
                     // WGS84
@@ -95,6 +101,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 1",
                 SosiCode = 1,
+                EpsgCode = 27391,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 1-4
@@ -108,6 +115,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 2",
                 SosiCode = 2,
+                EpsgCode = 27392,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 1-4
@@ -121,6 +129,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 3",
                 SosiCode = 3,
+                EpsgCode = 27393,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 1-4
@@ -134,6 +143,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 4",
                 SosiCode = 4,
+                EpsgCode = 27394,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 1-4
@@ -147,6 +157,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 5",
                 SosiCode = 5,
+                EpsgCode = 27395,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 5-8
@@ -160,6 +171,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 6",
                 SosiCode = 6,
+                EpsgCode = 27396,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 5-8
@@ -173,6 +185,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 7",
                 SosiCode = 7,
+                EpsgCode = 27397,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 5-8
@@ -186,6 +199,7 @@ public static class CoordinateSystemsSetup
             {
                 Name = "NGO1948, Akse 8",
                 SosiCode = 8,
+                EpsgCode = 27398,
                 BoundaryBox = new BoundaryBox
                 {
                     // NGO1948 Axis 5-8

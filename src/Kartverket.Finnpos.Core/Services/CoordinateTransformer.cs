@@ -15,30 +15,29 @@ public class CoordinateTransformer
         if (fromCoordSys == 101) // Is Oslo local coord.sys.
             return Transform(xCoordinate + 0.102, yCoordinate + 212979.333, 3, toCoordSys); // From NGO1948 Axis 3
 
-        var restClient = new RestClient("https://ws.geonorge.no/SkTransRestWS/");
+        var restClient = new RestClient("https://ws.geonorge.no/transformering/v1/");
 
-        var requestString = "transformer?system=koordsys"
-                            + "&frasys=" + fromCoordSys
-                            + "&tilsys=" + toCoordSys
-                            + "&lengde=" + xCoordinate.ToString(NumberFormat)
-                            + "&bredde=" + yCoordinate.ToString(NumberFormat);
+        var requestString = "transformer?"
+                            + "&fra=" + CoordinateSystemsSetup.Find(fromCoordSys).First().EpsgCode
+                            + "&til=" + CoordinateSystemsSetup.Find(toCoordSys).First().EpsgCode
+                            + "&x=" + xCoordinate.ToString(NumberFormat)
+                            + "&y=" + yCoordinate.ToString(NumberFormat);
 
         var skTransRequest = new RestRequest(requestString);
 
-        var skTransResponse = restClient.ExecuteAsync<SKTransResponse>(skTransRequest).Result;
+        var serviceResponse = restClient.ExecuteAsync<TransformationServiceResponse>(skTransRequest).Result;
 
-        return (int)skTransResponse.Data.TransErr != 0
+        return serviceResponse.Data == null
             ? null
             : new Coordinates
             {
-                X = new Coordinate(skTransResponse.Data.Tily), Y = new Coordinate(skTransResponse.Data.Tilx)
+                X = new Coordinate(serviceResponse.Data.X), Y = new Coordinate(serviceResponse.Data.Y)
             };
     }
 }
 
-public class SKTransResponse
+public class TransformationServiceResponse
 {
-    public double Tilx { get; set; }
-    public double Tily { get; set; }
-    public double TransErr { get; set; }
+    public double X { get; set; }
+    public double Y { get; set; }
 }

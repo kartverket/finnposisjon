@@ -14,6 +14,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+app.Map("/", () => Results.Redirect("/swagger"));
 app.MapGet("/positions", Finnpos.GetPositions);
 
 app.Run();

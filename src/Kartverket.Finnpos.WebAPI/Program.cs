@@ -12,9 +12,6 @@ app.UseCors(policy => policy.AllowAnyOrigin());
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
-
-app.Map("/", () => Results.Redirect("/swagger"));
 app.MapGet("/positions", Finnpos.GetPositions);
 
 app.Run();

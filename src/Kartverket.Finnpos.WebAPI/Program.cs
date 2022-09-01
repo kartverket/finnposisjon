@@ -9,9 +9,10 @@ builder.Services.AddCors();
 var app = builder.Build();
 
 app.UseCors(policy => policy.AllowAnyOrigin());
-app.UseSwagger(o => o.RouteTemplate = "swagger/{documentName}/openapi.json");
+app.UseSwagger(o => o.RouteTemplate = "{documentName}/openapi.json");
 app.UseSwaggerUI(o =>
 {
+    o.RoutePrefix = string.Empty;
     o.SwaggerEndpoint("v1/openapi.json", $"{builder.Environment.ApplicationName} v1");
 });
 

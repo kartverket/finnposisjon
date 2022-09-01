@@ -9,8 +9,11 @@ builder.Services.AddCors();
 var app = builder.Build();
 
 app.UseCors(policy => policy.AllowAnyOrigin());
-app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwagger(o => o.RouteTemplate = "swagger/{documentName}/openapi.json");
+app.UseSwaggerUI(o =>
+{
+    o.SwaggerEndpoint("v1/openapi.json", $"{builder.Environment.ApplicationName} v1");
+});
 
 app.MapGet("/positions", Finnpos.GetPositions);
 

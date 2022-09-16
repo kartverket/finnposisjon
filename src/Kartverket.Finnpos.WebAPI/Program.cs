@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(o =>
 {
-    o.AddServer(new OpenApiServer { Url = "/finnpos/v1" });
     o.SwaggerDoc("v1", new OpenApiInfo { Title = "Finnpos", Version = "1.0.0" });
 });
 builder.Services.AddCors();

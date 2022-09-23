@@ -20,6 +20,7 @@ app.UseSwaggerUI(o =>
     o.RoutePrefix = string.Empty;
     o.SwaggerEndpoint("/finnpos/v1/openapi.json", "Finnpos 1.0.0");
 });
+app.UsePathBase(new PathString("/finnpos/v1"));
 
 app.MapGet("/positions", Finnpos.GetPositions);
 

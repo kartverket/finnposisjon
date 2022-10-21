@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(o =>
 {
-    o.SwaggerDoc("v1", new OpenApiInfo { Title = "Finnpos", Version = "1.0.0" });
+    o.SwaggerDoc("1.0.0", new OpenApiInfo { Title = "Finnpos", Version = "1.0.0" });
 });
 builder.Services.AddCors();
 
@@ -17,7 +17,7 @@ app.UseSwagger(o => o.RouteTemplate = "{documentName}/openapi.json");
 app.UseSwaggerUI(o =>
 {
     o.RoutePrefix = string.Empty;
-    o.SwaggerEndpoint("v1/openapi.json", "Finnpos 1.0.0");
+    o.SwaggerEndpoint("1.0.0/openapi.json", "Finnpos 1.0.0");
 });
 
 app.MapGet("/positions", Finnpos.GetPositions);

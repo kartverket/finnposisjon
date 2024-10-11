@@ -1,0 +1,37 @@
+# nonk8s
+apiVersion: "backstage.io/v1alpha1"
+kind: "Component"
+metadata:
+  name: "finnposisjon"
+  tags:
+  - "internal"
+spec:
+  type: "service"
+  lifecycle: "production"
+  owner: "geodesi"
+---
+apiVersion: "backstage.io/v1alpha1"
+kind: "Group"
+metadata:
+  name: "security_champion_finnposisjon"
+  title: "Security Champion finnposisjon"
+spec:
+  type: "security_champion"
+  parent: "geodesi_security_champions"
+  members:
+  - "keyos89"
+  children:
+  - "resource:finnposisjon"
+---
+apiVersion: "backstage.io/v1alpha1"
+kind: "Resource"
+metadata:
+  name: "finnposisjon"
+  links:
+  - url: "https://github.com/kartverket/finnposisjon"
+    title: "finnposisjon på GitHub"
+spec:
+  type: "repo"
+  owner: "security_champion_finnposisjon"
+  dependencyOf:
+  - "component:finnposisjon"
